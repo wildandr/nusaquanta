@@ -25,3 +25,18 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+/* Custom CSS for line gap effect */
+.line-gap {
+  position: relative;
+}
+
+.line-gap::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 90px; /* Adjust the height as needed */
+  background-color: red; /* Same as the background of your container */
+}
