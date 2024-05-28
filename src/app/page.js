@@ -1,4 +1,3 @@
-"use client";
 import HomeHero from "@components/home/HomeHero";
 import HomeInnovation from "@components/home/HomeInnovation";
 import RunningText from "@elements/RunningText";
