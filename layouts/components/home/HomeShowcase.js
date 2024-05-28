@@ -4,6 +4,8 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import Link from "next/link";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -25,7 +27,7 @@ export default function HomeShowcase() {
         scrub: 1,
         invalidateOnRefresh: true,
         anticipatePin: 1,
-        snap: 1 / (skillSet.length - 1),
+        // snap: 1 / (skillSet.length - 1),
 
         end: () => "+=" + window.innerWidth,
       },
@@ -37,11 +39,12 @@ export default function HomeShowcase() {
   }, []);
 
   return (
+    <div className="">
+      
     <div
       id="sliderWrapper"
       ref={scroller}
-      className="flex flex-col  w-full font-reddit-sans items-center py-5"
-    
+      className="flex flex-col  w-full font-reddit-sans items-center py-20"
     >
       <div className="  text-center max-w-sm lg:px-0 lg:max-w-3xl ">
         <p className="text-white text-[16px] lg:text-2xl font-bold">
@@ -60,169 +63,337 @@ export default function HomeShowcase() {
           application and impact of our services across diverse industries.{" "}
         </p>
       </div>
-     
+
       <div className=" flex flex-col items-center gap-4 mt-14 ">
-        
         <section
           ref={skills}
           className="skill-set flex-nowrap flex gap-4 pl-[58rem] items-center justify-center "
         >
-          <div className="w-[300px] h-[200px] lg:w-[350px] lg:h-[250px] p-0 overflow-hidden rounded-[20px]  shadow-[0_0_10px_1px_rgba(0,0,0,0.5)] shadow-primary flex justify-center items-end">
-        <Image
-          src="/assets/porseni.png"
-          alt="coba"
-          width={1000}
-          height={1000}
-          className="object-cover w-full h-full z-0 "
-        />
-        <div className="hoverable bg-gradient-to-b from-transparent to-black to-[80%]  h-[80px] flex items-end fixed max-w-[350px]  rounded-b-[20px] py-2">
-      
-        <p className="text-primary text-[14px] font-bold z-20 w-full px-10">
-          Interactive Custom Website for Lustrum KMTSL XI National Event
-        </p>
-        </div>
-      </div>
-      
-          <div className="w-[300px] h-[200px] lg:w-[350px] lg:h-[250px] p-1  rounded-[20px]  border-2 border-primary flex justify-center items-end  overflow-hidden">
-      <div className="overflow-hidden rounded-[20px] h-full z-0  shadow-[0_0_15px_1px_rgba(0,0,0,0.5)] shadow-primary ">
-      <Image
-              src="/assets/porseni.png"
-              alt="coba"
-              width={1000}
-              height={1000}
-              className="object-cover w-full h-full z-0"
-            />
-            
+           <div className="w-[300px] h-[200px] lg:w-[350px] lg:h-[250px] p-1  rounded-[20px] duration-150 border-transparent hover:border-2 hover:border-primary flex justify-center items-end  overflow-hidden">
+            <div className="overflow-hidden rounded-[20px] h-full z-0  shadow-[0_0_15px_1px_rgba(0,0,0,0.5)] shadow-primary ">
+              <Image
+                src="/images/home/home_project_porsenigama.png"
+                alt="coba"
+                width={1000}
+                height={1000}
+                className="object-cover w-full h-full z-0"
+              />
             </div>
-            <div className="bg-gradient-to-b from-transparent to-black fixed max-w-[340px] z-20 rounded-b-[20px] mx-2 py-2">
-        <p className="text-primary text-[14px] font-bold text-center  w-full px-10">
-          Interactive Custom Website for Lustrum KMTSL XI National Event
-        </p>
-        </div>
+            <div className="hoverable bg-gradient-to-b from-transparent to-black to-[80%]  h-[80px] flex justify-end items-center gap-2 fixed max-w-[342px]  rounded-b-[20px]  py-1 px-3">
+              <Image
+                src="/images/home/ornamen_bintang.svg"
+                alt="ornamen"
+                width={1000}
+                height={1000}
+                className="w-[6%] h-auto "
+              />
+              <p className="text-primary text-[15px] font-bold z-20 w-full ">
+                Interactive Custom Website for Lustrum KMTSL XI National Event
+              </p>
+            </div>
           </div>
-          <div className="w-[300px] h-[200px] lg:w-[350px] lg:h-[250px] p-0 overflow-hidden rounded-[20px]  shadow-[0_0_10px_1px_rgba(0,0,0,0.5)] shadow-primary flex justify-center items-end">
-        <Image
-          src="/assets/dashboard.png"
-          alt="coba"
-          width={1000}
-          height={1000}
-          className="object-cover w-full h-full z-0 "
-        />
-        <div className=" bg-gradient-to-b from-transparent to-black to-[120%]  h-[130px] flex items-end fixed max-w-[350px]  rounded-b-[20px] py-2">
-      
-        <p className="text-primary text-[14px] font-bold z-20 w-full px-10">
-          Interactive Custom Website for Lustrum KMTSL XI National Event
-        </p>
-        </div>
-      </div>
-          <div className="w-[300px] h-[200px] lg:w-[350px] lg:h-[250px] rounded-[20px] border-2 border-primary  flex  justify-center items-end ">
-            <Image
-              src="/assets/porseni.png"
-              alt="coba"
-              width={350}
-              height={350}
-              className="object-cover w-full h-full z-10 shadow-inner "
-            />
-            <p className="text-primary text-[14px] text-center z-20 fixed max-w-64">
-              {" "}
-              Interactive Custom Website for Lustrum KMTSL XI National Event
-            </p>
+           <div className="w-[300px] h-[200px] lg:w-[350px] lg:h-[250px] p-1  rounded-[20px] duration-150 border-transparent hover:border-2 hover:border-primary flex justify-center items-end  overflow-hidden">
+            <div className="overflow-hidden rounded-[20px] h-full z-0  shadow-[0_0_15px_1px_rgba(0,0,0,0.5)] shadow-primary ">
+              <Image
+                src="/images/home/home_project_porsenigama.png"
+                alt="coba"
+                width={1000}
+                height={1000}
+                className="object-cover w-full h-full z-0"
+              />
+            </div>
+            <div className="hoverable bg-gradient-to-b from-transparent to-black to-[80%]  h-[80px] flex justify-end items-center gap-2 fixed max-w-[342px]  rounded-b-[20px]  py-1 px-3">
+              <Image
+                src="/images/home/ornamen_bintang.svg"
+                alt="ornamen"
+                width={1000}
+                height={1000}
+                className="w-[6%] h-auto "
+              />
+              <p className="text-primary text-[15px] font-bold z-20 w-full ">
+                Interactive Custom Website for Lustrum KMTSL XI National Event
+              </p>
+            </div>
           </div>
-          <div className="w-[300px] h-[200px] lg:w-[350px] lg:h-[250px] rounded-[20px] shadow-md shadow-primary flex justify-center items-end">
-            <p className="text-primary text-[14px] text-center py-3">
-              {" "}
-              Interactive Custom Website for Lustrum KMTSL XI National Event
-            </p>
+           <div className="w-[300px] h-[200px] lg:w-[350px] lg:h-[250px] p-1  rounded-[20px] duration-150 border-transparent hover:border-2 hover:border-primary flex justify-center items-end  overflow-hidden">
+            <div className="overflow-hidden rounded-[20px] h-full z-0  shadow-[0_0_15px_1px_rgba(0,0,0,0.5)] shadow-primary ">
+              <Image
+                src="/images/home/home_project_porsenigama.png"
+                alt="coba"
+                width={1000}
+                height={1000}
+                className="object-cover w-full h-full z-0"
+              />
+            </div>
+            <div className="hoverable bg-gradient-to-b from-transparent to-black to-[80%]  h-[80px] flex justify-end items-center gap-2 fixed max-w-[342px]  rounded-b-[20px]  py-1 px-3">
+              <Image
+                src="/images/home/ornamen_bintang.svg"
+                alt="ornamen"
+                width={1000}
+                height={1000}
+                className="w-[6%] h-auto "
+              />
+              <p className="text-primary text-[15px] font-bold z-20 w-full ">
+                Interactive Custom Website for Lustrum KMTSL XI National Event
+              </p>
+            </div>
           </div>
-          <div className="w-[300px] h-[200px] lg:w-[350px] lg:h-[250px] rounded-[20px] border-2 border-primary  flex  justify-center items-end ">
-            <Image
-              src="/assets/porseni.png"
-              alt="coba"
-              width={350}
-              height={350}
-              className="object-cover w-full h-full z-10 shadow-inner "
-            />
-            <p className="text-primary text-[14px] text-center z-20 fixed max-w-64">
-              {" "}
-              Interactive Custom Website for Lustrum KMTSL XI National Event
-            </p>
+           <div className="w-[300px] h-[200px] lg:w-[350px] lg:h-[250px] p-1  rounded-[20px] duration-150 border-transparent hover:border-2 hover:border-primary flex justify-center items-end  overflow-hidden">
+            <div className="overflow-hidden rounded-[20px] h-full z-0  shadow-[0_0_15px_1px_rgba(0,0,0,0.5)] shadow-primary ">
+              <Image
+                src="/images/home/home_project_porsenigama.png"
+                alt="coba"
+                width={1000}
+                height={1000}
+                className="object-cover w-full h-full z-0"
+              />
+            </div>
+            <div className="hoverable bg-gradient-to-b from-transparent to-black to-[80%]  h-[80px] flex justify-end items-center gap-2 fixed max-w-[342px]  rounded-b-[20px]  py-1 px-3">
+              <Image
+                src="/images/home/ornamen_bintang.svg"
+                alt="ornamen"
+                width={1000}
+                height={1000}
+                className="w-[6%] h-auto "
+              />
+              <p className="text-primary text-[15px] font-bold z-20 w-full ">
+                Interactive Custom Website for Lustrum KMTSL XI National Event
+              </p>
+            </div>
           </div>
-          <div className="w-[300px] h-[200px] lg:w-[350px] lg:h-[250px] rounded-[20px] shadow-md shadow-primary flex justify-center items-end">
-            <p className="text-primary text-[14px] text-center py-3">
-              {" "}
-              Interactive Custom Website for Lustrum KMTSL XI National Event
-            </p>
+           <div className="w-[300px] h-[200px] lg:w-[350px] lg:h-[250px] p-1  rounded-[20px] duration-150 border-transparent hover:border-2 hover:border-primary flex justify-center items-end  overflow-hidden">
+            <div className="overflow-hidden rounded-[20px] h-full z-0  shadow-[0_0_15px_1px_rgba(0,0,0,0.5)] shadow-primary ">
+              <Image
+                src="/images/home/home_project_porsenigama.png"
+                alt="coba"
+                width={1000}
+                height={1000}
+                className="object-cover w-full h-full z-0"
+              />
+            </div>
+            <div className="hoverable bg-gradient-to-b from-transparent to-black to-[80%]  h-[80px] flex justify-end items-center gap-2 fixed max-w-[342px]  rounded-b-[20px]  py-1 px-3">
+              <Image
+                src="/images/home/ornamen_bintang.svg"
+                alt="ornamen"
+                width={1000}
+                height={1000}
+                className="w-[6%] h-auto "
+              />
+              <p className="text-primary text-[15px] font-bold z-20 w-full ">
+                Interactive Custom Website for Lustrum KMTSL XI National Event
+              </p>
+            </div>
+          </div>
+           <div className="w-[300px] h-[200px] lg:w-[350px] lg:h-[250px] p-1  rounded-[20px] duration-150 border-transparent hover:border-2 hover:border-primary flex justify-center items-end  overflow-hidden">
+            <div className="overflow-hidden rounded-[20px] h-full z-0  shadow-[0_0_15px_1px_rgba(0,0,0,0.5)] shadow-primary ">
+              <Image
+                src="/images/home/home_project_porsenigama.png"
+                alt="coba"
+                width={1000}
+                height={1000}
+                className="object-cover w-full h-full z-0"
+              />
+            </div>
+            <div className="hoverable bg-gradient-to-b from-transparent to-black to-[80%]  h-[80px] flex justify-end items-center gap-2 fixed max-w-[342px]  rounded-b-[20px]  py-1 px-3">
+              <Image
+                src="/images/home/ornamen_bintang.svg"
+                alt="ornamen"
+                width={1000}
+                height={1000}
+                className="w-[6%] h-auto "
+              />
+              <p className="text-primary text-[15px] font-bold z-20 w-full ">
+                Interactive Custom Website for Lustrum KMTSL XI National Event
+              </p>
+            </div>
+          </div>
+           <div className="w-[300px] h-[200px] lg:w-[350px] lg:h-[250px] p-1  rounded-[20px] duration-150 border-transparent hover:border-2 hover:border-primary flex justify-center items-end  overflow-hidden">
+            <div className="overflow-hidden rounded-[20px] h-full z-0  shadow-[0_0_15px_1px_rgba(0,0,0,0.5)] shadow-primary ">
+              <Image
+                src="/images/home/home_project_porsenigama.png"
+                alt="coba"
+                width={1000}
+                height={1000}
+                className="object-cover w-full h-full z-0"
+              />
+            </div>
+            <div className="hoverable bg-gradient-to-b from-transparent to-black to-[80%]  h-[80px] flex justify-end items-center gap-2 fixed max-w-[342px]  rounded-b-[20px]  py-1 px-3">
+              <Image
+                src="/images/home/ornamen_bintang.svg"
+                alt="ornamen"
+                width={1000}
+                height={1000}
+                className="w-[6%] h-auto "
+              />
+              <p className="text-primary text-[15px] font-bold z-20 w-full ">
+                Interactive Custom Website for Lustrum KMTSL XI National Event
+              </p>
+            </div>
           </div>
         </section>
         <section
           ref={skills}
           className="skill-set flex-nowrap flex gap-4 pl-[58rem] items-center justify-center "
         >
-          <div className="w-[300px] h-[200px] lg:w-[350px] lg:h-[250px] rounded-[20px] border-2 border-primary  flex  justify-center items-end ">
-            <Image
-              src="/assets/porseni.png"
-              alt="coba"
-              width={350}
-              height={350}
-              className="object-cover w-full h-full z-10 shadow-inner "
-            />
-            <p className="text-primary text-[14px] text-center z-20 fixed max-w-64">
-              {" "}
-              Interactive Custom Website for Lustrum KMTSL XI National Event
-            </p>
+           <div className="w-[300px] h-[200px] lg:w-[350px] lg:h-[250px] p-1  rounded-[20px] duration-150 border-transparent hover:border-2 hover:border-primary flex justify-center items-end  overflow-hidden">
+            <div className="overflow-hidden rounded-[20px] h-full z-0  shadow-[0_0_15px_1px_rgba(0,0,0,0.5)] shadow-primary ">
+              <Image
+                src="/images/home/home_project_porsenigama.png"
+                alt="coba"
+                width={1000}
+                height={1000}
+                className="object-cover w-full h-full z-0"
+              />
+            </div>
+            <div className="hoverable bg-gradient-to-b from-transparent to-black to-[80%]  h-[80px] flex justify-end items-center gap-2 fixed max-w-[342px]  rounded-b-[20px]  py-1 px-3">
+              <Image
+                src="/images/home/ornamen_bintang.svg"
+                alt="ornamen"
+                width={1000}
+                height={1000}
+                className="w-[6%] h-auto "
+              />
+              <p className="text-primary text-[15px] font-bold z-20 w-full ">
+                Interactive Custom Website for Lustrum KMTSL XI National Event
+              </p>
+            </div>
           </div>
-          <div className="w-[300px] h-[200px] lg:w-[350px] lg:h-[250px] rounded-[20px] shadow-md shadow-primary flex justify-center items-end">
-            <p className="text-primary text-[14px] text-center py-3">
-              {" "}
-              Interactive Custom Website for Lustrum KMTSL XI National Event
-            </p>
+           <div className="w-[300px] h-[200px] lg:w-[350px] lg:h-[250px] p-1  rounded-[20px] duration-150 border-transparent hover:border-2 hover:border-primary flex justify-center items-end  overflow-hidden">
+            <div className="overflow-hidden rounded-[20px] h-full z-0  shadow-[0_0_15px_1px_rgba(0,0,0,0.5)] shadow-primary ">
+              <Image
+                src="/images/home/home_project_porsenigama.png"
+                alt="coba"
+                width={1000}
+                height={1000}
+                className="object-cover w-full h-full z-0"
+              />
+            </div>
+            <div className="hoverable bg-gradient-to-b from-transparent to-black to-[80%]  h-[80px] flex justify-end items-center gap-2 fixed max-w-[342px]  rounded-b-[20px]  py-1 px-3">
+              <Image
+                src="/images/home/ornamen_bintang.svg"
+                alt="ornamen"
+                width={1000}
+                height={1000}
+                className="w-[6%] h-auto "
+              />
+              <p className="text-primary text-[15px] font-bold z-20 w-full ">
+                Interactive Custom Website for Lustrum KMTSL XI National Event
+              </p>
+            </div>
           </div>
-          <div className="w-[300px] h-[200px] lg:w-[350px] lg:h-[250px] rounded-[20px] border-2 border-primary  flex  justify-center items-end ">
-            <Image
-              src="/assets/porseni.png"
-              alt="coba"
-              width={350}
-              height={350}
-              className="object-cover w-full h-full z-10 shadow-inner "
-            />
-            <p className="text-primary text-[14px] text-center z-20 fixed max-w-64">
-              {" "}
-              Interactive Custom Website for Lustrum KMTSL XI National Event
-            </p>
+           <div className="w-[300px] h-[200px] lg:w-[350px] lg:h-[250px] p-1  rounded-[20px] duration-150 border-transparent hover:border-2 hover:border-primary flex justify-center items-end  overflow-hidden">
+            <div className="overflow-hidden rounded-[20px] h-full z-0  shadow-[0_0_15px_1px_rgba(0,0,0,0.5)] shadow-primary ">
+              <Image
+                src="/images/home/home_project_porsenigama.png"
+                alt="coba"
+                width={1000}
+                height={1000}
+                className="object-cover w-full h-full z-0"
+              />
+            </div>
+            <div className="hoverable bg-gradient-to-b from-transparent to-black to-[80%]  h-[80px] flex justify-end items-center gap-2 fixed max-w-[342px]  rounded-b-[20px]  py-1 px-3">
+              <Image
+                src="/images/home/ornamen_bintang.svg"
+                alt="ornamen"
+                width={1000}
+                height={1000}
+                className="w-[6%] h-auto "
+              />
+              <p className="text-primary text-[15px] font-bold z-20 w-full ">
+                Interactive Custom Website for Lustrum KMTSL XI National Event
+              </p>
+            </div>
           </div>
-          <div className="w-[300px] h-[200px] lg:w-[350px] lg:h-[250px] rounded-[20px] shadow-md shadow-primary flex justify-center items-end">
-            <p className="text-primary text-[14px] text-center py-3">
-              {" "}
-              Interactive Custom Website for Lustrum KMTSL XI National Event
-            </p>
+           <div className="w-[300px] h-[200px] lg:w-[350px] lg:h-[250px] p-1  rounded-[20px] duration-150 border-transparent hover:border-2 hover:border-primary flex justify-center items-end  overflow-hidden">
+            <div className="overflow-hidden rounded-[20px] h-full z-0  shadow-[0_0_15px_1px_rgba(0,0,0,0.5)] shadow-primary ">
+              <Image
+                src="/images/home/home_project_porsenigama.png"
+                alt="coba"
+                width={1000}
+                height={1000}
+                className="object-cover w-full h-full z-0"
+              />
+            </div>
+            <div className="hoverable bg-gradient-to-b from-transparent to-black to-[80%]  h-[80px] flex justify-end items-center gap-2 fixed max-w-[342px]  rounded-b-[20px]  py-1 px-3">
+              <Image
+                src="/images/home/ornamen_bintang.svg"
+                alt="ornamen"
+                width={1000}
+                height={1000}
+                className="w-[6%] h-auto "
+              />
+              <p className="text-primary text-[15px] font-bold z-20 w-full ">
+                Interactive Custom Website for Lustrum KMTSL XI National Event
+              </p>
+            </div>
           </div>
-          <div className="w-[300px] h-[200px] lg:w-[350px] lg:h-[250px] rounded-[20px] border-2 border-primary  flex  justify-center items-end ">
-            <Image
-              src="/assets/porseni.png"
-              alt="coba"
-              width={350}
-              height={350}
-              className="object-cover w-full h-full z-10 shadow-inner "
-            />
-            <p className="text-primary text-[14px] text-center z-20 fixed max-w-64">
-              {" "}
-              Interactive Custom Website for Lustrum KMTSL XI National Event
-            </p>
+           <div className="w-[300px] h-[200px] lg:w-[350px] lg:h-[250px] p-1  rounded-[20px] duration-150 border-transparent hover:border-2 hover:border-primary flex justify-center items-end  overflow-hidden">
+            <div className="overflow-hidden rounded-[20px] h-full z-0  shadow-[0_0_15px_1px_rgba(0,0,0,0.5)] shadow-primary ">
+              <Image
+                src="/images/home/home_project_porsenigama.png"
+                alt="coba"
+                width={1000}
+                height={1000}
+                className="object-cover w-full h-full z-0"
+              />
+            </div>
+            <div className="hoverable bg-gradient-to-b from-transparent to-black to-[80%]  h-[80px] flex justify-end items-center gap-2 fixed max-w-[342px]  rounded-b-[20px]  py-1 px-3">
+              <Image
+                src="/images/home/ornamen_bintang.svg"
+                alt="ornamen"
+                width={1000}
+                height={1000}
+                className="w-[6%] h-auto "
+              />
+              <p className="text-primary text-[15px] font-bold z-20 w-full ">
+                Interactive Custom Website for Lustrum KMTSL XI National Event
+              </p>
+            </div>
           </div>
-          <div className="w-[300px] h-[200px] lg:w-[350px] lg:h-[250px] rounded-[20px] shadow-md shadow-primary flex justify-center items-end">
-            <p className="text-primary text-[14px] text-center z-20 fixed max-w-64">
-              {" "}
-              Interactive Custom Website for Lustrum KMTSL XI National Event
-            </p>
+           <div className="w-[300px] h-[200px] lg:w-[350px] lg:h-[250px] p-1  rounded-[20px] duration-150 border-transparent hover:border-2 hover:border-primary flex justify-center items-end  overflow-hidden">
+            <div className="overflow-hidden rounded-[20px] h-full z-0  shadow-[0_0_15px_1px_rgba(0,0,0,0.5)] shadow-primary ">
+              <Image
+                src="/images/home/home_project_porsenigama.png"
+                alt="coba"
+                width={1000}
+                height={1000}
+                className="object-cover w-full h-full z-0"
+              />
+            </div>
+            <div className="hoverable bg-gradient-to-b from-transparent to-black to-[80%]  h-[80px] flex justify-end items-center gap-2 fixed max-w-[342px]  rounded-b-[20px]  py-1 px-3">
+              <Image
+                src="/images/home/ornamen_bintang.svg"
+                alt="ornamen"
+                width={1000}
+                height={1000}
+                className="w-[6%] h-auto "
+              />
+              <p className="text-primary text-[15px] font-bold z-20 w-full ">
+                Interactive Custom Website for Lustrum KMTSL XI National Event
+              </p>
+            </div>
           </div>
-          <div className="w-[300px] h-[200px] lg:w-[350px] lg:h-[250px] rounded-[20px] border-2 border-primary flex justify-center items-center">
-            <p className="text-primary text-3xl font-bold text-center py-3">
+          <Link href="/" className="w-[300px] h-[200px] lg:w-[350px] lg:h-[250px] rounded-[20px] border-2 border-primary flex justify-center items-center">
+            <div className="text-primary text-3xl font-bold text-center py-3 flex gap-2 items-center" >
               {" "}
               ALL PROJECT
-            </p>
-          </div>
-         
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="20"
+                viewBox="0 0 18 16"
+                fill="none"
+              >
+                <path
+                  d="M13.6957 2.81401L4.13163 2.90026L4.15172 0.67268L17.5188 0.552136L17.5087 1.66592L17.3982 13.9192L15.1706 13.9393L15.2569 4.37517L3.96472 15.6673H0.842385L13.6957 2.81401Z"
+                  fill="#B8E930"
+                />
+              </svg>
+            </div>
+          </Link>
         </section>
+       
+      </div>
       </div>
     </div>
   );
