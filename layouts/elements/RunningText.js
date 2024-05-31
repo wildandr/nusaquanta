@@ -4,7 +4,7 @@ import gsap from "gsap";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
 
-const RunningText = () => {
+const RunningText = ({ color }) => {
   // const textRef = useRef(null);
 
   // useEffect(() => {
@@ -28,7 +28,7 @@ const RunningText = () => {
   // }, []);
 
   return (
-    <div className="w-full bg-secondary py-[4px] overflow-hidden">
+    <div className={`w-full bg-${color} py-[4px] overflow-hidden`}>
       <div className="flex-row flex" style={{ whiteSpace: "nowrap" }}>
         <Marquee autoFill={true}>
           <div className="flex flex-row items-center">

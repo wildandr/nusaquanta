@@ -1,11 +1,11 @@
 "use client";
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 
 export default function LastProject() {
   const [direction, setDirection] = useState(-1);
+  const [currentProject, setCurrentProject] = useState(0);
 
   const projects = [
     { nama: "lustrum" },
@@ -16,8 +16,7 @@ export default function LastProject() {
     { nama: "nusa" },
   ];
 
-  const [currentProject, setCurrentProject] = useState(0);
-
+  // Function to handle next project
   const handleNextProject = () => {
     setDirection(-1);
     if (currentProject === projects.length - 1) {
@@ -27,6 +26,7 @@ export default function LastProject() {
     }
   };
 
+  // Function to handle previous project
   const handlePrevProject = () => {
     setDirection(1);
     if (currentProject === 0) {
@@ -36,26 +36,31 @@ export default function LastProject() {
     }
   };
 
+  // UseEffect to handle automatic change every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleNextProject();
+    }, 5000); // Change project every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [currentProject]); // Restart interval when currentProject changes
+
   const variants = {
-    enter: (direction) => {
-      return {
-        x: direction > 0 ? 1000 : -1000,
-        opacity: 0,
-      };
-    },
+    enter: (direction) => ({
+      x: direction > 0 ? 1000 : -1000,
+      opacity: 0,
+    }),
     center: {
       zIndex: 1,
       x: 0,
       opacity: 1,
     },
-    exit: (direction) => {
-      return {
-        x: direction < 0 ? 1000 : -1000,
-        opacity: 0,
-        position: "absolute",
-        width: "100%",
-      };
-    },
+    exit: (direction) => ({
+      x: direction < 0 ? 1000 : -1000,
+      opacity: 0,
+      position: "absolute",
+      width: "100%",
+    }),
   };
 
   return (

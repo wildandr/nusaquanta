@@ -8,6 +8,7 @@ import Marquee from "react-fast-marquee";
 import LastProject from "@components/home/modules/hero/LastProject";
 import VideoProfile from "./modules/hero/VideoProfile";
 import Teams from "./modules/hero/Teams";
+import RunningText from "@elements/RunningText";
 
 export default function HomeHero() {
   const [playVideo, setPlayVideo] = useState(false);
@@ -21,12 +22,15 @@ export default function HomeHero() {
 
   return (
     <div className="relative w-full min-h-screen overflow-x-clip p-4">
+      <RunningText
+        color={"primary rotate-6 absolute z-[100] top-0 right-[-5%]"}
+      />
       <div className="w-full h-full grid grid-cols-2 gap-4 p-8 bg-black rounded shadow-lg">
         <div className="p-4 h-[45vh] border border-primary rounded-3xl relative z-50">
           <LastProject />
           <div className="w-full flex flex-row justify-between absolute bottom-0">
             <Link
-              href={""}
+              href={"#"}
               className="flex flex-row items-center justify-center gap-2 font-reddit-sans text-primary font-600 text-lg 2xl:text-xl p-[2%] z-[69]"
             >
               LAST PROJECT
@@ -127,7 +131,7 @@ export default function HomeHero() {
             knowledge to exceed the evolving demands of the industries we serve.
           </p>
         </div>
-        <div className="relative overflow-clip px-4 pt-4 h-[45vh] border border-primary rounded-3xl z-[21]">
+        <div className="relative overflow-clip pt-4 h-[45vh] border border-primary rounded-3xl z-[21]">
           <Image
             src="/images/home/ornamen_bintang.svg"
             alt="ornamen"
