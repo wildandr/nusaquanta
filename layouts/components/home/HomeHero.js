@@ -7,6 +7,7 @@ import Link from "next/link";
 import Marquee from "react-fast-marquee";
 import LastProject from "@components/home/modules/hero/LastProject";
 import VideoProfile from "./modules/hero/VideoProfile";
+import Teams from "./modules/hero/Teams";
 
 export default function HomeHero() {
   const [playVideo, setPlayVideo] = useState(false);
@@ -126,8 +127,8 @@ export default function HomeHero() {
             knowledge to exceed the evolving demands of the industries we serve.
           </p>
         </div>
-        <div className="p-4 h-[45vh] border border-primary rounded-3xl">
-          Item 4
+        <div className="relative overflow-clip px-4 pt-4 h-[45vh] border border-primary rounded-3xl z-[21]">
+          <Teams />
         </div>
       </div>
 
