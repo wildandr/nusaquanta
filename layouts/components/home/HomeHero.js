@@ -128,7 +128,24 @@ export default function HomeHero() {
           </p>
         </div>
         <div className="relative overflow-clip px-4 pt-4 h-[45vh] border border-primary rounded-3xl z-[21]">
-          <Teams />
+          <Image
+            src="/images/home/ornamen_bintang.svg"
+            alt="ornamen"
+            width={1000}
+            height={1000}
+            className="w-[6%] h-auto m-4 absolute top-0 letf-0"
+          />
+          <Image
+            src="/images/home/ornamen_bintang.svg"
+            alt="ornamen"
+            width={1000}
+            height={1000}
+            className="w-[6%] h-auto m-4 absolute top-0 right-0"
+          />
+          <p className="w-full text-center absolute top-0 py-4 text-5xl text-primary font-reddit-sans font-700">
+            MEET OUR TEAM
+          </p>
+          <Teams className="z-[69]" />
         </div>
       </div>
 
