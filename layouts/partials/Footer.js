@@ -19,9 +19,9 @@ export default function Footer() {
       <footer className="footer lg:container lg:mx-auto mt-8">
         <div className="flex">
           <div className="footer-content w-full">
-            <div className="flex flex-col border border-red-600 px-4 lg:px-0 mx-auto lg:relative">
-              <div className="lg:absolute lg:w-full lg:h-full border border-blue-500 lg:justify-center lg:flex">
-                <div className="border py-8 lg:py-0 max-w-sm items-center ">
+            <div className="flex flex-col px-4 lg:px-0 mx-auto lg:relative">
+              <div className="lg:absolute lg:w-full lg:h-full  lg:justify-center lg:flex">
+                <div className="py-8 lg:py-0 max-w-sm items-center ">
                   <p className="font-reddit-sans text-[12px] text-center lg:text-xl">
                     GET IN TOUCH
                   </p>
@@ -57,7 +57,7 @@ export default function Footer() {
                 </div>
               </div>
 
-              <div className="border max-w-sm lg:my-6">
+              <div className=" max-w-sm lg:my-6">
                 <div className=" py-2 flex items-center">
                   <Image
                     src="/images/home/ornamen_bintang.svg"
@@ -71,7 +71,7 @@ export default function Footer() {
                   </p>
                 </div>
 
-                <div className="border py-6 flex items-center">
+                <div className=" py-6 flex items-center">
                   {icons.map((Icon, index) => (
                     <div
                       key={index}
@@ -91,7 +91,7 @@ export default function Footer() {
                 </div>
               </div>
             </div>
-            <div className="flex justify-center w-full border">
+            <div className="flex justify-center w-full ">
               <p className="text-[8px] font-500 py-4 font-reddit-sans lg:text-[16px]">
                 COPYRIGHT&copy; 2024 by Nusa Quanta All rights reserved.
               </p>
