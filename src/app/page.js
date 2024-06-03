@@ -13,11 +13,13 @@ export default function Home() {
       <HomeHero />
       <HomeProduct />
       <RunningText />
+      <RunningText color={"secondary"} />
       <RunningSymbol />
       <HomeShowcase />
       <HomeInnovation />
       <RunningText />
-     
+      {/* <RunningSymbol/> */}
+      <RunningText color={"secondary"} />
     </main>
   );
 }
