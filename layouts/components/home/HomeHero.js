@@ -7,6 +7,8 @@ import Link from "next/link";
 import Marquee from "react-fast-marquee";
 import LastProject from "@components/home/modules/hero/LastProject";
 import VideoProfile from "./modules/hero/VideoProfile";
+import Teams from "./modules/hero/Teams";
+import RunningText from "@elements/RunningText";
 
 export default function HomeHero() {
   const [playVideo, setPlayVideo] = useState(false);
@@ -19,13 +21,16 @@ export default function HomeHero() {
   };
 
   return (
-    <div className="relative w-full min-h-screen overflow-x-clip p-4">
+    <div className="relative w-full min-h-screen overflow-x-clip p-4 mt-[3%]">
+      <RunningText
+        color={"primary rotate-6 absolute z-[10000] top-[-2%] right-[-5%]"}
+      />
       <div className="w-full h-full grid grid-cols-2 gap-4 p-8 bg-black rounded shadow-lg">
         <div className="p-4 h-[45vh] border border-primary rounded-3xl relative z-50">
           <LastProject />
           <div className="w-full flex flex-row justify-between absolute bottom-0">
             <Link
-              href={""}
+              href={"#"}
               className="flex flex-row items-center justify-center gap-2 font-reddit-sans text-primary font-600 text-lg 2xl:text-xl p-[2%] z-[69]"
             >
               LAST PROJECT
@@ -126,8 +131,25 @@ export default function HomeHero() {
             knowledge to exceed the evolving demands of the industries we serve.
           </p>
         </div>
-        <div className="p-4 h-[45vh] border border-primary rounded-3xl">
-          Item 4
+        <div className="relative overflow-clip pt-4 h-[45vh] border border-primary rounded-3xl z-[21]">
+          <Image
+            src="/images/home/ornamen_bintang.svg"
+            alt="ornamen"
+            width={1000}
+            height={1000}
+            className="w-[6%] h-auto m-4 absolute top-0 letf-0"
+          />
+          <Image
+            src="/images/home/ornamen_bintang.svg"
+            alt="ornamen"
+            width={1000}
+            height={1000}
+            className="w-[6%] h-auto m-4 absolute top-0 right-0"
+          />
+          <p className="w-full text-center absolute top-0 py-4 text-5xl text-primary font-reddit-sans font-700">
+            MEET OUR TEAM
+          </p>
+          <Teams className="z-[69]" />
         </div>
       </div>
 
