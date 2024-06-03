@@ -47,34 +47,29 @@ export default function Teams() {
   const stateGrayscale = [
     {
       filename: "warna",
-      className:
-        "relative h-[85%] w-auto z-[72] transition-all duration-500 ease-in-out cursor-pointer",
+      className: "relative h-[85%] w-auto z-[72]",
     },
     {
       filename: "grayscale",
-      className:
-        "relative h-[80%] w-auto z-[71] transition-all duration-500 ease-in-out cursor-pointer",
+      className: "relative h-[80%] w-auto z-[71]",
       translatePositive: "translate-x-[25%]",
       translateNegative: "-translate-x-[25%]",
     },
     {
       filename: "grayscale",
-      className:
-        "relative h-[75%] w-auto z-[70] transition-all duration-500 ease-in-out cursor-pointer",
+      className: "relative h-[75%] w-auto z-[70]",
       translatePositive: "translate-x-[65%]",
       translateNegative: "-translate-x-[65%]",
     },
     {
       filename: "grayscale",
-      className:
-        "relative h-[70%] w-auto z-[69] transition-all duration-500 ease-in-out cursor-pointer",
+      className: "relative h-[70%] w-auto z-[69]",
       translatePositive: "translate-x-[115%]",
       translateNegative: "-translate-x-[115%]",
     },
     {
       filename: "grayscale",
-      className:
-        "relative h-[65%] w-auto z-[68] transition-all duration-500 ease-in-out cursor-pointer",
+      className: "relative h-[65%] w-auto z-[68]",
       translatePositive: "translate-x-[165%]",
       translateNegative: "-translate-x-[165%]",
     },
@@ -144,7 +139,7 @@ export default function Teams() {
                             : stateGrayscale[grayscaleIndex].translateNegative
                         }`
                       : ""
-                  }`}
+                  } transition-all duration-300 ease-in-out cursor-pointer`}
                   onClick={() => handleClick(index)}
                 />
               );
