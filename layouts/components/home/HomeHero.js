@@ -21,9 +21,9 @@ export default function HomeHero() {
   };
 
   return (
-    <div className="relative w-full min-h-screen overflow-x-clip p-4">
+    <div className="relative w-full min-h-screen overflow-x-clip p-4 mt-[3%]">
       <RunningText
-        color={"primary rotate-6 absolute z-[100] top-0 right-[-5%]"}
+        color={"primary rotate-6 absolute z-[10000] top-[-2%] right-[-5%]"}
       />
       <div className="w-full h-full grid grid-cols-2 gap-4 p-8 bg-black rounded shadow-lg">
         <div className="p-4 h-[45vh] border border-primary rounded-3xl relative z-50">

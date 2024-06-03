@@ -13,6 +13,8 @@ export default function Home() {
       <RunningSymbol />
       <HomeShowcase />
       <HomeInnovation />
+      <RunningText />
+      {/* <RunningSymbol/> */}
       <RunningText color={"secondary"} />
     </main>
   );
