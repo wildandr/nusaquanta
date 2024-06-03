@@ -40,3 +40,28 @@ body {
   height: 90px; /* Adjust the height as needed */
   background-color: red; /* Same as the background of your container */
 }
+
+/* styles/globals.css */
+
+/* Style the scrollbar */
+::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
+  height: 10px; /* Height of the scrollbar */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #000000; /* Color of the track */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #b8e930; /* Color of the scrollbar handle */
+  border-radius: 5px; /* Rounded corners for the scrollbar handle */
+  min-height: 10px; /* Height of the scrollbar handle */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color of the scrollbar handle on hover */
+}

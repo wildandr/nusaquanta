@@ -32,6 +32,10 @@ module.exports = {
         secondary: "#601FEB",
         tertiary: "#046878",
       },
+      boxShadow: {
+        "smooth-lg":
+          "0 5px 6px -5px rgba(0, 0, 0, 0.1), 0 5px 10px -5px rgba(0, 0, 0, 0.04)",
+      },
     },
   },
   plugins: [],

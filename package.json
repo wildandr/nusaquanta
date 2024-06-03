@@ -10,12 +10,15 @@
   },
   "dependencies": {
     "@next/font": "^14.2.3",
+    "clsx": "^2.1.1",
+    "framer-motion": "^11.2.9",
     "gsap": "^3.12.5",
-    "framer-motion": "^11.2.6",
+    "hamburger-react": "^2.5.1",
     "next": "13.5.6",
     "react": "^18",
     "react-dom": "^18",
-    "react-fast-marquee": "^1.6.4"
+    "react-fast-marquee": "^1.6.4",
+    "react-icons": "^5.2.1"
   },
   "devDependencies": {
     "autoprefixer": "^10",
