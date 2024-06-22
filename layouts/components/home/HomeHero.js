@@ -184,9 +184,84 @@ export default function HomeHero() {
           className="absolute bottom-[-50%] left-[-30%] w-full h-full z-20"
         ></div>
       </div>
-      <div className="min-h-screen relative overflow-x-clip flex flex-col p-2 mt-[20%] lg:hidden">
-        <div className="w-full h-[35vh] border border-primary rounded-3xl relative z-50 mt-[20%]">
+      <div className="min-h-screen relative overflow-x-clip flex flex-col p-4 md:p-16 mt-[20%] md:mt-[5%] lg:hidden">
+        <div className="w-full h-[25vh] border border-primary rounded-3xl relative z-50 mt-[20%]">
           <LastProject />
+        </div>
+        <div className="w-full relative z-50 p-4 py-8">
+          <div className="flex flex-row justify-center items-center">
+            <p className="w-[60%] font-reddit-sans text-xl font-bold z-50">
+              Nusa Quanta
+            </p>
+            <div className="flex w-full">
+              <Marquee autoFill={true}>
+                <Image
+                  src={"/images/home/hero_stripes.svg"}
+                  width={1000}
+                  height={1000}
+                  alt="Moving"
+                  className="w-full h-auto"
+                />
+              </Marquee>
+            </div>
+          </div>
+          <p className="text-primary font-reddit-sans text-4xl font-600 flex w-full z-50">
+            “Where Creativity Meets Possibility”
+          </p>
+          <p className=" text-xs z-50">
+            Mission - Committed to being the epicenter of technological
+            innovation, providing high-quality solutions that propel client
+            success. We harness cutting-edge technology and deep industry
+            knowledge to exceed the evolving demands of the industries we serve.
+          </p>
+        </div>
+        <div className="w-full border border-primary rounded-3xl relative z-50 overflow-clip">
+          <VideoProfile play={playVideo} />
+          <div
+            style={{ backdropFilter: "blur(8.149999618530273px)" }}
+            className={`bg-gray-900 opacity-75 absolute flex flex-col justify-center items-center w-full h-full z-60 top-0 ${
+              playVideo ? "hidden" : "block"
+            }`}
+          >
+            <Image
+              src="/images/home/play_button.svg"
+              alt="play button"
+              width={1000}
+              height={1000}
+              className={`w-[10%] h-auto m-4 rounded-full bg-gradient-radial hover:scale-125 transition-transform cursor-pointer`}
+              style={{
+                background:
+                  "radial-gradient(50% 50% at 50% 50%, rgba(184, 233, 48, 0.20) 50%, rgba(184, 233, 48, 0.00) 130%)",
+              }}
+              onClick={handlePlayVideo}
+            />
+            <p className=" font-reddit-sans text-primary text-xl font-600 text-center">
+              Nusa Quanta Compay Profile
+            </p>
+          </div>
+
+          <Image
+            src="/images/home/play_button.svg"
+            alt="play button"
+            width={1000}
+            height={1000}
+            style={{
+              background:
+                "radial-gradient(50% 50% at 50% 50%, rgba(184, 233, 48, 0.20) 50%, rgba(184, 233, 48, 0.00) 130%)",
+            }}
+            className={`absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-[10%] cursor-pointer hover:scale-125 transition-transform ${
+              playVideo ? "opacity-0 hover:opacity-100" : "hidden"
+            }`}
+            onClick={handleStopVideo}
+          />
+
+          <Image
+            src="/images/home/ornamen_bulat.svg"
+            alt="ornamen"
+            width={1000}
+            height={1000}
+            className="w-[6%] h-auto m-4 absolute bottom-0 left-0"
+          />
         </div>
         <div
           style={{
