@@ -91,7 +91,7 @@ const Header = () => {
 
       <div className={`w-full mt-3  justify-end ${isOpen ? "flex" : "hidden"}`}>
         {" "}
-        //Please make when enter fade in from right
+       
         <div className="w-[200px] h-full bg-[#1f1f1f]  flex justify-end px-4  shadow-primary rounded-xl shadow-md ">
           <div className=" font-reddit-sans text-[16px] py-8 items-end">
             <ul className="flex flex-col gap-4 ">
