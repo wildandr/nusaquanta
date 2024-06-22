@@ -1,7 +1,9 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 export default function Teams() {
   const [activeImage, setActiveImage] = useState(3); // gambar tengah (indeks 3)
@@ -101,12 +103,19 @@ export default function Teams() {
     }
   };
 
+  useEffect(() => {
+    Aos.init({ duration: 1000 });
+  }, []);
+
   return (
     <>
       <div
         className={`relative flex w-full h-full items-end transition-transform duration-500 ease-in-out ${getTranslateX()}`}
       >
-        <div className="relative flex w-full h-full items-end justify-center z-[30]">
+        <div
+          data-aos="fade-up"
+          className="relative flex w-full h-full items-end justify-center z-[30]"
+        >
           {Array(5)
             .fill(0)
             .map((_, i) => i + 1)
