@@ -1,0 +1,25 @@
+{
+  "slides": [
+    {
+      "id": 1,
+      "imageSrc": "/images/home/homeInnovation_AI.png",
+      "imageAlt": "Artificial Intelligence",
+      "title": "Next-Generation AI Applications",
+      "description": "Continuing our trailblazing journey in AI, we are developing next-generation applications focused on enhancing predictive analytics and automated decision-making systems. Our upcoming AI module aims to revolutionize sectors such as healthcare and finance by providing more accurate forecasts and personalized customer experiences."
+    },
+    {
+      "id": 2,
+      "imageSrc": "/images/home/homeInnovation_BLOCKCHAIN.png",
+      "imageAlt": "Integration of Blockchain for Enhanced Security",
+      "title": "Integration of Blockchain for Enhanced Security",
+      "description": "Continuing our trailblazing journey in AI, we are developing next-generation applications focused on enhancing predictive analytics and automated decision-making systems. Our upcoming AI module aims to revolutionize sectors such as healthcare and finance by providing more accurate forecasts and personalized customer experiences."
+    },
+    {
+      "id": 3,
+      "imageSrc": "/images/home/homeInnovation_IOT.png",
+      "imageAlt": "Advanced Internet of Things and Automation",
+      "title": "Advanced Internet of Things and Automation",
+      "description": "Continuing our trailblazing journey in AI, we are developing next-generation applications focused on enhancing predictive analytics and automated decision-making systems. Our upcoming AI module aims to revolutionize sectors such as healthcare and finance by providing more accurate forecasts and personalized customer experiences."
+    }
+  ]
+}
