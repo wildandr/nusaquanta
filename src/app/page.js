@@ -10,7 +10,7 @@ import RunningSymbol from "@elements/RunningSymbol";
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between overflow-hidden  ">
-      {/* <HomeHero /> */}
+      <HomeHero />
       <HomeProduct />
       <RunningText color={"secondary"}/>
       <RunningSymbol />

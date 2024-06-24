@@ -1,8 +1,8 @@
 "use client";
-import { useState, useEffect } from "react";
-import RunningText from "@elements/RunningTextIjo";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import ProductSection from "./modules/product/ProductSection";
+import RunningText from "@elements/RunningTextIjo"; // Pastikan path sesuai dengan struktur proyek Anda
 
 const sections = [
   {
@@ -40,22 +40,35 @@ const sections = [
     ],
   },
   {
-    title: "Product Optimization",
+    title: "Product Maintenance, Evolution, & Optimization",
     description:
       "Ensure your products stand the test of time through continuous enhancement and rigorous optimization strategies. Our dedicated maintenance programs are designed to evolve your offerings, keeping them relevant and performing at their peak in the ever-changing market landscape.",
     services: [
       { name: "Continuous Integration and Deployment (CI/CD)", link: "" },
       { name: "Predictive Maintenance & Lifecycle Management", link: "" },
       { name: "Performance Tuning and Optimization", link: "" },
-      { name: "Feature Updates and Upgrades", link: "" },
-      { name: "User Feedback and Product Adaptation", link: "" },
+      // { name: 'Feature Updates and Upgrades', link: '' },
+      // { name: 'User Feedback and Product Adaptation', link: '' },
     ],
   },
 ];
 
-export default function HomeProduct() {
+const HomeProduct = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [carouselWidth, setCarouselWidth] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(0);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    // Initial window width
+    setWindowWidth(window.innerWidth);
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const handleNextSlide = () => {
     setActiveIndex((prevIndex) => (prevIndex + 1) % sections.length);
@@ -80,8 +93,12 @@ export default function HomeProduct() {
     };
   }, []);
 
+  // Calculate left offset for butterfly logo based on window width
+  const butterflyLeftOffset =
+    windowWidth > 1024 ? (windowWidth - 1024) * 0.04 : 0; // Adjust the ratio as needed
+
   return (
-    <div className="flex relative flex-col w-full h-screen items-center py-10 overflow-hidden font-reddit-sans">
+    <div className="flex relative flex-col w-full  items-center py-10 overflow-hidden font-reddit-sans">
       <Image
         src="/images/home/bgProduct.png"
         alt="background"
@@ -89,17 +106,18 @@ export default function HomeProduct() {
         height={1000}
         className="w-[60%] h-auto absolute z-[-1] object-cover"
       />
-      <RunningText color={"primary text-black rotate-2 absolute z-[10000]"} />
+      <RunningText color={"primary text-black rotate-2 absolute z-[980]"} />
       <Image
         src="/images/home/logoButterfly.png"
         alt="kupu kupu"
         width={1000}
         height={1000}
-        className="w-[8%] h-auto absolute left-[27rem] top-[63.3rem] z-[12000] animate-spin-slow"
+        className="w-[100px] md:w-[12%] lg:w-[120px] h-auto absolute -mt-2 top-0 md:top-2 lg:top-0 z-[990] animate-spin-slow"
+        style={{ left: `${butterflyLeftOffset}rem` }}
       />
       <RunningText
         color={
-          "primary text-black -rotate-[2deg] -mt-[1.5rem] absolute z-[10000]"
+          "primary text-black -rotate-[2deg] -mt-[1.5rem] absolute z-[980]"
         }
       />
 
@@ -120,7 +138,7 @@ export default function HomeProduct() {
         <div className="flex items-center">
           <button
             onClick={handlePrevSlide}
-            className="absolute left-0  lg:w-24 pl-2 lg:pl-8 h-auto lg:hover:-translate-x-3 lg:transition-transform z-30"
+            className="absolute left-0 lg:w-24 pl-2 lg:pl-8 h-auto lg:hover:-translate-x-3 lg:transition-transform z-30 focus:outline-none"
           >
             <Image
               src="/images/home/hero_arrow-left.svg"
@@ -155,7 +173,7 @@ export default function HomeProduct() {
           </div>
           <button
             onClick={handleNextSlide}
-            className="absolute right-0 lg:w-24 pr-2 lg:pr-8 h-auto flex justify-end lg:hover:translate-x-3 lg:transition-transform z-30"
+            className="absolute right-0 lg:w-24 pr-2 lg:pr-8 h-auto flex justify-end lg:hover:translate-x-3 lg:transition-transform z-30 focus:outline-none"
           >
             <Image
               src="/images/home/hero_arrow-right.svg"
@@ -169,4 +187,6 @@ export default function HomeProduct() {
       </div>
     </div>
   );
-}
+};
+
+export default HomeProduct;

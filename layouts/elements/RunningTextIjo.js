@@ -32,7 +32,7 @@ const RunningText = ({ color }) => {
       <div className="flex-row flex " style={{ whiteSpace: "nowrap" }}>
         <Marquee autoFill={true}>
           <div className="flex flex-row items-center">
-            <div className="w-[24px] h-[24px] items-center justify-center">
+            <div className="lg:w-[24px] lg:h-[24px] items-center justify-center">
               <Image
                 src="/images/home/logoNsRunningBlack.png"
                 width={24}
@@ -40,12 +40,12 @@ const RunningText = ({ color }) => {
                 alt="Nusa Quanta"
               />
             </div>
-            <p className="ml-4 mr-4 font-reddit-sans text-[24px]">
+            <p className="ml-4 mr-4 font-reddit-sans lg:text-[24px]">
               Leading the Way in Excellence
             </p>
           </div>
           <div className="flex flex-row items-center">
-            <div className="w-[24px] h-[24px] items-center justify-center">
+            <div className="lg:w-[24px] lg:h-[24px] items-center justify-center">
               <Image
                 src="/images/home/logoNsRunningBlack.png"
                 width={24}
@@ -53,12 +53,12 @@ const RunningText = ({ color }) => {
                 alt="Nusa Quanta"
               />
             </div>
-            <p className="ml-4 mr-4 font-reddit-sans text-[24px]">
+            <p className="ml-4 mr-4 font-reddit-sans lg:text-[24px]">
               Crafting Ideas into Reality
             </p>
           </div>
           <div className="flex flex-row items-center">
-            <div className="w-[24px] h-[24px] items-center justify-center">
+            <div className="lg:w-[24px] lg:h-[24px] items-center justify-center">
               <Image
                 src="/images/home/logoNsRunningBlack.png"
                 width={24}
@@ -66,7 +66,7 @@ const RunningText = ({ color }) => {
                 alt="Nusa Quanta"
               />
             </div>
-            <p className="ml-4 mr-4 font-reddit-sans text-[24px]">
+            <p className="ml-4 mr-4 font-reddit-sans lg:text-[24px]">
               Where Creativity Meets Possibility
             </p>
           </div>
