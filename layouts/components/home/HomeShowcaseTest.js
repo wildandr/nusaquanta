@@ -1,6 +1,6 @@
 "use client";
 
-import { useLayoutEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
@@ -29,11 +29,14 @@ export default function HomeShowcase() {
       return -100 * 0.46;
     }
   };
-  useLayoutEffect(() => {
-    const createScrollAnimation = () => {
-      let skillSet = gsap.utils.toArray(".skill-set");
-
-      return gsap.to(skillSet, {
+  useEffect(() => {
+   let skillSet = gsap.utils.toArray(".skill-set");
+    const pin = gsap.fromTo(
+      skillSet,
+      {
+        xPercent: 0,
+      },
+      {
         xPercent: getResponsiveXPercent(),
         ease: "none",
         scrollTrigger: {
@@ -47,24 +50,15 @@ export default function HomeShowcase() {
           anticipatePin: 1,
           end: () => "+=" + window.innerWidth,
         },
-      });
-    };
-    let animation = createScrollAnimation();
-   
+      }
+    );
+     return () => {
+       {
+         /* A return function for killing the animation on component unmount */
+       }
+       pin.kill();
+     };
 
-    const resizeHandler = () => {
-      animation.kill();
-      animation = createScrollAnimation();
-    };
-
-    window.addEventListener("resize", resizeHandler);
-
-    return () => {
-      animation.kill();
-      window.removeEventListener("resize", resizeHandler);
-      ScrollTrigger.refresh();
-    };
-    
   }, []);
 
   const cardItems = Array.from({ length: 7 });
