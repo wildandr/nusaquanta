@@ -10,13 +10,6 @@ export default function Teams() {
 
   const listNama = [
     {
-      nama: "wildan",
-      role1: "UI/UX Designer",
-      role2: "Data Scientist",
-      project: "#",
-      linkedin: "#",
-    },
-    {
       nama: "aziz",
       role1: "Frontend Developer",
       role2: "Backend Developer",
@@ -31,14 +24,21 @@ export default function Teams() {
       linkedin: "#",
     },
     {
-      nama: "darel",
+      nama: "wildan",
+      role1: "UI/UX Designer",
+      role2: "Data Scientist",
+      project: "#",
+      linkedin: "#",
+    },
+    {
+      nama: "nawal",
       role1: "Frontend Developer",
       role2: "Backend Developer",
       project: "#",
       linkedin: "#",
     },
     {
-      nama: "nawal",
+      nama: "darel",
       role1: "Frontend Developer",
       role2: "Backend Developer",
       project: "#",

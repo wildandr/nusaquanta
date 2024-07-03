@@ -8,7 +8,8 @@ import Marquee from "react-fast-marquee";
 import LastProject from "@components/home/modules/hero/LastProject";
 import VideoProfile from "./modules/hero/VideoProfile";
 import Teams from "./modules/hero/Teams";
-import RunningText from "@elements/RunningText";
+import RunningText from "@elements/RunningTextIjo";
+import TeamsMobile from "./modules/hero/TeamsMobile";
 
 export default function HomeHero() {
   const [playVideo, setPlayVideo] = useState(false);
@@ -24,7 +25,9 @@ export default function HomeHero() {
     <>
       <div className="relative w-full min-h-screen overflow-x-clip p-4 mt-[3%] lg:block hidden">
         <RunningText
-          color={"primary rotate-6 absolute z-[10000] top-[-2%] right-[-5%]"}
+          color={
+            "primary rotate-6 absolute z-[10000] top-[-2%] right-[-5%] text-black"
+          }
         />
         <div className="w-full h-full grid grid-cols-2 gap-4 p-8 bg-black rounded shadow-lg">
           <div className="p-4 h-[45vh] border border-primary rounded-3xl relative z-50">
@@ -185,8 +188,29 @@ export default function HomeHero() {
         ></div>
       </div>
       <div className="min-h-screen relative overflow-x-clip flex flex-col p-4 md:p-16 mt-[20%] md:mt-[5%] lg:hidden">
-        <div className="w-full h-[25vh] border border-primary rounded-3xl relative z-50 mt-[20%]">
+        <RunningText color={"primary absolute w-full left-0 text-black"} />
+        <div className="w-full h-[25vh] md:h-[30vh] border border-primary rounded-3xl relative z-50 mt-[20%]">
           <LastProject />
+          <div className="w-full flex flex-row justify-between absolute bottom-0 px-[5%]">
+            <Link
+              href={"#"}
+              className="flex flex-row items-center justify-center gap-2 font-reddit-sans text-primary font-600 text-lg 2xl:text-xl p-[2%] z-[69]"
+            >
+              LAST PROJECT
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="16"
+                viewBox="0 0 18 16"
+                fill="none"
+              >
+                <path
+                  d="M13.6957 2.81401L4.13163 2.90026L4.15172 0.67268L17.5188 0.552136L17.5087 1.66592L17.3982 13.9192L15.1706 13.9393L15.2569 4.37517L3.96472 15.6673H0.842385L13.6957 2.81401Z"
+                  fill="#B8E930"
+                />
+              </svg>
+            </Link>
+          </div>
         </div>
         <div className="w-full relative z-50 p-4 py-8">
           <div className="flex flex-row justify-center items-center">
@@ -214,6 +238,28 @@ export default function HomeHero() {
             success. We harness cutting-edge technology and deep industry
             knowledge to exceed the evolving demands of the industries we serve.
           </p>
+        </div>
+        <div className="w-full h-[45vh] border border-primary rounded-3xl relative overflow-clip z-50 mb-[5%]">
+          <TeamsMobile />
+        </div>
+        <div className="w-full flex justify-center items-center h-[15vh] md:h-[10vh] mb-[5%] relative">
+          <RunningText
+            color={
+              "primary rotate-6 absolute w-[200vw] left-[-50%] top-[20%] text-black"
+            }
+          />
+          <Image
+            src="/images/home/logoButterfly.png"
+            alt="kupu kupu"
+            width={1000}
+            height={1000}
+            className="w-[30%] h-auto absolute z-[100] right-[10%] animate-spin-slow"
+          />
+          <RunningText
+            color={
+              "primary -rotate-6 absolute w-[200vw] left-[-50%] text-black"
+            }
+          />
         </div>
         <div className="w-full border border-primary rounded-3xl relative z-50 overflow-clip">
           <VideoProfile play={playVideo} />
@@ -263,6 +309,7 @@ export default function HomeHero() {
             className="w-[6%] h-auto m-4 absolute bottom-0 left-0"
           />
         </div>
+
         <div
           style={{
             background:
