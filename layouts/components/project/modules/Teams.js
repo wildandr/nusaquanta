@@ -219,7 +219,7 @@ export default function Teams({
           </p>
         </div>
       </div>
-      <div className="flex w-full justify-center items-center absolute bottom-[10%] pb-[2%] z-[20]">
+      <div className="flex w-full justify-center items-center absolute bottom-[10%] py-[2%] z-[20]">
         <button
           onClick={handleSetFilter}
           className={`py-2 px-4 font-bold xl:text-base 2xl:text-xl rounded-lg border hover:border-primary hover:text-primary ${
