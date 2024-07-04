@@ -30,7 +30,7 @@ export default function HomeShowcase() {
     }
   };
   useEffect(() => {
-   let skillSet = gsap.utils.toArray(".skill-set");
+    let skillSet = gsap.utils.toArray(".skill-set");
     const pin = gsap.fromTo(
       skillSet,
       {
@@ -52,13 +52,12 @@ export default function HomeShowcase() {
         },
       }
     );
-     return () => {
-       {
-         /* A return function for killing the animation on component unmount */
-       }
-       pin.kill();
-     };
-
+    return () => {
+      {
+        /* A return function for killing the animation on component unmount */
+      }
+      pin.kill();
+    };
   }, []);
 
   const cardItems = Array.from({ length: 7 });

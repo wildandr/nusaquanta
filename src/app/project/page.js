@@ -3,12 +3,17 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import FilterComponent from "@components/project/FilterComponent";
 import { BsSearch } from "react-icons/bs";
+import Hero from "@components/project/Hero";
 
 export default function Page() {
   const [selectedRoles, setSelectedRoles] = useState([]);
   const [selectedProducts, setSelectedProducts] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
+  const [selectedTeams, setSelectedTeams] = useState([]);
+
   const [cardsData, setCardsData] = useState([]);
+  const [teamsData, setTeamsData] = useState([]);
+
   const [productOptions, setProductOptions] = useState([]);
   const [roleOptions, setRoleOptions] = useState([]);
   const [categoryOptions, setCategoryOptions] = useState([]);
@@ -34,6 +39,7 @@ export default function Page() {
         const result = await response.json();
 
         const projects = result.data;
+        console.log("projects", projects);
         const formattedData = projects.map((project) => {
           const imageUrl = project.attributes.image?.data?.[0]?.attributes?.url;
           const absoluteImageUrl = imageUrl
@@ -52,6 +58,9 @@ export default function Page() {
             ),
             categories: project.attributes.categories.data.map(
               (category) => category.attributes.category_name
+            ),
+            projectTeamId: project.attributes.project_teams.data.map(
+              (teams_id) => teams_id.id
             ),
           };
         });
@@ -88,7 +97,6 @@ export default function Page() {
     };
     fetchData();
   }, []);
-
   const handleToggleOption = (option, setSelectedOptions, selectedOptions) => {
     setSelectedOptions(
       selectedOptions.includes(option)
@@ -107,10 +115,13 @@ export default function Page() {
     const matchCategory =
       selectedCategories.length === 0 ||
       selectedCategories.some((category) => card.categories.includes(category));
+    const matchTeam =
+      selectedTeams.length === 0 ||
+      selectedTeams.some((id) => card.projectTeamId.includes(id));
     const matchText =
       searchText === "" ||
       card.title.toLowerCase().includes(searchText.toLowerCase());
-    return matchRole && matchProduct && matchCategory && matchText;
+    return matchRole && matchProduct && matchCategory && matchText && matchTeam;
   });
 
   const handleSearch = async () => {
@@ -162,14 +173,18 @@ export default function Page() {
     }
   };
 
+  useEffect(() => {
+    console.log("cardData updated", cardsData);
+  }, [cardsData]);
+
   return (
     <div
       className="w-full flex-col mt-20 justify-center items-center font-reddit-sans no-scrollbar"
       style={{ overflow: "hidden" }}
     >
+      <Hero setID={setSelectedTeams} />
       <div className="w-full">
-        {error && <p className="text-red-500">Error: {error}</p>}
-        <div className="flex w-full my-5 px-10 lg:px-28 xl:px-24">
+        <div className="flex  w-full my-5 px-10 lg:px-28 xl:px-24">
           <div className="flex px-3 py-2 border border-primary text-primary items-center justify-between w-full rounded-[12px]">
             <input
               type="text"
