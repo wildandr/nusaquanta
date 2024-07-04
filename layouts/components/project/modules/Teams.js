@@ -6,9 +6,13 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import gsap from "gsap";
 
-export default function Teams({ isFilterActive, setFilterActive }) {
-  const [activeImage, setActiveImage] = useState(3);
-
+export default function Teams({
+  isFilterActive,
+  setFilterActive,
+  setID,
+  activeImage,
+  setActiveImage,
+}) {
   const listNama = [
     {
       nama: "aziz",
@@ -95,6 +99,13 @@ export default function Teams({ isFilterActive, setFilterActive }) {
   const handleSetFilter = () => {
     setFilterActive(!isFilterActive);
 
+    if (isFilterActive) {
+      setID([]);
+    }
+    if (!isFilterActive) {
+      setID([activeImage]);
+    }
+
     gsap.to(".container-teams", {
       y: isFilterActive ? 0 : 300,
       display: isFilterActive ? "flex" : "none",
@@ -146,7 +157,7 @@ export default function Teams({ isFilterActive, setFilterActive }) {
   return (
     <>
       <div
-        className={`relative flex w-full h-full items-end transition-transform duration-500 ease-in-out ${getTranslateX()} z-10`}
+        className={`relative flex w-full h-full items-end transition-transform duration-500 ease-in-out ${getTranslateX()} z-10 overflow-hidden`}
       >
         <div
           data-aos="fade-up"
@@ -217,7 +228,7 @@ export default function Teams({ isFilterActive, setFilterActive }) {
               : "border-secondary text-secondary drop-shadow-lg shadow-secondary"
           }`}
         >
-          Select as Filter
+          {isFilterActive ? "deselect" : "Select as Filter"}
         </button>
       </div>
     </>

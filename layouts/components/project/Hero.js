@@ -4,9 +4,55 @@ import Teams from "./modules/Teams";
 import { useEffect, useState } from "react";
 import gsap from "gsap";
 import Image from "next/image";
+import Link from "next/link";
 
-export default function Hero() {
+export default function Hero({ setID }) {
   const [isFilterActive, setFilterActive] = useState(false);
+  const [activeImage, setActiveImage] = useState(3);
+  const [people, setPeople] = useState([]);
+
+  const listNama = [
+    {
+      nama: "aziz",
+      namaLengkap: "Muhammad Rizky Aziz",
+      role1: "Frontend Developer",
+      role2: "Backend Developer",
+      project: "#",
+      linkedin: "#",
+    },
+    {
+      nama: "rasyid",
+      namaLengkap: "Rasyid Kusnady",
+      role1: "Frontend Developer",
+      role2: "Backend Developer",
+      project: "#",
+      linkedin: "#",
+    },
+    {
+      nama: "wildan",
+      namaLengkap: "Wildan Dzaky Ramadhani",
+      role1: "UI/UX Designer",
+      role2: "Data Scientist",
+      project: "#",
+      linkedin: "#",
+    },
+    {
+      nama: "nawal",
+      namaLengkap: "Nawal Rizky Kautsar",
+      role1: "Frontend Developer",
+      role2: "Backend Developer",
+      project: "#",
+      linkedin: "#",
+    },
+    {
+      nama: "darel",
+      namaLengkap: "Darriel Markerizal",
+      role1: "Frontend Developer",
+      role2: "Backend Developer",
+      project: "#",
+      linkedin: "#",
+    },
+  ];
 
   useEffect(() => {
     if (isFilterActive) {
@@ -65,6 +111,21 @@ export default function Hero() {
           delay: 1.5,
         }
       );
+      gsap.fromTo(
+        ".roles",
+        {
+          display: "none",
+          opacity: 0,
+          xPercent: 100,
+        },
+        {
+          display: "flex",
+          opacity: 1,
+          duration: 0.5,
+          xPercent: 0,
+          delay: 1.5,
+        }
+      );
     }
     if (!isFilterActive) {
       gsap.to(".description", {
@@ -96,11 +157,62 @@ export default function Hero() {
         opacity: 0,
         duration: 0.5,
       });
+      gsap.to(".roles", {
+        display: "none",
+        opacity: 0,
+        duration: 0.5,
+      });
     }
   }, [isFilterActive]);
 
+  useEffect(() => {
+    const fetchTeams = async () => {
+      try {
+        const response = await fetch(
+          "https://backend.nusaquanta.com/api/people",
+          {
+            headers: {
+              Authorization: process.env.NEXT_PUBLIC_API_TOKEN,
+            },
+          }
+        );
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const result = await response.json();
+        console.log("teams_result", result);
+        setPeople(result);
+      } catch (error) {
+        console.error("Error fetching data: ", error);
+      }
+    };
+    fetchTeams();
+  }, []);
+
+  useEffect(() => {
+    console.log("people", people);
+  }, [people]);
+
   return (
     <div className="bg-black flex flex-col relative h-screen w-full justify-between items-center pt-[2%] pb-[5%]">
+      <div className="roles absolute flex-col justify-center top-[5%] ps-[15%] hidden gap-[1rem]">
+        <p className="font-bold text-primary text-2xl">Role</p>
+        <p className="font-bold text-primary text-4xl">
+          {people.length > 0
+            ? people[activeImage - 1].topRoles[0].job_name
+            : ""}
+        </p>
+        <p className="font-bold text-primary text-2xl">
+          {people.length > 0
+            ? people[activeImage - 1].topRoles[1].job_name
+            : ""}
+        </p>
+        <p className="font-bold text-primary text-2xl">
+          {people.length > 0
+            ? people[activeImage - 1].topRoles[2].job_name
+            : ""}
+        </p>
+      </div>
       <div className=" titel flex flex-col justify-start items-center xl:gap-4 2xl:gap-6 text-center">
         <p className=" font-reddit-sans xl:text-5xl 2xl:text-6xl font-bold">
           <span className="text-black bg-primary">Project</span>
@@ -110,27 +222,22 @@ export default function Hero() {
           Discover the Brilliance Behind Our <br /> Most Innovative Creations
         </p>
         <p className=" font-reddit-sans xl:text-2xl 2xl:text-3xl text-primary self-start hidden name">
-          Muhammad Rizky Aziz
+          {people.length > 0 ? people[activeImage - 1].full_name : ""}
         </p>
       </div>
-      <button className="moto rounded-2xl border border-white hidden self-start px-[1%] py-[0.5%] ms-[14%] mt-[2%]">
+      <Link
+        href={people.length > 0 ? people[activeImage - 1].cv : ``}
+        className="moto rounded-2xl border border-white hidden self-start px-[1%] py-[0.5%] ms-[14%] mt-[2%] hover:bg-primary hover:text-black z-[69]"
+      >
         Download CV
-      </button>
+      </Link>
       <p className="moto hidden ps-[14%] pe-[35%] mt-[2%] xl:text-lg 2xl:text-2xl">
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry's standard dummy text ever
-        since the 1500s, when an unknown printer took a galley of type and
-        scrambled it to make a type specimen book. It has survived not only five
-        centuries, but also the leap into electronic typesetting, remaining
-        essentially unchanged. It was popularised in the 1960s with the release
-        of Letraset sheets containing Lorem Ipsum passages, and more recently
-        with desktop publishing software like Aldus PageMaker including versions
-        of Lorem Ipsum.
+        {people.length > 0 ? people[activeImage - 1].description : ""}
       </p>
       <div className="flex-row w-full justify-end items-end px-[10%] foto hidden absolute top-[10%]">
         <div className="flex flex-col items-center relative">
           <Image
-            src="/images/home/wildan_warna.png"
+            src={`/images/home/${listNama[activeImage - 1].nama}_warna.png`}
             alt="ornamen"
             width={1000}
             height={1000}
@@ -148,6 +255,9 @@ export default function Hero() {
         <Teams
           isFilterActive={isFilterActive}
           setFilterActive={setFilterActive}
+          setID={setID}
+          setActiveImage={setActiveImage}
+          activeImage={activeImage}
         />
       </div>
     </div>

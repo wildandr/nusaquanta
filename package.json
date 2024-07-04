@@ -10,8 +10,9 @@
   },
   "dependencies": {
     "@next/font": "^14.2.3",
-    "clsx": "^2.1.1",
+    "@studio-freight/react-lenis": "^0.0.47",
     "aos": "^2.3.4",
+    "clsx": "^2.1.1",
     "framer-motion": "^11.2.9",
     "gsap": "^3.12.5",
     "hamburger-react": "^2.5.1",
