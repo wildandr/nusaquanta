@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import FilterComponent from "@components/project/FilterComponent";
 import { BsSearch } from "react-icons/bs";
+import Hero from "@components/project/Hero";
 
 export default function Page() {
   const roleOptions = [
@@ -37,6 +38,7 @@ export default function Page() {
   const [selectedRoles, setSelectedRoles] = useState([]);
   const [selectedProducts, setSelectedProducts] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
+  const [selectedTeams, setSelectedTeams] = useState([]);
 
   const handleToggleOption = (option, setSelectedOptions, selectedOptions) => {
     setSelectedOptions(
@@ -55,24 +57,27 @@ export default function Page() {
       roles: ["FrontEnd Developer", "UI/UX Designer"],
       products: ["Website"],
       categories: ["Event"],
+      projectTeams: ["aziz", "rasyid"],
     },
     {
-      id: 1,
+      id: 2,
       imageUrl: "/images/home/home_project_porsenigama.png",
       ornamentUrl: "/images/home/ornamen_bintang.svg",
       title: "Interactive Custom Website for Lustrum KMTSL XI National Event",
       roles: ["FrontEnd Developer", "UI/UX Designer"],
       products: ["Web App"],
       categories: ["Education"],
+      projectTeams: ["nawal", "darel"],
     },
     {
-      id: 1,
+      id: 3,
       imageUrl: "/images/home/home_project_porsenigama.png",
       ornamentUrl: "/images/home/ornamen_bintang.svg",
       title: "Interactive Custom Website for Lustrum KMTSL XI National Event",
       roles: ["FrontEnd Developer", "UI/UX Designer"],
       products: ["Website"],
       categories: ["Event"],
+      projectTeams: ["rasyid", "wildan"],
     },
   ];
 
@@ -86,7 +91,10 @@ export default function Page() {
     const matchCategory =
       selectedCategories.length === 0 ||
       selectedCategories.some((category) => card.categories.includes(category));
-    return matchRole && matchProduct && matchCategory;
+    const matchTeam =
+      selectedTeams.length === 0 ||
+      selectedTeams.some((team) => card.projectTeams.includes(team));
+    return matchRole && matchProduct && matchCategory && matchTeam;
   });
 
   return (
@@ -94,9 +102,10 @@ export default function Page() {
       className="w-full flex-col mt-20 justify-center items-center font-reddit-sans no-scrollbar"
       style={{ overflow: "hidden" }}
     >
+      <Hero />
       <div className="w-full">
-           <div className="flex  w-full my-5 px-10 lg:px-28 xl:px-24">
-         <div className="flex px-3 py-2 border border-primary text-primary items-center justify-between w-full rounded-[12px]">
+        <div className="flex  w-full my-5 px-10 lg:px-28 xl:px-24">
+          <div className="flex px-3 py-2 border border-primary text-primary items-center justify-between w-full rounded-[12px]">
             <input
               type="text"
               className="w-full bg-black text-primary placeholder-primary placeholder-opacity-50 cursor-primary focus:outline-none"
@@ -106,10 +115,8 @@ export default function Page() {
               <BsSearch />
             </button>
           </div>
-          </div>
+        </div>
         <div className="flex flex-col w-full my-5 pl-10 md:px-10 lg:px-28 xl:px-24">
-
-         
           <div className="filter w-full flex flex-col md:flex-row my-5 gap-5">
             <div className="md:w-[40%] lg:w-[12%]">
               <p className="text-white text-[16px] mt-2">Filter by Role</p>
