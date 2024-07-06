@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, use } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import FilterComponent from "@components/project/FilterComponent";
@@ -21,6 +21,16 @@ export default function Page() {
   const [categoryOptions, setCategoryOptions] = useState([]);
   const [error, setError] = useState(null);
   const [searchText, setSearchText] = useState("");
+
+  const [projectId, setProjectId] = useState(null);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+    if (id && parseInt(id) > 0 && parseInt(id) < 6) {
+      setProjectId(id);
+    }
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -174,16 +184,31 @@ export default function Page() {
     }
   };
 
+  useEffect(() => {
+    if (!(projectId === null) && isNaN(parseInt(projectId))) {
+      setSelectedTeams([parseInt(projectId)]);
+    }
+    console.log("test", projectId);
+  }, [projectId]);
+
   return (
     <div
       className="w-full flex-col mt-20 justify-center items-center font-reddit-sans no-scrollbar"
       style={{ overflow: "hidden" }}
     >
       <div className="hidden lg:flex">
-        <Hero setID={setSelectedTeams} />
+        <Hero
+          setID={setSelectedTeams}
+          projectID={projectId}
+          setProjectID={setProjectId}
+        />
       </div>
       <div className="lg:hidden">
-        <HeroMobile setSelectedTeam={setSelectedTeams} />
+        <HeroMobile
+          setSelectedTeam={setSelectedTeams}
+          projectID={projectId}
+          setProjectID={setProjectId}
+        />
       </div>
       <div className="w-full">
         <div className="flex  w-full my-5 px-10 lg:px-28 xl:px-24">
