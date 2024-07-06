@@ -8,7 +8,16 @@ export default function TeamsMobile({
   setIndeks,
   indeks,
   setSelectedTeam,
+  projectID,
+  setProjectID,
 }) {
+  useEffect(() => {
+    if (!(projectID === null) && !isNaN(parseInt(projectID))) {
+      console.log("projectIDTeams", projectID);
+      setIndeks(parseInt(projectID) - 1);
+    }
+  }, [projectID]);
+
   const listNama = [
     {
       nama: "aziz",
@@ -140,7 +149,9 @@ export default function TeamsMobile({
   return (
     <div className="flex w-full h-full justify-center relative items-center">
       <Image
-        src={`/images/home/${listNama[indeks].nama}_warna.png`}
+        src={`/images/home/${
+          listNama[indeks] ? listNama[indeks].nama : ""
+        }_warna.png`}
         alt="teams"
         width={500}
         height={500}
@@ -148,7 +159,9 @@ export default function TeamsMobile({
         className="h-full w-auto object-contain z-10"
       />
       <Image
-        src={`/images/home/${listNama[prefIndex].nama}_grayscale.png`}
+        src={`/images/home/${
+          listNama[indeks] ? listNama[indeks].nama : ""
+        }_grayscale.png`}
         alt="teams"
         width={500}
         height={500}
@@ -156,7 +169,9 @@ export default function TeamsMobile({
         className="absolute bottom-0 right-[-10%] md:right-0 h-[80%] w-auto opacity-50"
       />
       <Image
-        src={`/images/home/${listNama[nextIndex].nama}_grayscale.png`}
+        src={`/images/home/${
+          listNama[indeks] ? listNama[indeks].nama : ""
+        }_grayscale.png`}
         alt="teams"
         width={500}
         height={500}
