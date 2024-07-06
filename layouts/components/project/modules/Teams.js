@@ -12,7 +12,19 @@ export default function Teams({
   setID,
   activeImage,
   setActiveImage,
+  projectID,
+  setProjectID,
 }) {
+  useEffect(() => {
+    if (!(projectID === null) && !isNaN(parseInt(projectID))) {
+      console.log("projectIDTeams", projectID);
+      setActiveImage(parseInt(projectID));
+      setID([parseInt(projectID)]);
+
+      handleSetFilter2();
+    }
+  }, [projectID]);
+
   const listNama = [
     {
       nama: "aziz",
@@ -105,6 +117,35 @@ export default function Teams({
     if (!isFilterActive) {
       setID([activeImage]);
     }
+
+    gsap.to(".container-teams", {
+      y: isFilterActive ? 0 : 300,
+      display: isFilterActive ? "flex" : "none",
+      opacity: isFilterActive ? 1 : 0,
+      duration: 0.5,
+    });
+    gsap.to(".role1", {
+      x: isFilterActive ? 0 : -300,
+      opacity: isFilterActive ? 1 : 0,
+      delay: 0.5,
+      duration: 0.5,
+    });
+    gsap.to(".role2", {
+      x: isFilterActive ? 0 : 300,
+      opacity: isFilterActive ? 1 : 0,
+      delay: 0.5,
+      duration: 0.5,
+    });
+    gsap.to(".fullname", {
+      scale: isFilterActive ? 1 : 0,
+      opacity: isFilterActive ? 1 : 0,
+      delay: 1,
+      duration: 0.5,
+    });
+  };
+
+  const handleSetFilter2 = () => {
+    setFilterActive(!isFilterActive);
 
     gsap.to(".container-teams", {
       y: isFilterActive ? 0 : 300,
