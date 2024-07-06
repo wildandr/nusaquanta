@@ -1,7 +1,11 @@
 import TeamsMobile from "./modules/TeamsMobile";
 import { useEffect, useState } from "react";
 
-export default function HeroMobile({ setSelectedTeam }) {
+export default function HeroMobile({
+  setSelectedTeam,
+  projectID,
+  setProjectID,
+}) {
   const [id, setID] = useState(-1);
   const [people, setPeople] = useState([]);
   const [indeks, setIndeks] = useState(2);
@@ -29,6 +33,13 @@ export default function HeroMobile({ setSelectedTeam }) {
     fetchTeams();
   }, []);
 
+  useEffect(() => {
+    if (!(projectID === null) && !isNaN(parseInt(projectID))) {
+      console.log("projectIDTeams", projectID);
+      handleClickFilter(parseInt(projectID) - 1);
+    }
+  }, [projectID]);
+
   const handleClickFilter = (indeks) => {
     setID(id > -1 ? -1 : indeks);
     setSelectedTeam(id > -1 ? [] : [indeks + 1]);
@@ -51,7 +62,7 @@ export default function HeroMobile({ setSelectedTeam }) {
             <div>
               <p className="text-xl">Role</p>
               <p className="text-base">
-                {people.length > 0 ? people[indeks].topRoles[0].job_name : ""}
+                {people[indeks] ? people[indeks].topRoles[0].job_name : ""}
               </p>
             </div>
           </div>
@@ -59,13 +70,13 @@ export default function HeroMobile({ setSelectedTeam }) {
             <div className="w-[35%]">
               <p className="text-xl">Role</p>
               <p className="text-base">
-                {people.length > 0 ? people[indeks].topRoles[1].job_name : ""}
+                {people[indeks] ? people[indeks].topRoles[1].job_name : ""}
               </p>
             </div>
             <div className="w-[35%] flex flex-col items-end">
               <p className="text-xl">Role</p>
               <p className="text-base w-full text-right">
-                {people.length > 0 ? people[indeks].topRoles[2].job_name : ""}
+                {people[indeks] ? people[indeks].topRoles[2].job_name : ""}
               </p>
             </div>
           </div>
@@ -75,6 +86,8 @@ export default function HeroMobile({ setSelectedTeam }) {
           setIndeks={setIndeks}
           setID={setID}
           setSelectedTeam={setSelectedTeam}
+          projectID={projectID}
+          setProjectID={setProjectID}
         />
         <div className="absolute flex w-full justify-center items-center bottom-[10%]">
           <button

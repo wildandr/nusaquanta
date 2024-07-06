@@ -6,7 +6,7 @@ import gsap from "gsap";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Hero({ setID }) {
+export default function Hero({ setID, projectID, setProjectID }) {
   const [isFilterActive, setFilterActive] = useState(false);
   const [activeImage, setActiveImage] = useState(3);
   const [people, setPeople] = useState([]);
@@ -253,6 +253,8 @@ export default function Hero({ setID }) {
           setID={setID}
           setActiveImage={setActiveImage}
           activeImage={activeImage}
+          projectID={projectID}
+          setProjectID={setProjectID}
         />
       </div>
     </div>
