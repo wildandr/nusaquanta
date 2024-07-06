@@ -113,7 +113,7 @@ export default function ProjectDetail({ params }) {
   };
 
   return (
-    <div className="bg-black text-white min-h-screen flex flex-col items-center mt-24">
+    <div className="bg-black text-white min-h-screen flex flex-col items-center mt-24 px-5 sm:px-0">
       <div className="flex flex-col max-w-3xl items-center">
         <div className="flex items-center gap-2 w-full justify-start ">
           <button
@@ -127,37 +127,39 @@ export default function ProjectDetail({ params }) {
             {project.attributes.project_name}
           </h1>
         </div>
-        <h1 className="text-primary text-6xl font-bold w-full">
+        <h1 className="text-primary text-5xl sm:text-6xl font-bold w-full">
           {project.attributes.project_name}
         </h1>
-        <div className="flex justify-start w-full mt-5 gap-2">
-          {teamMembers.map((team, index) => {
-            const personId = team.attributes.person.data.id;
-            const personImage =
-              imageMapping[personId] || "/images/default.jpeg";
-            const fullName = team.attributes.person.data.attributes.full_name;
-            const jobs = team.attributes.jobs.data
-              .map((job) => job.attributes.job_name)
-              .join(", ");
+        <div className="flex flex-col sm:flex-row justify-start w-full mt-5 gap-2">
+          <div className="flex items-center gap-1">
+            {teamMembers.map((team, index) => {
+              const personId = team.attributes.person.data.id;
+              const personImage =
+                imageMapping[personId] || "/images/default.jpeg";
+              const fullName = team.attributes.person.data.attributes.full_name;
+              const jobs = team.attributes.jobs.data
+                .map((job) => job.attributes.job_name)
+                .join(", ");
 
-            return (
-              <div
-                key={team.id}
-                className={`flex items-center mb-4 ${
-                  index !== 0 ? "-ml-6" : ""
-                }`}
-                style={{ zIndex: 100 - index }}
-              >
-                <Image
-                  src={personImage}
-                  alt={fullName}
-                  width={48}
-                  height={48}
-                  className="w-[3rem] h-[3rem] rounded-full object-cover shadow-[7px_1px_15px_0_rgba(0,0,0,0.5)]"
-                />
-              </div>
-            );
-          })}
+              return (
+                <div
+                  key={team.id}
+                  className={`flex flex-row items-center mb-4 ${
+                    index !== 0 ? "-ml-6" : ""
+                  }`}
+                  style={{ zIndex: 100 - index }}
+                >
+                  <Image
+                    src={personImage}
+                    alt={fullName}
+                    width={48}
+                    height={48}
+                    className="w-[3rem] h-[3rem] rounded-full object-cover shadow-[7px_1px_15px_0_rgba(0,0,0,0.5)]"
+                  />
+                </div>
+              );
+            })}
+          </div>
           <div className="flex flex-col gap-1">
             <h1 className="text-primary font-bold">
               {displayedMembers
@@ -184,15 +186,17 @@ export default function ProjectDetail({ params }) {
                 </span>
               )}
             </h1>
-            <div className="flex gap-3">
+            <div className="flex gap-3 items-center">
               <div className="flex items-center gap-1">
-                <h1 className="text-primary font-light">Collaboration with </h1>
-                <h1 className="text-primary font-bold">
+                <h1 className="text-primary font-light text-[14px] sm:text-base">
+                  Collaboration with{" "}
+                </h1>
+                <h1 className="text-primary font-bold text-[14px] sm:text-base">
                   {project.attributes.project_detail.data.attributes.client}
                 </h1>
               </div>
               <h1 className="text-primary">•</h1>
-              <h1 className="text-primary">
+              <h1 className="text-primary text-[14px] sm:text-base">
                 {project.attributes.project_detail.data.attributes.year}
               </h1>
             </div>
@@ -202,7 +206,7 @@ export default function ProjectDetail({ params }) {
         <div className=" mt-10 rounded-lg w-full text-primary ">
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
-            className="prose text-white"
+            className="prose text-white text-justify"
           >
             {staticMarkdown}
           </ReactMarkdown>
