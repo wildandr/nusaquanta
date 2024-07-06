@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import FilterComponent from "@components/project/FilterComponent";
 import { BsSearch } from "react-icons/bs";
 import Hero from "@components/project/Hero";
@@ -267,15 +268,20 @@ export default function Page() {
               key={card.id}
               className="cards w-[300px] h-[200px] lg:w-[350px] lg:h-[250px] p-1 rounded-[20px] duration-150 border-transparent hover:border-2 hover:border-primary flex flex-col justify-center items-end overflow-hidden"
             >
-              <div className="overflow-hidden rounded-[20px] h-full shadow-[0_0_15px_1px_rgba(0,0,0,0.5)] shadow-primary z-10 w-full">
-                <Image
-                  src={card.imageUrl}
-                  alt="project"
-                  width={1000}
-                  height={1000}
-                  className="object-cover w-full h-full z-0"
-                />
-              </div>
+              <Link
+                href={`/project/${card.id}`}
+                className="overflow-hidden rounded-[20px] h-full shadow-[0_0_15px_1px_rgba(0,0,0,0.5)] shadow-primary z-10 w-full"
+              >
+                <div>
+                  <Image
+                    src={card.imageUrl}
+                    alt="project"
+                    width={1000}
+                    height={1000}
+                    className="object-cover w-full h-full z-0"
+                  />
+                </div>
+              </Link>
               <div className="hoverable bg-gradient-to-b from-transparent to-black to-[80%] -mt-20 flex justify-end items-center gap-2 z-20 h-[80px] lg:max-w-[342px] rounded-b-[20px] py-1 px-3 w-full">
                 <Image
                   src="/images/home/ornamen_bintang.svg"

@@ -39,8 +39,8 @@ export default function HomeShowcase() {
         scrollTrigger: {
           start: "top 10%",
           trigger: scroller.current,
-          markers: true,
-          pin: scroller.current,
+          markers: false,
+          pin: true,
           pinSpacing: true,
           scrub: 2,
           invalidateOnRefresh: true,
