@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@partials/Header";
 import config from "@config/config.json";
 import Footer from "@partials/Footer";
+import SmoothScrolling from "@components/smooth-scroll/SmoothScrolling";
 
 const metadata = config.metadata;
 
@@ -29,7 +30,8 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <Header />
-        <main>{children}</main>
+        <SmoothScrolling>{children}</SmoothScrolling>
+
         <Footer />
       </body>
     </html>

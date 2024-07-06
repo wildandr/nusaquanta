@@ -9,7 +9,7 @@ const FilterComponent = ({
   return (
 
      
-      <div className="flex gap-5  lg:w-3/4 w-[250%] md:w-auto lg:overflow-auto flex-wrap lg:max-w-[60rem]">
+      <div className="flex gap-5  lg:w-3/4 w-[260%] md:w-auto lg:overflow-auto flex-wrap lg:max-w-[60rem]">
         {options.map((option, index) => (
           <button
             key={index}
