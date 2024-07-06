@@ -180,7 +180,6 @@ export default function Hero({ setID }) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const result = await response.json();
-        console.log("teams_result", result);
         setPeople(result);
       } catch (error) {
         console.error("Error fetching data: ", error);
@@ -188,10 +187,6 @@ export default function Hero({ setID }) {
     };
     fetchTeams();
   }, []);
-
-  useEffect(() => {
-    console.log("people", people);
-  }, [people]);
 
   return (
     <div className="bg-black flex flex-col relative h-screen w-full justify-between items-center pt-[2%] pb-[5%]">
