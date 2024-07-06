@@ -245,7 +245,7 @@ export default function HomeHero() {
         <div className="w-full flex justify-center items-center h-[15vh] md:h-[10vh] mb-[5%] relative">
           <RunningText
             color={
-              "primary rotate-6 absolute w-[200vw] left-[-50%] top-[20%] text-black"
+              "primary rotate-6 absolute w-[200%] left-[-50%] top-[20%] text-black"
             }
           />
           <Image
@@ -256,9 +256,7 @@ export default function HomeHero() {
             className="w-[30%] h-auto absolute z-[100] right-[10%] animate-spin-slow"
           />
           <RunningText
-            color={
-              "primary -rotate-6 absolute w-[200vw] left-[-50%] text-black"
-            }
+            color={"primary -rotate-6 absolute w-[200%] left-[-50%] text-black"}
           />
         </div>
         <div className="w-full border border-primary rounded-3xl relative z-50 overflow-clip">

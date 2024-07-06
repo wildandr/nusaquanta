@@ -157,7 +157,7 @@ export default function Teams({
   return (
     <>
       <div
-        className={`relative flex w-full h-full items-end transition-transform duration-500 ease-in-out ${getTranslateX()} z-10 overflow-hidden`}
+        className={`relative flex w-full h-full items-end transition-transform duration-500 ease-in-out ${getTranslateX()} z-10 overflow-y-clip`}
       >
         <div
           data-aos="fade-up"

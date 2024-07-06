@@ -3,7 +3,12 @@ import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 
-export default function TeamsMobile() {
+export default function TeamsMobile({
+  setID,
+  setIndeks,
+  indeks,
+  setSelectedTeam,
+}) {
   const listNama = [
     {
       nama: "aziz",
@@ -49,7 +54,6 @@ export default function TeamsMobile() {
     left: "absolute left-0 w-[10%] h-auto z-[11] px-[2%] hover:scale-150 transition-transform duration-300 cursor-pointer",
   };
 
-  const [indeks, setIndeks] = useState(2);
   const prefIndex = indeks - 1 >= 0 ? indeks - 1 : indeks + listNama.length - 1;
   const nextIndex = indeks + 1 < listNama.length ? indeks + 1 : 0;
 
@@ -61,6 +65,8 @@ export default function TeamsMobile() {
 
   const handleNext = () => {
     setDirection(1);
+    setID(-1);
+    setSelectedTeam([]);
     gsap.to(activeImageRef.current, {
       x: 100,
       opacity: 0,
@@ -81,6 +87,8 @@ export default function TeamsMobile() {
 
   const handlePrev = () => {
     setDirection(-1);
+    setID(-1);
+    setSelectedTeam([]);
     gsap.to(activeImageRef.current, {
       x: -100,
       opacity: 0,

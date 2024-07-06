@@ -4,6 +4,7 @@ import Image from "next/image";
 import FilterComponent from "@components/project/FilterComponent";
 import { BsSearch } from "react-icons/bs";
 import Hero from "@components/project/Hero";
+import HeroMobile from "@components/project/HeroMobile";
 
 export default function Page() {
   const [selectedRoles, setSelectedRoles] = useState([]);
@@ -39,7 +40,6 @@ export default function Page() {
         const result = await response.json();
 
         const projects = result.data;
-        console.log("projects", projects);
         const formattedData = projects.map((project) => {
           const imageUrl = project.attributes.image?.data?.[0]?.attributes?.url;
           const absoluteImageUrl = imageUrl
@@ -173,16 +173,17 @@ export default function Page() {
     }
   };
 
-  useEffect(() => {
-    console.log("cardData updated", cardsData);
-  }, [cardsData]);
-
   return (
     <div
       className="w-full flex-col mt-20 justify-center items-center font-reddit-sans no-scrollbar"
       style={{ overflow: "hidden" }}
     >
-      <Hero setID={setSelectedTeams} />
+      <div className="hidden lg:flex">
+        <Hero setID={setSelectedTeams} />
+      </div>
+      <div className="lg:hidden">
+        <HeroMobile setSelectedTeam={setSelectedTeams} />
+      </div>
       <div className="w-full">
         <div className="flex  w-full my-5 px-10 lg:px-28 xl:px-24">
           <div className="flex px-3 py-2 border border-primary text-primary items-center justify-between w-full rounded-[12px]">
