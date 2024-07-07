@@ -37,9 +37,24 @@ module.exports = {
           "0 5px 6px -5px rgba(0, 0, 0, 0.1), 0 5px 10px -5px rgba(0, 0, 0, 0.04)",
       },
       animation: {
-        'spin-slow': 'spin 3s linear infinite',
+        "spin-slow": "spin 3s linear infinite",
+      },
+      typography: {
+        DEFAULT: {
+          css: {
+            h1: {
+              color: "#B8E930",
+            },
+            h2: {
+              color: "#FFFFFF",
+            },
+            strong: {
+              color: "#FFFFFF",
+            },
+          },
+        },
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };
