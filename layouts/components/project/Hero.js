@@ -168,7 +168,7 @@ export default function Hero({ setID, projectID, setProjectID }) {
   useEffect(() => {
     const fetchTeams = async () => {
       try {
-        console.log("NEXT_PUBLIC_API_TOKEN:", process.env.NEXT_PUBLIC_API_TOKEN);
+        // console.log("NEXT_PUBLIC_API_TOKEN:", process.env.NEXT_PUBLIC_API_TOKEN);
         const response = await fetch(
           "https://backend.nusaquanta.com/api/people",
           {
