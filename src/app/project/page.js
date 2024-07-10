@@ -188,8 +188,8 @@ export default function Page() {
     if (!(projectId === null) && isNaN(parseInt(projectId))) {
       setSelectedTeams([parseInt(projectId)]);
     }
-    console.log("testxxxxx", projectId);
-    console.log("NEXT_PUBLIC_API_TOKEN:", process.env.NEXT_PUBLIC_API_TOKEN);
+    // console.log("testxxxxx", projectId);
+    // console.log("NEXT_PUBLIC_API_TOKEN:", process.env.NEXT_PUBLIC_API_TOKEN);
     alert(process.env.NEXT_PUBLIC_API_TOKEN);
   }, [projectId]);
 
