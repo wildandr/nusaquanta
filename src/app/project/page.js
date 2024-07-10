@@ -190,7 +190,7 @@ export default function Page() {
     }
     // console.log("testxxxxx", projectId);
     // console.log("NEXT_PUBLIC_API_TOKEN:", process.env.NEXT_PUBLIC_API_TOKEN);
-    alert(process.env.NEXT_PUBLIC_API_TOKEN);
+    // alert(process.env.NEXT_PUBLIC_API_TOKEN);
   }, [projectId]);
 
   return (
