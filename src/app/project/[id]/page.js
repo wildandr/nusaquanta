@@ -79,18 +79,18 @@ export default function ProjectDetail({ params }) {
   };
 
   return (
-    <div className="bg-black text-white min-h-screen flex flex-col items-center mt-24 px-5 sm:px-0">
+    <div className="bg-black text-white min-h-screen flex flex-col items-center mt-24 px-5 lg:px-0">
       <div className="flex flex-col max-w-3xl items-center">
-        <div className="flex items-center gap-2 w-full justify-start ">
+        <div className="flex items-start md:items-center gap-2 w-full justify-start ">
           <button
             onClick={handleNavigation}
-            className="text-primary font-light py-1"
+            className="text-primary font-light sm:py-1"
           >
             Project
           </button>
           <h1 className="text-primary font-light">/</h1>
-          <h1 className="text-primary font-medium">
-            {project.attributes.project_name}
+          <h1 className="text-primary font-semibold">
+            {project.attributes.project_detail.data.attributes.headline}
           </h1>
         </div>
         <h1 className="text-primary text-5xl sm:text-5xl font-bold w-full">
@@ -126,7 +126,7 @@ export default function ProjectDetail({ params }) {
               );
             })}
           </div>
-          <div className="flex flex-col gap-1">
+          <div className="flex flex-col gap-1 w-full">
             <h1 className="text-primary font-bold">
               {displayedMembers
                 .map(
@@ -137,13 +137,14 @@ export default function ProjectDetail({ params }) {
                 <span
                   onMouseEnter={() => setShowTooltip(true)}
                   onMouseLeave={() => setShowTooltip(false)}
-                  className="relative cursor-pointer ml-1"
+                  className="relative cursor-pointer ml-1 "
                 >
                   & Others
                   {showTooltip && (
-                    <div className="absolute right-0 bg-secondary text-white p-2 rounded shadow-lg ">
-                      {remainingMembers.map((member) => (
+                    <div className="absolute left-0 sm:right-0 bg-secondary text-white p-2 rounded shadow-lg sm:w-[150px]">
+                      {remainingMembers.map((member, index) => (
                         <div key={member.id}>
+                          {index > 0 && ", "}
                           {member.attributes.person.data.attributes.full_name}
                         </div>
                       ))}
@@ -177,9 +178,7 @@ export default function ProjectDetail({ params }) {
             height={1080}
             className="rounded-lg"
           />
-          <ReactMarkdown
-            className="prose max-w-none text-white text-justify w-full mt-10"
-          >
+          <ReactMarkdown className="prose max-w-none text-white text-justify w-full mt-10">
             {project.attributes.project_detail.data.attributes.description}
           </ReactMarkdown>
         </div>
