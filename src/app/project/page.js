@@ -152,6 +152,11 @@ export default function Page() {
       setCurrentPage((prev) => Math.max(prev - 1, 1));
     }
   };
+  useEffect(() => {
+    if (!(projectId === null) && isNaN(parseInt(projectId))) {
+      setSelectedTeams([parseInt(projectId)]);
+    }
+  }, [projectId]);
   return (
     <div
       className="w-full flex-col mt-20 justify-center items-center font-reddit-sans no-scrollbar"
