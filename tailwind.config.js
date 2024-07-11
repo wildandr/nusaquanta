@@ -43,9 +43,12 @@ module.exports = {
         DEFAULT: {
           css: {
             h1: {
-              color: "#B8E930",
+              color: "#FFFFFF",
             },
             h2: {
+              color: "#FFFFFF",
+            },
+            h3: {
               color: "#FFFFFF",
             },
             strong: {

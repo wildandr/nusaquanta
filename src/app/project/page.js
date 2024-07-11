@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, use } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import FilterComponent from "@components/project/FilterComponent";
@@ -24,10 +24,13 @@ export default function Page() {
 
   const [projectId, setProjectId] = useState(null);
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 12;
+
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");
-    if (id && parseInt(id) > 0 && parseInt(id) < 6) {
+    if (id && parseInt(id) > 0 && parseInt(id) < 12) {
       setProjectId(id);
     }
   }, []);
@@ -108,6 +111,7 @@ export default function Page() {
     };
     fetchData();
   }, []);
+
   const handleToggleOption = (option, setSelectedOptions, selectedOptions) => {
     setSelectedOptions(
       selectedOptions.includes(option)
@@ -135,64 +139,24 @@ export default function Page() {
     return matchRole && matchProduct && matchCategory && matchText && matchTeam;
   });
 
-  const handleSearch = async () => {
-    try {
-      const response = await fetch(
-        `https://backend.nusaquanta.com/api/projects?filters[$or][1][categories][id][$eq]=3&filters[$or][2][categories][id][$eq]=1&filters[$or][4][products][id][$eq]=2&filters[$or][5][products][id][$eq]=3&populate[products]=*&populate[categories]=*&populate[project_teams][populate][people][fields]=full_name&populate[project_teams][populate][jobs][fields]=job_name&filters[$or][2][project_teams][jobs][id][$eq]&filters[$or][0][categories][id][$eq]=2&filters[$or][3][products][id][$eq]=6&filters[$or][0][project_teams][jobs][id][$eq]=2&filters[$or][1][project_teams][jobs][id][$eq]=3&populate[image]=*&filters[project_name][$contains]=${encodeURIComponent(
-          searchText
-        )}`,
-        {
-          headers: {
-            Authorization: process.env.NEXT_PUBLIC_API_TOKEN,
-          },
-        }
+  const indexOfLastCard = currentPage * itemsPerPage;
+  const indexOfFirstCard = indexOfLastCard - itemsPerPage;
+  const currentCards = filteredCards.slice(indexOfFirstCard, indexOfLastCard);
+
+  const handlePagination = (direction) => {
+    if (direction === "next") {
+      setCurrentPage((prev) =>
+        Math.min(prev + 1, Math.ceil(filteredCards.length / itemsPerPage))
       );
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const result = await response.json();
-
-      const projects = result.data;
-      const formattedData = projects.map((project) => {
-        const imageUrl = project.attributes.image?.data?.[0]?.attributes?.url;
-        const absoluteImageUrl = imageUrl
-          ? `https://backend.nusaquanta.com${imageUrl}`
-          : "/default-image.png";
-
-        return {
-          id: project.id,
-          title: project.attributes.project_name,
-          imageUrl: absoluteImageUrl,
-          roles: project.attributes.project_teams.data.flatMap((team) =>
-            team.attributes.jobs.data.map((job) => job.attributes.job_name)
-          ),
-          products: project.attributes.products.data.map(
-            (product) => product.attributes.product_name
-          ),
-          categories: project.attributes.categories.data.map(
-            (category) => category.attributes.category_name
-          ),
-        };
-      });
-
-      setCardsData(formattedData);
-    } catch (error) {
-      console.error("Error fetching data: ", error);
-      setError(error.message);
+    } else if (direction === "prev") {
+      setCurrentPage((prev) => Math.max(prev - 1, 1));
     }
   };
-
   useEffect(() => {
     if (!(projectId === null) && isNaN(parseInt(projectId))) {
       setSelectedTeams([parseInt(projectId)]);
     }
-    // console.log("testxxxxx", projectId);
-    // console.log("NEXT_PUBLIC_API_TOKEN:", process.env.NEXT_PUBLIC_API_TOKEN);
-    // alert(process.env.NEXT_PUBLIC_API_TOKEN);
   }, [projectId]);
-
   return (
     <div
       className="w-full flex-col mt-20 justify-center items-center font-reddit-sans no-scrollbar"
@@ -290,7 +254,7 @@ export default function Page() {
           </div>
         </div>
         <div className="w-full flex gap-5 flex-wrap justify-center my-10 px-5">
-          {filteredCards.map((card) => (
+          {currentCards.map((card) => (
             <div
               key={card.id}
               className="cards w-[300px] h-[200px] lg:w-[350px] lg:h-[250px] p-1 rounded-[20px] duration-150 border-transparent hover:border-2 hover:border-primary flex flex-col justify-center items-end overflow-hidden"
@@ -299,17 +263,17 @@ export default function Page() {
                 href={`/project/${card.id}`}
                 className="overflow-hidden rounded-[20px] h-full shadow-[0_0_15px_1px_rgba(0,0,0,0.5)] shadow-primary z-10 w-full"
               >
-                <div>
+                <div className="h-full w-full">
                   <Image
                     src={card.imageUrl}
-                    alt="project"
+                    alt={card.title}
                     width={1000}
                     height={1000}
-                    className="object-cover w-full h-full z-0"
+                    className="object-cover  z-0"
                   />
                 </div>
               </Link>
-              <div className="hoverable bg-gradient-to-b from-transparent to-black to-[80%] -mt-20 flex justify-end items-center gap-2 z-20 h-[80px] lg:max-w-[342px] rounded-b-[20px] py-1 px-3 w-full">
+              <div className=" hoverable bg-gradient-to-b from-transparent to-black to-[80%] -mt-20 flex justify-end items-center gap-2 z-20 h-[80px] lg:max-w-[342px] rounded-b-[20px] py-1 px-3 w-full">
                 <Image
                   src="/images/home/ornamen_bintang.svg"
                   alt="ornamen"
@@ -324,7 +288,60 @@ export default function Page() {
             </div>
           ))}
         </div>
+        <div className="flex justify-center items-center mt-4">
+          <button
+            onClick={() => handlePagination("prev")}
+            disabled={currentPage === 1}
+            className={`px-4 py-2 mx-2 ${
+              currentPage === 1 ? "opacity-30" : ""
+            }`}
+          >
+            <Image
+              src="/images/project/chevron-left.png"
+              alt="arrow-left"
+              width={1000}
+              height={1000}
+              className="w-full h-auto"
+            />
+          </button>
+
+          {/* Page numbers */}
+          {[
+            ...Array(Math.ceil(filteredCards.length / itemsPerPage)).keys(),
+          ].map((page) => (
+            <button
+              key={page}
+              onClick={() => setCurrentPage(page + 1)}
+              className={`px-2 mx-2 ${
+                currentPage === page + 1
+                  ? "bg-primary h-[0.1rem] w-7"
+                  : "bg-primary h-[0.1rem] w-1"
+              }`}
+            ></button>
+          ))}
+
+          <button
+            onClick={() => handlePagination("next")}
+            disabled={
+              currentPage === Math.ceil(filteredCards.length / itemsPerPage)
+            }
+            className={`px-4 py-2 mx-2 ${
+              currentPage === Math.ceil(filteredCards.length / itemsPerPage)
+                ? "opacity-50"
+                : ""
+            }`}
+          >
+            <Image
+              src="/images/project/chevron-right.png"
+              alt="arrow-right"
+              width={1000}
+              height={1000}
+              className="w-full h-auto"
+            />
+          </button>
+        </div>
       </div>
     </div>
   );
 }
+
