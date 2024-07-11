@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
+
 
 const imageMapping = {
   1: "/images/project/aziz.jpeg",
@@ -12,51 +12,6 @@ const imageMapping = {
   4: "/images/project/nawal.jpeg",
   5: "/images/project/darel.jpeg",
 };
-
-const staticMarkdown = `
-
-
-## About The Project 
-The Porsenigama website serves as a comprehensive platform to introduce and promote Porsenigama, the largest sports event at Gadjah Mada University (UGM). Designed for UGM students, the website provides real-time updates on event timelines, schedules, standings, and detailed information on the sports and arts branches featured in the event, along with lists of participating athletes. 
-
-## Goals 
-- **Introduce Porsenigama:** Highlight Porsenigama as the premier sports event at UGM. 
-- **Real-Time Information:** Provide up-to-date schedules, standings, and event details for students and participants. 
-- **Comprehensive Event Details:** Offer detailed information on sports and arts branches, and lists of participating athletes. 
-## The User & Audience 
-- **UGM Students:** Students seeking detailed and up-to-date information on Porsenigama. 
-- **Athletes and Participants:** Participants needing to track schedules, standings, and event specifics. 
-- **General Public:** Anyone interested in learning about the sports and arts branches featured in Porsenigama. 
-
-## Development Scope 
-- **Front-End Development:** Utilized Next.js to create a dynamic, responsive, and user-friendly interface. 
-- **Back-End Integration:** Employed Strapi for seamless data management and real-time updates. 
-- **Key Features Implemented:** 
-  - **Real-Time Schedules and Standings:** Provided live updates for event schedules and standings. 
-  - **Sports and Arts Information:** Detailed descriptions of various branches and event specifics. 
-  - **Athlete Lists:** Comprehensive lists of participating athletes. 
-  - **User Engagement:** Focused on delivering high user engagement through real-time updates and detailed event information. 
-
-## Process 
-- **Requirement Gathering:** Conducted surveys and interviews with UGM students and event organizers to define functional and non-functional requirements. 
-- **Planning and Design:** Developed wireframes and mockups using Figma, incorporating stakeholder feedback to refine the design. 
-- **Development:** Built using Next.js for the front-end and Strapi for the back-end, ensuring dynamic interfaces and real-time updates. 
-- **Testing:** Conducted thorough testing, including unit tests, integration tests, and user acceptance testing (UAT) to validate functionality. 
-- **Deployment:** Deployed the website after final checks to ensure all features were operational. 
-- **Release and Monitoring:** Launched the website and monitored user feedback to make ongoing improvements. 
-
-## Results 
-- Successfully introduced Porsenigama as the largest sports event at UGM, enhancing visibility and engagement. 
-- Provided UGM students with real-time updates on event schedules and standings. 
-- Offered detailed information on sports and arts branches and participating athletes. 
-- Achieved high user satisfaction, evidenced by positive feedback and engagement metrics. 
-
-**Team:** 
-- Wildan Dzaky Ramadhani (UI/UX Designer) 
-- Rasyid Kusnady (Project Manager, Frontend Developer, Backend Developer) 
-- Darriel Markerizal (UI/UX Designer, Frontend Developer, Backend Developer) 
-- Muhammad Rizky Aziz (Frontend Developer)
-`;
 
 export default function ProjectDetail({ params }) {
   const [project, setProject] = useState(null);
@@ -67,7 +22,6 @@ export default function ProjectDetail({ params }) {
   useEffect(() => {
     const fetchProjectDetails = async () => {
       try {
-
         const response = await fetch(
           `https://backend.nusaquanta.com/api/projects/${params.id}?populate[products]=*&populate[categories]=*&populate[project_teams][populate][person][fields]=full_name&populate[project_teams][populate][jobs][fields]=job_name&populate[image]=*&populate[project_detail]=*`,
           {
@@ -77,16 +31,28 @@ export default function ProjectDetail({ params }) {
           }
         );
 
-
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
 
         const result = await response.json();
-        setProject(result.data);
-        
+        const projectData = result.data;
+
+        // Format the image URL
+        const imageUrl =
+          projectData.attributes.image?.data?.[0]?.attributes?.url;
+        const absoluteImageUrl = imageUrl
+          ? `https://backend.nusaquanta.com${imageUrl}`
+          : "/default-image.png";
+
+        // Update project data with formatted image URL
+        const formattedProject = {
+          ...projectData,
+          absoluteImageUrl: absoluteImageUrl,
+        };
+
+        setProject(formattedProject);
       } catch (error) {
-       
         setError(error.message);
       }
     };
@@ -127,7 +93,7 @@ export default function ProjectDetail({ params }) {
             {project.attributes.project_name}
           </h1>
         </div>
-        <h1 className="text-primary text-5xl sm:text-6xl font-bold w-full">
+        <h1 className="text-primary text-5xl sm:text-5xl font-bold w-full">
           {project.attributes.project_name}
         </h1>
         <div className="flex flex-col sm:flex-row justify-start w-full mt-5 gap-2">
@@ -204,11 +170,17 @@ export default function ProjectDetail({ params }) {
         </div>
         {/*Section untuk membaca .md  */}
         <div className=" mt-10 rounded-lg w-full text-primary ">
+          <Image
+            src={project.absoluteImageUrl}
+            alt={project.attributes.project_name}
+            width={1920}
+            height={1080}
+            className="rounded-lg"
+          />
           <ReactMarkdown
-            remarkPlugins={[remarkGfm]}
-            className="prose text-white text-justify"
+            className="prose max-w-none text-white text-justify w-full mt-10"
           >
-            {staticMarkdown}
+            {project.attributes.project_detail.data.attributes.description}
           </ReactMarkdown>
         </div>
       </div>
