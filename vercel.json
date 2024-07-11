@@ -1,0 +1,59 @@
+{
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "https://nusaquanta.com/project?id=1",
+      "statusCode": 301,
+      "has": [
+        {
+          "type": "host",
+          "value": "mrizkyaziz.nusaquanta.com"
+        }
+      ]
+    },
+    {
+      "source": "/",
+      "destination": "https://nusaquanta.com/project?id=2",
+      "statusCode": 301,
+      "has": [
+        {
+          "type": "host",
+          "value": "rasyidkusnady.nusaquanta.com"
+        }
+      ]
+    },
+    {
+      "source": "/",
+      "destination": "https://nusaquanta.com/project?id=3",
+      "statusCode": 301,
+      "has": [
+        {
+          "type": "host",
+          "value": "wildanzake.nusaquanta.com"
+        }
+      ]
+    },
+    {
+      "source": "/",
+      "destination": "https://nusaquanta.com/project?id=4",
+      "statusCode": 301,
+      "has": [
+        {
+          "type": "host",
+          "value": "nawalrizky.nusaquanta.com"
+        }
+      ]
+    },
+    {
+      "source": "/",
+      "destination": "https://nusaquanta.com/project?id=5",
+      "statusCode": 301,
+      "has": [
+        {
+          "type": "host",
+          "value": "⁠darrielmarkerizal.nusaquanta.com"
+        }
+      ]
+    }
+  ]
+}
