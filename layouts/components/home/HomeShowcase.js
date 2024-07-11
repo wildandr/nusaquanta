@@ -70,7 +70,14 @@ export default function HomeShowcase() {
   const cardItems = Array.from({ length: 7 });
 
   return (
-    <div className="py-10 overflow-hidden">
+    <div className="py-10 overflow-x-clip overflow-hidden">
+      <div
+        style={{
+          background:
+            "radial-gradient(50% 50% at 50% 50%, rgba(184, 233, 48, 0.20) 0%, rgba(184, 233, 48, 0.00) 100%)",
+        }}
+        className="absolute top-[250%] lg:top-[190%] left-[-40%] w-full h-full -z-20 "
+      ></div>
       <div
         id="sliderWrapper"
         ref={scroller}
