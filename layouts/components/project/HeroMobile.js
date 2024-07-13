@@ -1,5 +1,7 @@
 import TeamsMobile from "./modules/TeamsMobile";
 import { useEffect, useState } from "react";
+import RunningText from "@elements/RunningText";
+import Image from "next/image";
 
 export default function HeroMobile({
   setSelectedTeam,
@@ -47,7 +49,7 @@ export default function HeroMobile({
 
   return (
     <div className="flex flex-col items-center justify-center p-2">
-      <div className="flex flex-col w-[80%] justify-center items-center py-[5%] gap-4">
+      <div className="flex flex-col w-[80%] justify-center items-center py-[5%] gap-4 relative">
         <p className=" font-reddit-sans text-2xl md:text-4xl font-bold">
           <span className="text-black bg-primary">Project</span>
           <span className="text-primary">Showcase</span>
@@ -55,6 +57,30 @@ export default function HeroMobile({
         <p className=" font-reddit-sans xl:text-base 2xl:text-xl description text-center md:text-xl">
           Discover the Brilliance Behind Our Most Innovative Creations
         </p>
+
+        <div className="absolute w-full h-full flex justify-center top-0">
+          <div
+            style={{
+              background:
+                "radial-gradient(50% 50% at 50% 50%, rgba(184, 233, 48, 0.20) 0%, rgba(184, 233, 48, 0.00) 100%",
+            }}
+            className="absolute bottom-[0] left-[-130%] w-[200%] h-[200%]"
+          ></div>
+          <div
+            style={{
+              background:
+                "radial-gradient(50% 50% at 50% 50%, rgba(96, 31, 235, 0.20) 0%, rgba(96, 31, 235, 0.00) 100%)",
+            }}
+            className="absolute top-[0] right-[-130%] w-[200%] h-[200%]"
+          ></div>
+          <Image
+            src={"/images/project/logo_nusaquanta.svg"}
+            width={1000}
+            height={1000}
+            alt="logo"
+            className="absolute bottom-[-150%] opacity-10 w-full h-auto"
+          />
+        </div>
       </div>
       <div className="w-full h-[50vh] border border-primary rounded-3xl relative overflow-clip z-50 mb-[5%] pt-[10%]">
         <div className="absolute w-full px-[10%] flex flex-col top-[5%] items-center font-reddit-sans text-primary font-bold">
