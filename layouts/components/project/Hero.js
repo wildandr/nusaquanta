@@ -248,7 +248,7 @@ export default function Hero({ setID, projectID, setProjectID }) {
           </button> */}
         </div>
       </div>
-      <div className="flex flex-col justify-center items-center h-[60vh]">
+      <div className="flex flex-col justify-center items-center h-[60vh] z-[11]">
         <Teams
           isFilterActive={isFilterActive}
           setFilterActive={setFilterActive}
@@ -259,29 +259,45 @@ export default function Hero({ setID, projectID, setProjectID }) {
           setProjectID={setProjectID}
         />
       </div>
-      <div className="absolute w-full h-full flex justify-center top-0">
+      <div className="absolute w-full h-full flex justify-center items-center top-0">
         <RunningText color={"secondary absolute bottom-[6%] opacity-50"} />
         <div
           style={{
             background:
               "radial-gradient(50% 50% at 50% 50%, rgba(184, 233, 48, 0.20) 0%, rgba(184, 233, 48, 0.00) 100%",
           }}
-          className="absolute top-[-30%] left-[-40%] w-full h-full"
+          className="absolute top-[-30%] left-[-40%] w-full h-full z-10"
         ></div>
         <div
           style={{
             background:
               "radial-gradient(50% 50% at 50% 50%, rgba(96, 31, 235, 0.20) 0%, rgba(96, 31, 235, 0.00) 100%)",
           }}
-          className="absolute bottom-[-20%] right-[-50%] w-full h-full"
+          className="absolute bottom-[-20%] right-[-50%] w-full h-full z-10"
         ></div>
         <Image
           src={"/images/project/logo_nusaquanta.svg"}
           width={1000}
           height={1000}
           alt="logo"
-          className="absolute bottom-[-10%] opacity-10 h-full w-auto"
+          className="absolute bottom-[-10%] opacity-10 h-full w-auto z-10"
         />
+        <div className="relative min-h-screen w-full flex justify-center items-center">
+          <Image
+            src={"/images/project/3d_kiri.png"}
+            width={1000}
+            height={1000}
+            alt="ornamen"
+            className="absolute right-[0] h-[80%] w-auto opacity-50 top-[10%]"
+          />
+          <Image
+            src={"/images/project/3d_kanan.png"}
+            width={1000}
+            height={1000}
+            alt="ornamen"
+            className="absolute left-[0] h-[80%] w-auto opacity-50 top-[10%]"
+          />
+        </div>
       </div>
     </div>
   );
