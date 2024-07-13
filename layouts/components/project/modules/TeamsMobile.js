@@ -160,7 +160,9 @@ export default function TeamsMobile({
       />
       <Image
         src={`/images/home/${
-          listNama[indeks] ? listNama[indeks].nama : ""
+          listNama[indeks - 1]
+            ? listNama[indeks - 1].nama
+            : listNama[listNama.length - 1].nama
         }_grayscale.png`}
         alt="teams"
         width={500}
@@ -170,7 +172,7 @@ export default function TeamsMobile({
       />
       <Image
         src={`/images/home/${
-          listNama[indeks] ? listNama[indeks].nama : ""
+          listNama[indeks + 1] ? listNama[indeks + 1].nama : listNama[0].nama
         }_grayscale.png`}
         alt="teams"
         width={500}
