@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import gsap from "gsap";
 import Image from "next/image";
 import Link from "next/link";
+import RunningText from "@elements/RunningText";
 
 export default function Hero({ setID, projectID, setProjectID }) {
   const [isFilterActive, setFilterActive] = useState(false);
@@ -256,6 +257,30 @@ export default function Hero({ setID, projectID, setProjectID }) {
           activeImage={activeImage}
           projectID={projectID}
           setProjectID={setProjectID}
+        />
+      </div>
+      <div className="absolute w-full h-full flex justify-center top-0">
+        <RunningText color={"secondary absolute bottom-[6%] opacity-50"} />
+        <div
+          style={{
+            background:
+              "radial-gradient(50% 50% at 50% 50%, rgba(184, 233, 48, 0.20) 0%, rgba(184, 233, 48, 0.00) 100%",
+          }}
+          className="absolute top-[-30%] left-[-40%] w-full h-full"
+        ></div>
+        <div
+          style={{
+            background:
+              "radial-gradient(50% 50% at 50% 50%, rgba(96, 31, 235, 0.20) 0%, rgba(96, 31, 235, 0.00) 100%)",
+          }}
+          className="absolute bottom-[-20%] right-[-50%] w-full h-full"
+        ></div>
+        <Image
+          src={"/images/project/logo_nusaquanta.svg"}
+          width={1000}
+          height={1000}
+          alt="logo"
+          className="absolute bottom-[-10%] opacity-10 h-full w-auto"
         />
       </div>
     </div>
