@@ -19,7 +19,6 @@ const RunningSymbol = () => {
            
           </div>
           
-          
           </Marquee>
           </div>
        </div> 
