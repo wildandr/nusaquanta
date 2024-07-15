@@ -34,7 +34,7 @@ export default function HomeHero() {
             <LastProject />
             <div className="w-full flex flex-row justify-between absolute bottom-0">
               <Link
-                href={"#"}
+                href={"/project"}
                 className="flex flex-row items-center justify-center gap-2 font-reddit-sans text-primary font-600 text-lg 2xl:text-xl p-[2%] z-[69]"
               >
                 LAST PROJECT
@@ -193,7 +193,7 @@ export default function HomeHero() {
           <LastProject />
           <div className="w-full flex flex-row justify-between absolute bottom-0 px-[5%]">
             <Link
-              href={"#"}
+              href={"/project"}
               className="flex flex-row items-center justify-center gap-2 font-reddit-sans text-primary font-600 text-lg 2xl:text-xl p-[2%] z-[69]"
             >
               LAST PROJECT

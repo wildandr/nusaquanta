@@ -8,12 +8,24 @@ export default function LastProject() {
   const [currentProject, setCurrentProject] = useState(0);
 
   const projects = [
-    { nama: "lustrum" },
-    { nama: "porsenigama" },
-    { nama: "jobs" },
-    { nama: "dreams" },
-    { nama: "cia" },
-    { nama: "nusa" },
+    { nama: "1" },
+    { nama: "2" },
+    { nama: "3" },
+    { nama: "4" },
+    { nama: "5" },
+    { nama: "6" },
+    { nama: "7" },
+    { nama: "8" },
+    { nama: "9" },
+    { nama: "10" },
+    { nama: "11" },
+    { nama: "12" },
+    { nama: "13" },
+    { nama: "14" },
+    { nama: "15" },
+    { nama: "16" },
+    { nama: "17" },
+    { nama: "18" },
   ];
 
   // Function to handle next project
@@ -40,7 +52,7 @@ export default function LastProject() {
   useEffect(() => {
     const interval = setInterval(() => {
       handleNextProject();
-    }, 5000); // Change project every 5 seconds
+    }, 3000); // Change project every 5 seconds
 
     return () => clearInterval(interval);
   }, [currentProject]); // Restart interval when currentProject changes
@@ -79,11 +91,11 @@ export default function LastProject() {
           />
         </button>
       </div>
-      <div className="flex w-full h-full justify-center items-center relative overflow-clip ">
+      <div className="flex w-full h-full justify-center items-center relative overflow-clip">
         <AnimatePresence custom={direction}>
           <motion.div
             key={currentProject}
-            className="w-full justify-center items-center flex"
+            className="w-full justify-center items-center flex rounded-xl"
             custom={direction}
             variants={variants}
             initial="enter"
@@ -98,11 +110,11 @@ export default function LastProject() {
             }}
           >
             <Image
-              src={`/images/home/home_project_${projects[currentProject].nama}.png`}
+              src={`/images/home/project/${projects[currentProject].nama}.png`}
               alt={projects[currentProject].nama}
               width={1000}
               height={1000}
-              className="object-contain p-[8%]"
+              className="object-contain p-[8%] flex rounded-3xl"
             />
           </motion.div>
         </AnimatePresence>

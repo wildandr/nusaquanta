@@ -195,7 +195,7 @@ export default function Hero({ setID, projectID, setProjectID }) {
 
   return (
     <div className="bg-black flex flex-col relative h-screen w-full justify-between items-center pt-[2%] pb-[5%]">
-      <div className="roles absolute flex-col justify-center top-[5%] ps-[15%] hidden gap-[1rem]">
+      <div className="roles absolute flex-col justify-center top-[5%] ps-[15%] hidden gap-[1rem] z-[11]">
         <p className="font-bold text-primary text-2xl">Role</p>
         <p className="font-bold text-primary text-4xl">
           {people.length > 0
@@ -214,7 +214,7 @@ export default function Hero({ setID, projectID, setProjectID }) {
         </p>
       </div>
       <div className=" titel flex flex-col justify-start items-center xl:gap-4 2xl:gap-6 text-center">
-        <p className=" font-reddit-sans xl:text-5xl 2xl:text-6xl font-bold">
+        <p className=" font-reddit-sans xl:text-5xl 2xl:text-6xl font-bold z-10">
           <span className="text-black bg-primary">Project</span>
           <span className="text-primary">Showcase</span>
         </p>
@@ -231,7 +231,7 @@ export default function Hero({ setID, projectID, setProjectID }) {
       >
         Download CV
       </Link>
-      <p className="moto hidden ps-[14%] pe-[35%] mt-[2%] xl:text-lg 2xl:text-2xl">
+      <p className="moto hidden ps-[14%] pe-[35%] mt-[2%] xl:text-lg 2xl:text-2xl z-10">
         {people.length > 0 ? people[activeImage - 1].description : ""}
       </p>
 
@@ -286,14 +286,14 @@ export default function Hero({ setID, projectID, setProjectID }) {
             width={1000}
             height={1000}
             alt="ornamen"
-            className="absolute right-[0] h-[80%] w-auto opacity-50 top-[10%]"
+            className="absolute right-[0] h-[70%] w-auto opacity-50 top-[10%]"
           />
           <Image
             src={"/images/project/3d_kanan.png"}
             width={1000}
             height={1000}
             alt="ornamen"
-            className="absolute left-[0] h-[80%] w-auto opacity-50 top-[10%]"
+            className="absolute left-[0] h-[70%] w-auto opacity-50 top-[10%]"
           />
         </div>
       </div>
