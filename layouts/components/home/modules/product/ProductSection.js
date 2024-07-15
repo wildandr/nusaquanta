@@ -7,7 +7,7 @@ const ProductSection = ({ title, description, services }) => {
         <h1 className="text-[24px] lg:text-[64px] font-bold text-primary">
           {title}
         </h1>
-        <p className="max-w-[44rem] text-[12px] pr-4 lg:px-0">
+        <p className="max-w-[50rem] text-[12px] lg:text-[20px] pr-4 lg:px-0">
           {description}
         </p>
       </div>

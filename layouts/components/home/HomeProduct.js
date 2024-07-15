@@ -106,7 +106,9 @@ const HomeProduct = () => {
         height={1000}
         className="w-[60%] h-auto absolute z-[-1] object-cover"
       />
-      <RunningText color={"primary text-black rotate-2 absolute z-[980]"} />
+      <RunningText
+        color={"primary text-black rotate-[3deg] md:rotate-2 absolute z-[980] "}
+      />
       <Image
         src="/images/home/logoButterfly.png"
         alt="kupu kupu"
@@ -117,7 +119,7 @@ const HomeProduct = () => {
       />
       <RunningText
         color={
-          "primary text-black -rotate-[2deg] -mt-[1.5rem] absolute z-[980]"
+          "primary text-black -rotate-[3deg] md:-rotate-[2deg] -mt-[1.5rem] absolute z-[980]"
         }
       />
 
