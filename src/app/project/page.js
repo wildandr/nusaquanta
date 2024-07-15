@@ -40,12 +40,9 @@ export default function Page() {
       try {
         const response = await fetch(
           "https://backend.nusaquanta.com/api/projects?populate[products]=*&populate[categories]=*&populate[project_teams][populate][people][fields]=full_name&populate[project_teams][populate][jobs][fields]=job_name&populate[image]=*",
-          {
-            headers: {
-              Authorization: process.env.NEXT_PUBLIC_API_TOKEN,
-            },
-          }
+          
         );
+
 
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -60,24 +57,28 @@ export default function Page() {
             ? `https://backend.nusaquanta.com${imageUrl}`
             : "/default-image.png";
 
-          return {
-            id: project.id,
-            title: project.attributes.project_name,
-            imageUrl: absoluteImageUrl,
-            roles: project.attributes.project_teams.data.flatMap((team) =>
-              team.attributes.jobs.data.map((job) => job.attributes.job_name)
-            ),
-            products: project.attributes.products.data.map(
-              (product) => product.attributes.product_name
-            ),
-            categories: project.attributes.categories.data.map(
-              (category) => category.attributes.category_name
-            ),
-            projectTeamId: project.attributes.project_teams.data.map(
-              (teams_id) => teams_id.id
-            ),
-          };
-        });
+                    return {
+                        id: project.id,
+                        title: project.attributes.project_name,
+                        imageUrl: absoluteImageUrl,
+                        roles: project.attributes.project_teams.data.flatMap(
+                            (team) =>
+                                team.attributes.jobs.data.map(
+                                    (job) => job.attributes.job_name
+                                )
+                        ),
+                        products: project.attributes.products.data.map(
+                            (product) => product.attributes.product_name
+                        ),
+                        categories: project.attributes.categories.data.map(
+                            (category) => category.attributes.category_name
+                        ),
+                        projectTeamId:
+                            project.attributes.project_teams.data.map(
+                                (teams_id) => teams_id.id
+                            ),
+                    };
+                });
 
         setCardsData(formattedData);
 
@@ -152,11 +153,6 @@ export default function Page() {
       setCurrentPage((prev) => Math.max(prev - 1, 1));
     }
   };
-  useEffect(() => {
-    if (!(projectId === null) && isNaN(parseInt(projectId))) {
-      setSelectedTeams([parseInt(projectId)]);
-    }
-  }, [projectId]);
   return (
     <div
       className="w-full flex-col mt-20 justify-center items-center font-reddit-sans no-scrollbar"
@@ -314,10 +310,12 @@ export default function Page() {
               onClick={() => setCurrentPage(page + 1)}
               className={`px-2 mx-2 ${
                 currentPage === page + 1
-                  ? "bg-primary h-[0.1rem] w-7"
-                  : "bg-primary h-[0.1rem] w-1"
+                  ? "  text-primary"
+                  : "text-primary opacity-30  "
               }`}
-            ></button>
+            >
+              {page + 1}
+            </button>
           ))}
 
           <button
@@ -344,3 +342,4 @@ export default function Page() {
     </div>
   );
 }
+

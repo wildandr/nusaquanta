@@ -4,79 +4,74 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 
-
 const imageMapping = {
-  1: "/images/project/aziz.jpeg",
-  2: "/images/project/rasyid.jpeg",
-  3: "/images/project/wildan.jpeg",
-  4: "/images/project/nawal.jpeg",
-  5: "/images/project/darel.jpeg",
+    1: "/images/project/aziz.jpeg",
+    2: "/images/project/rasyid.jpeg",
+    3: "/images/project/wildan.jpeg",
+    4: "/images/project/nawal.jpeg",
+    5: "/images/project/darel.jpeg",
 };
 
 export default function ProjectDetail({ params }) {
-  const [project, setProject] = useState(null);
-  const [error, setError] = useState(null);
-  const [showTooltip, setShowTooltip] = useState(false);
-  const router = useRouter();
+    const [project, setProject] = useState(null);
+    const [error, setError] = useState(null);
+    const [showTooltip, setShowTooltip] = useState(false);
+    const router = useRouter();
 
   useEffect(() => {
     const fetchProjectDetails = async () => {
       try {
         const response = await fetch(
           `https://backend.nusaquanta.com/api/projects/${params.id}?populate[products]=*&populate[categories]=*&populate[project_teams][populate][person][fields]=full_name&populate[project_teams][populate][jobs][fields]=job_name&populate[image]=*&populate[project_detail]=*`,
-          {
-            headers: {
-              Authorization: `${process.env.NEXT_PUBLIC_API_TOKEN}`,
-            },
-          }
+         
         );
 
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
 
-        const result = await response.json();
-        const projectData = result.data;
+                const result = await response.json();
+                const projectData = result.data;
 
-        // Format the image URL
-        const imageUrl =
-          projectData.attributes.image?.data?.[0]?.attributes?.url;
-        const absoluteImageUrl = imageUrl
-          ? `https://backend.nusaquanta.com${imageUrl}`
-          : "/default-image.png";
+                // Format the image URL
+                const imageUrl =
+                    projectData.attributes.image?.data?.[0]?.attributes?.url;
+                const absoluteImageUrl = imageUrl
+                    ? `https://backend.nusaquanta.com${imageUrl}`
+                    : "/default-image.png";
 
-        // Update project data with formatted image URL
-        const formattedProject = {
-          ...projectData,
-          absoluteImageUrl: absoluteImageUrl,
+                // Update project data with formatted image URL
+                const formattedProject = {
+                    ...projectData,
+                    absoluteImageUrl: absoluteImageUrl,
+                };
+
+                setProject(formattedProject);
+            } catch (error) {
+                setError(error.message);
+            }
         };
 
-        setProject(formattedProject);
-      } catch (error) {
-        setError(error.message);
-      }
+        fetchProjectDetails();
+    }, [params.id]);
+
+    if (error) {
+        return <div>Error: {error}</div>;
+    }
+
+    if (!project) {
+        return <div>Loading...</div>;
+    }
+
+    // Extract the team members
+    const teamMembers = project.attributes.project_teams.data;
+    const displayedMembers = teamMembers.slice(0, 2);
+    const remainingMembers = teamMembers.slice(2);
+    const remainingCount = teamMembers.length - displayedMembers.length;
+
+    const handleNavigation = () => {
+        router.push("/project");
     };
-
-    fetchProjectDetails();
-  }, [params.id]);
-
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
-
-  if (!project) {
-    return <div>Loading...</div>;
-  }
-
-  // Extract the team members
-  const teamMembers = project.attributes.project_teams.data;
-  const displayedMembers = teamMembers.slice(0, 2);
-  const remainingMembers = teamMembers.slice(2);
-  const remainingCount = teamMembers.length - displayedMembers.length;
-
-  const handleNavigation = () => {
-    router.push("/project");
-  };
 
   return (
     <div className="bg-black text-white min-h-screen flex flex-col items-center mt-24 px-5 sm:px-0">

@@ -242,7 +242,7 @@ export default function HomeHero() {
         <div className="w-full h-[45vh] border border-primary rounded-3xl relative overflow-clip z-50 mb-[5%]">
           <TeamsMobile />
         </div>
-        <div className="w-full flex justify-center items-center h-[15vh] md:h-[10vh] mb-[5%] relative">
+        {/* <div className="w-full flex justify-center items-center h-[15vh] md:h-[10vh] mb-[5%] relative">
           <RunningText
             color={
               "primary rotate-6 absolute w-[200vw] left-[-50%] top-[20%] text-black"
@@ -260,7 +260,7 @@ export default function HomeHero() {
               "primary -rotate-6 absolute w-[200vw] left-[-50%] text-black"
             }
           />
-        </div>
+        </div> */}
         <div className="w-full border border-primary rounded-3xl relative z-50 overflow-clip">
           <VideoProfile play={playVideo} />
           <div

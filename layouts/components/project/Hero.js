@@ -172,14 +172,13 @@ export default function Hero({ setID, projectID, setProjectID }) {
   useEffect(() => {
     const fetchTeams = async () => {
       try {
-        // console.log("NEXT_PUBLIC_API_TOKEN:", process.env.NEXT_PUBLIC_API_TOKEN);
         const response = await fetch(
-          "https://backend.nusaquanta.com/api/people",
-          {
-            headers: {
-              Authorization: process.env.NEXT_PUBLIC_API_TOKEN,
-            },
-          }
+          "https://backend.nusaquanta.com/api/people"
+          // {
+          //     headers: {
+          //         Authorization: process.env.NEXT_PUBLIC_API_TOKEN,
+          //     },
+          // }
         );
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -199,17 +198,17 @@ export default function Hero({ setID, projectID, setProjectID }) {
         <p className="font-bold text-primary text-2xl">Role</p>
         <p className="font-bold text-primary text-4xl">
           {people.length > 0
-            ? people[activeImage - 1].topRoles[0].job_name
+            ? people[activeImage - 1].topRoles[0]?.job_name
             : ""}
         </p>
         <p className="font-bold text-primary text-2xl">
           {people.length > 0
-            ? people[activeImage - 1].topRoles[1].job_name
+            ? people[activeImage - 1].topRoles[1]?.job_name
             : ""}
         </p>
         <p className="font-bold text-primary text-2xl">
           {people.length > 0
-            ? people[activeImage - 1].topRoles[2].job_name
+            ? people[activeImage - 1].topRoles[2]?.job_name
             : ""}
         </p>
       </div>
@@ -225,12 +224,12 @@ export default function Hero({ setID, projectID, setProjectID }) {
           {people.length > 0 ? people[activeImage - 1].full_name : ""}
         </p>
       </div>
-      <Link
-        href={people.length > 0 ? people[activeImage - 1].cv : ``}
-        className="moto rounded-2xl border border-white hidden self-start px-[1%] py-[0.5%] ms-[14%] mt-[2%] hover:bg-primary hover:text-black z-[69]"
-      >
-        Download CV
-      </Link>
+      {/* <Link
+                href={people.length > 0 ? people[activeImage - 1].cv : ``}
+                className="moto rounded-2xl border border-white hidden self-start px-[1%] py-[0.5%] ms-[14%] mt-[2%] hover:bg-primary hover:text-black z-[69]"
+            >
+                Download CV
+            </Link> */}
       <p className="moto hidden ps-[14%] pe-[35%] mt-[2%] xl:text-lg 2xl:text-2xl z-10">
         {people.length > 0 ? people[activeImage - 1].description : ""}
       </p>
