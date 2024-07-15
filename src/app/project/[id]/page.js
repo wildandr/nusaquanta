@@ -166,18 +166,15 @@ export default function ProjectDetail({ params }) {
                                     Collaboration with{" "}
                                 </h1>
                                 <h1 className="text-primary font-bold text-[14px] sm:text-base">
-                                    {
-                                        project.attributes.project_detail.data
-                                            .attributes?.client
-                                    }
+                                    {project?.attributes?.project_detail?.data
+                                        ?.attributes?.client ??
+                                        "No Client Specified"}
                                 </h1>
                             </div>
                             <h1 className="text-primary">•</h1>
                             <h1 className="text-primary text-[14px] sm:text-base">
-                                {
-                                    project.attributes.project_detail.data
-                                        .attributes.year
-                                }
+                                {project?.attributes?.project_detail?.data
+                                    ?.attributes?.year ?? "No Year Specified"}
                             </h1>
                         </div>
                     </div>
@@ -192,10 +189,8 @@ export default function ProjectDetail({ params }) {
                         className="rounded-lg"
                     />
                     <ReactMarkdown className="prose max-w-none text-white text-justify w-full mt-10">
-                        {
-                            project.attributes.project_detail.data.attributes
-                                .description
-                        }
+                        {project?.attributes?.project_detail?.data?.attributes
+                            ?.description ?? "Description not available"}
                     </ReactMarkdown>
                 </div>
             </div>
