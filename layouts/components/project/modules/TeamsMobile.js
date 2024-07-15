@@ -9,7 +9,8 @@ export default function TeamsMobile({
   indeks,
   setSelectedTeam,
   projectID,
-  setProjectID,
+  isFilterActive,
+  setFilterActive,
 }) {
   useEffect(() => {
     if (!(projectID === null) && !isNaN(parseInt(projectID))) {
@@ -76,6 +77,7 @@ export default function TeamsMobile({
     setDirection(1);
     setID(-1);
     setSelectedTeam([]);
+    setFilterActive(false);
     gsap.to(activeImageRef.current, {
       x: 100,
       opacity: 0,
@@ -98,6 +100,7 @@ export default function TeamsMobile({
     setDirection(-1);
     setID(-1);
     setSelectedTeam([]);
+    setFilterActive(false);
     gsap.to(activeImageRef.current, {
       x: -100,
       opacity: 0,
@@ -145,6 +148,29 @@ export default function TeamsMobile({
       { opacity: 0.5, duration: 0.5 }
     );
   }, [indeks]);
+
+  useEffect(() => {
+    if (isFilterActive) {
+      gsap.to(prevImageRef.current, {
+        opacity: 0,
+        duration: 0.5,
+      });
+      gsap.to(nextImageRef.current, {
+        opacity: 0,
+        duration: 0.5,
+      });
+    }
+    if (!isFilterActive) {
+      gsap.to(prevImageRef.current, {
+        opacity: 0.5,
+        duration: 0.5,
+      });
+      gsap.to(nextImageRef.current, {
+        opacity: 0.5,
+        duration: 0.5,
+      });
+    }
+  });
 
   return (
     <div className="flex w-full h-full justify-center relative items-center">
