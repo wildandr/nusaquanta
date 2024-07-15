@@ -263,7 +263,7 @@ export default function Teams({
       <div className="flex w-full justify-center items-center absolute bottom-[10%] py-[2%] z-[20]">
         <button
           onClick={handleSetFilter}
-          className={`py-2 px-4 font-bold xl:text-base 2xl:text-xl rounded-lg border hover:border-primary hover:text-primary ${
+          className={`py-2 px-4 2xl:py-[1%] 2xl:px-[2%] font-bold xl:text-base 2xl:text-3xl rounded-lg 2xl:rounded-2xl border hover:border-primary hover:text-primary ${
             !isFilterActive
               ? "border-white text-white shadow-white"
               : "border-secondary text-secondary drop-shadow-lg shadow-secondary"

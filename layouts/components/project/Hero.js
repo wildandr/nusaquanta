@@ -286,14 +286,14 @@ export default function Hero({ setID, projectID, setProjectID }) {
             width={1000}
             height={1000}
             alt="ornamen"
-            className="absolute right-[0] h-[70%] w-auto opacity-50 top-[10%]"
+            className="absolute right-[0] h-[70%] w-auto opacity-30 top-[10%]"
           />
           <Image
             src={"/images/project/3d_kanan.png"}
             width={1000}
             height={1000}
             alt="ornamen"
-            className="absolute left-[0] h-[70%] w-auto opacity-50 top-[10%]"
+            className="absolute left-[0] h-[70%] w-auto opacity-30 top-[10%]"
           />
         </div>
       </div>
