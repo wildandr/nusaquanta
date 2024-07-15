@@ -24,11 +24,7 @@ export default function ProjectDetail({ params }) {
       try {
         const response = await fetch(
           `https://backend.nusaquanta.com/api/projects/${params.id}?populate[products]=*&populate[categories]=*&populate[project_teams][populate][person][fields]=full_name&populate[project_teams][populate][jobs][fields]=job_name&populate[image]=*&populate[project_detail]=*`,
-          {
-            headers: {
-              Authorization: `${process.env.NEXT_PUBLIC_API_TOKEN}`,
-            },
-          }
+         
         );
 
         if (!response.ok) {
@@ -90,7 +86,7 @@ export default function ProjectDetail({ params }) {
           </button>
           <h1 className="text-primary font-light">/</h1>
           <h1 className="text-primary font-semibold">
-            {project.attributes.project_detail.data.attributes.headline}
+            {project.attributes.project_detail.data.attributes.client}
           </h1>
         </div>
         <h1 className="text-primary text-5xl sm:text-5xl font-bold w-full">

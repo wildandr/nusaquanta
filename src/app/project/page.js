@@ -40,11 +40,7 @@ export default function Page() {
       try {
         const response = await fetch(
           "https://backend.nusaquanta.com/api/projects?populate[products]=*&populate[categories]=*&populate[project_teams][populate][people][fields]=full_name&populate[project_teams][populate][jobs][fields]=job_name&populate[image]=*",
-          {
-            headers: {
-              Authorization: process.env.NEXT_PUBLIC_API_TOKEN,
-            },
-          }
+          
         );
 
         if (!response.ok) {
@@ -309,10 +305,12 @@ export default function Page() {
               onClick={() => setCurrentPage(page + 1)}
               className={`px-2 mx-2 ${
                 currentPage === page + 1
-                  ? "bg-primary h-[0.1rem] w-7"
-                  : "bg-primary h-[0.1rem] w-1"
+                  ? "  text-primary"
+                  : "text-primary opacity-30  "
               }`}
-            ></button>
+            >
+              {page + 1}
+            </button>
           ))}
 
           <button
