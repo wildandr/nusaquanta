@@ -43,6 +43,7 @@ export default function Page() {
           
         );
 
+
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -56,24 +57,28 @@ export default function Page() {
             ? `https://backend.nusaquanta.com${imageUrl}`
             : "/default-image.png";
 
-          return {
-            id: project.id,
-            title: project.attributes.project_name,
-            imageUrl: absoluteImageUrl,
-            roles: project.attributes.project_teams.data.flatMap((team) =>
-              team.attributes.jobs.data.map((job) => job.attributes.job_name)
-            ),
-            products: project.attributes.products.data.map(
-              (product) => product.attributes.product_name
-            ),
-            categories: project.attributes.categories.data.map(
-              (category) => category.attributes.category_name
-            ),
-            projectTeamId: project.attributes.project_teams.data.map(
-              (teams_id) => teams_id.id
-            ),
-          };
-        });
+                    return {
+                        id: project.id,
+                        title: project.attributes.project_name,
+                        imageUrl: absoluteImageUrl,
+                        roles: project.attributes.project_teams.data.flatMap(
+                            (team) =>
+                                team.attributes.jobs.data.map(
+                                    (job) => job.attributes.job_name
+                                )
+                        ),
+                        products: project.attributes.products.data.map(
+                            (product) => product.attributes.product_name
+                        ),
+                        categories: project.attributes.categories.data.map(
+                            (category) => category.attributes.category_name
+                        ),
+                        projectTeamId:
+                            project.attributes.project_teams.data.map(
+                                (teams_id) => teams_id.id
+                            ),
+                    };
+                });
 
         setCardsData(formattedData);
 
