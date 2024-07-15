@@ -2,6 +2,8 @@ import TeamsMobile from "./modules/TeamsMobile";
 import { useEffect, useState } from "react";
 import RunningText from "@elements/RunningText";
 import Image from "next/image";
+import Link from "next/link";
+import gsap from "gsap";
 
 export default function HeroMobile({
   setSelectedTeam,
@@ -11,6 +13,7 @@ export default function HeroMobile({
   const [id, setID] = useState(-1);
   const [people, setPeople] = useState([]);
   const [indeks, setIndeks] = useState(2);
+  const [isFilterActive, setFilterActive] = useState(false);
 
   useEffect(() => {
     const fetchTeams = async () => {
@@ -45,7 +48,35 @@ export default function HeroMobile({
   const handleClickFilter = (indeks) => {
     setID(id > -1 ? -1 : indeks);
     setSelectedTeam(id > -1 ? [] : [indeks + 1]);
+    setFilterActive(!isFilterActive);
   };
+
+  useEffect(() => {
+    if (isFilterActive) {
+      gsap.to(".btn", {
+        opacity: 1,
+        display: "flex",
+        duration: 0.5,
+      });
+      gsap.to(".desc", {
+        opacity: 1,
+        display: "flex",
+        duration: 0.5,
+      });
+    }
+    if (!isFilterActive) {
+      gsap.to(".btn", {
+        opacity: 0,
+        display: "none",
+        duration: 0.5,
+      });
+      gsap.to(".desc", {
+        opacity: 0,
+        display: "none",
+        duration: 0.5,
+      });
+    }
+  }, [isFilterActive]);
 
   return (
     <div className="flex flex-col items-center justify-center p-2">
@@ -57,6 +88,17 @@ export default function HeroMobile({
         <p className=" font-reddit-sans xl:text-base 2xl:text-xl description text-center md:text-xl">
           Discover the Brilliance Behind Our Most Innovative Creations
         </p>
+        <div className="flex flex-col w-full items-center">
+          <Link
+            href={people.length > 0 ? people[indeks].cv : ``}
+            className="btn hidden rounded-2xl border border-white w-fit px-[5%] py-[0.5%] mt-[2%] hover:bg-primary hover:text-black z-[69]"
+          >
+            Download CV
+          </Link>
+          <p className="desc hidden mt-[2%] z-10 tetx-sm md:text-base text-justify">
+            {people.length > 0 ? people[indeks].description : ""}
+          </p>
+        </div>
 
         <div className="absolute w-full h-full flex justify-center top-0">
           <div
@@ -114,6 +156,8 @@ export default function HeroMobile({
           setSelectedTeam={setSelectedTeam}
           projectID={projectID}
           setProjectID={setProjectID}
+          isFilterActive={isFilterActive}
+          setFilterActive={setFilterActive}
         />
         <div className="absolute flex w-full justify-center items-center bottom-[10%]">
           <button
