@@ -87,11 +87,13 @@ export default function Hero({ setID, projectID, setProjectID }) {
         {
           opacity: 0,
           x: -100,
+          z: 11,
           display: "none",
         },
         {
           opacity: 1,
           x: 0,
+          z: 11,
           display: "flex",
           duration: 0.5,
           delay: 1.5,
@@ -149,6 +151,7 @@ export default function Hero({ setID, projectID, setProjectID }) {
       gsap.to(".foto", {
         opacity: 0,
         x: -100,
+        z: 11,
         display: "none",
         duration: 0.5,
       });
@@ -231,23 +234,7 @@ export default function Hero({ setID, projectID, setProjectID }) {
       <p className="moto hidden ps-[14%] pe-[35%] mt-[2%] xl:text-lg 2xl:text-2xl">
         {people.length > 0 ? people[activeImage - 1].description : ""}
       </p>
-      <div className="flex-row w-full justify-end items-end px-[10%] foto hidden absolute top-[10%]">
-        <div className="flex flex-col items-center relative">
-          <Image
-            src={`/images/home/${listNama[activeImage - 1].nama}_warna.png`}
-            alt="ornamen"
-            width={1000}
-            height={1000}
-            className="h-[70vh] w-auto"
-          />
-          {/* <button
-            onClick={setFilterActive.bind(this, false)}
-            className={`absolute bottom-[10%] py-2 px-4 font-bold xl:text-base 2xl:text-xl rounded-lg border hover:border-primary hover:text-primary border-secondary text-secondary drop-shadow-lg shadow-secondary`}
-          >
-            deselect
-          </button> */}
-        </div>
-      </div>
+
       <div className="flex flex-col justify-center items-center h-[60vh] z-[11]">
         <Teams
           isFilterActive={isFilterActive}
@@ -260,7 +247,18 @@ export default function Hero({ setID, projectID, setProjectID }) {
         />
       </div>
       <div className="absolute w-full h-full flex justify-center items-center top-0">
-        <RunningText color={"secondary absolute bottom-[6%] opacity-50"} />
+        <div className="flex-row w-full justify-end items-end px-[10%] foto hidden absolute top-[10%] z-10">
+          <Image
+            src={`/images/home/${listNama[activeImage - 1].nama}_warna.png`}
+            alt="ornamen"
+            width={1000}
+            height={1000}
+            className="flex h-[70vh] w-auto z-10"
+          />
+        </div>
+        <RunningText
+          color={"secondary absolute bottom-[6%] opacity-50 z-[20]"}
+        />
         <div
           style={{
             background:
