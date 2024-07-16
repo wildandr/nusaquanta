@@ -14,7 +14,6 @@ export default function TeamsMobile({
 }) {
   useEffect(() => {
     if (!(projectID === null) && !isNaN(parseInt(projectID))) {
-      console.log("projectIDTeams", projectID);
       setIndeks(parseInt(projectID) - 1);
     }
   }, [projectID]);

@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
+import Link from "next/link";
 
 export default function TeamsMobile() {
   const listNama = [
@@ -9,36 +10,36 @@ export default function TeamsMobile() {
       nama: "aziz",
       role1: "Frontend Developer",
       role2: "Backend Developer",
-      project: "#",
-      linkedin: "#",
+      project: "/project?id=1",
+      linkedin: "https://www.linkedin.com/in/rizkyazizz",
     },
     {
       nama: "rasyid",
       role1: "Frontend Developer",
       role2: "Backend Developer",
-      project: "#",
-      linkedin: "#",
+      project: "/project?id=2",
+      linkedin: "https://www.linkedin.com/in/rasyidkusnady/",
     },
     {
       nama: "wildan",
       role1: "UI/UX Designer",
       role2: "Data Scientist",
-      project: "#",
-      linkedin: "#",
+      project: "/project?id=3",
+      linkedin: "https://www.linkedin.com/in/wildanzake/",
     },
     {
       nama: "nawal",
       role1: "Frontend Developer",
       role2: "Backend Developer",
-      project: "#",
-      linkedin: "#",
+      project: "/project?id=4",
+      linkedin: "https://www.linkedin.com/in/nawalrizky/",
     },
     {
       nama: "darel",
       role1: "Frontend Developer",
       role2: "Backend Developer",
-      project: "#",
-      linkedin: "#",
+      project: "/project?id=5",
+      linkedin: "https://www.linkedin.com/in/markerizal/",
     },
   ];
 
@@ -171,6 +172,32 @@ export default function TeamsMobile() {
         onClick={handlePrev}
         className="absolute left-0 w-[10%] h-auto z-[11] px-[2%] hover:scale-150 transition-transform duration-300 cursor-pointer"
       />
+      <div className="flex flex-col w-[50%] justify-center items-center pb-[5%] gap-2 absolute bottom-0 z-10">
+        <Link
+          className="flex felx-row justify-center items-center w-[80%] text-center bg-secondary py-[3%] rounded-sm font-reddit-sans text-white text-[0.5rem] hover:bg-primary hover:text-secondary transition-colors duration-300 ease-in-out gap-1"
+          href={listNama[indeks].project}
+        >
+          PROJECT{" "}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="10"
+            height="9"
+            viewBox="0 0 10 9"
+            fill="none"
+          >
+            <path
+              d="M7.2018 1.74294L2.09643 1.78898L2.10715 0.599881L9.24256 0.535534L9.2372 1.13008L9.17822 7.67095L7.98912 7.68167L8.03516 2.5763L2.00733 8.60413L0.340604 8.60413L7.2018 1.74294Z"
+              fill="white"
+            />
+          </svg>
+        </Link>
+        <Link
+          className="flex felx-row justify-center items-center w-[80%] text-center bg-transparent border border-white py-[3%] rounded-sm font-reddit-sans text-white text-[0.5rem] hover:bg-white hover:text-secondary transition-colors duration-300 ease-in-out"
+          href={listNama[indeks].linkedin}
+        >
+          LinkedIn
+        </Link>
+      </div>
     </div>
   );
 }

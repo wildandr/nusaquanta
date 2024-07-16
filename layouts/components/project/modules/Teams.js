@@ -17,7 +17,6 @@ export default function Teams({
 }) {
   useEffect(() => {
     if (!(projectID === null) && !isNaN(parseInt(projectID))) {
-      console.log("projectIDTeams", projectID);
       setActiveImage(parseInt(projectID));
       setID([parseInt(projectID)]);
 

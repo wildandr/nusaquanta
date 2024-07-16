@@ -224,12 +224,12 @@ export default function Hero({ setID, projectID, setProjectID }) {
           {people.length > 0 ? people[activeImage - 1].full_name : ""}
         </p>
       </div>
-      {/* <Link
-                href={people.length > 0 ? people[activeImage - 1].cv : ``}
-                className="moto rounded-2xl border border-white hidden self-start px-[1%] py-[0.5%] ms-[14%] mt-[2%] hover:bg-primary hover:text-black z-[69]"
-            >
-                Download CV
-            </Link> */}
+      <Link
+        href={people.length > 0 ? people[activeImage - 1].cv : ``}
+        className="moto rounded-2xl border border-white hidden self-start px-[1%] py-[0.5%] ms-[14%] mt-[2%] hover:bg-primary hover:text-black z-[69]"
+      >
+        Download CV
+      </Link>
       <p className="moto hidden ps-[14%] pe-[35%] mt-[2%] xl:text-lg 2xl:text-2xl z-10">
         {people.length > 0 ? people[activeImage - 1].description : ""}
       </p>
