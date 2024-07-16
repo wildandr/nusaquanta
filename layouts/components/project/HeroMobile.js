@@ -40,7 +40,6 @@ export default function HeroMobile({
 
   useEffect(() => {
     if (!(projectID === null) && !isNaN(parseInt(projectID))) {
-      console.log("projectIDTeams", projectID);
       handleClickFilter(parseInt(projectID) - 1);
     }
   }, [projectID]);
