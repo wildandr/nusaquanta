@@ -39,10 +39,8 @@ export default function Page() {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://backend.nusaquanta.com/api/projects?populate[products]=*&populate[categories]=*&populate[project_teams][populate][people][fields]=full_name&populate[project_teams][populate][jobs][fields]=job_name&populate[image]=*",
-          
+          "https://backend.nusaquanta.com/api/projects?populate[products]=*&populate[categories]=*&populate[project_teams][populate][people][fields]=full_name&populate[project_teams][populate][jobs][fields]=job_name&populate[image]=*"
         );
-
 
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -57,28 +55,24 @@ export default function Page() {
             ? `https://backend.nusaquanta.com${imageUrl}`
             : "/default-image.png";
 
-                    return {
-                        id: project.id,
-                        title: project.attributes.project_name,
-                        imageUrl: absoluteImageUrl,
-                        roles: project.attributes.project_teams.data.flatMap(
-                            (team) =>
-                                team.attributes.jobs.data.map(
-                                    (job) => job.attributes.job_name
-                                )
-                        ),
-                        products: project.attributes.products.data.map(
-                            (product) => product.attributes.product_name
-                        ),
-                        categories: project.attributes.categories.data.map(
-                            (category) => category.attributes.category_name
-                        ),
-                        projectTeamId:
-                            project.attributes.project_teams.data.map(
-                                (teams_id) => teams_id.id
-                            ),
-                    };
-                });
+          return {
+            id: project.id,
+            title: project.attributes.project_name,
+            imageUrl: absoluteImageUrl,
+            roles: project.attributes.project_teams.data.flatMap((team) =>
+              team.attributes.jobs.data.map((job) => job.attributes.job_name)
+            ),
+            products: project.attributes.products.data.map(
+              (product) => product.attributes.product_name
+            ),
+            categories: project.attributes.categories.data.map(
+              (category) => category.attributes.category_name
+            ),
+            projectTeamId: project.attributes.project_teams.data.map(
+              (teams_id) => teams_id.id
+            ),
+          };
+        });
 
         setCardsData(formattedData);
 
@@ -342,4 +336,3 @@ export default function Page() {
     </div>
   );
 }
-

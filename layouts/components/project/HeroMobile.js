@@ -78,6 +78,10 @@ export default function HeroMobile({
     }
   }, [isFilterActive]);
 
+  useEffect(() => {
+    console.log("people", people);
+  }, [people]);
+
   return (
     <div className="flex flex-col items-center justify-center p-2">
       <div className="flex flex-col w-[80%] justify-center items-center py-[5%] gap-4 relative">
@@ -90,7 +94,7 @@ export default function HeroMobile({
         </p>
         <div className="flex flex-col w-full items-center">
           <Link
-            href={people.length > 0 ? people[indeks].cv : ``}
+            href={people.length > 0 ? people[indeks].cv : ""}
             className="btn hidden rounded-2xl border border-white w-fit px-[5%] py-[0.5%] mt-[2%] hover:bg-primary hover:text-black z-[69]"
           >
             Download CV
