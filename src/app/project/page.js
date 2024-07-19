@@ -163,20 +163,6 @@ export default function Page() {
     }
   };
 
-  useEffect(() => {
-    console.log("cardsData", cardsData);
-    console.log("filteredCards", filteredCards);
-    console.log("currentCards", currentCards);
-  }, [cardsData, filteredCards, currentCards]);
-
-  useEffect(() => {
-    console.log("selectedRoles", selectedRoles);
-    console.log("selectedProducts", selectedProducts);
-    console.log("selectedCategories", selectedCategories);
-    console.log("selectedTeams", selectedTeams);
-    console.log("nama", nama[selectedTeams - 1]);
-  }, [selectedRoles, selectedProducts, selectedCategories, selectedTeams]);
-
   return (
     <div
       className="w-full flex-col mt-20 justify-center items-center font-reddit-sans no-scrollbar"
