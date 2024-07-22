@@ -35,11 +35,19 @@ export default function Page() {
     }
   }, []);
 
+  const nama = [
+    "Muhammad Rizky Aziz",
+    "Rasyid Kusnady",
+    "Wildan Dzaky Ramadhani",
+    "Nawal Rizky Kautsar",
+    "Darriel Markerizal",
+  ];
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://backend.nusaquanta.com/api/projects?populate[products]=*&populate[categories]=*&populate[project_teams][populate][people][fields]=full_name&populate[project_teams][populate][jobs][fields]=job_name&populate[image]=*"
+          "https://backend.nusaquanta.com/api/projects?populate[products]=*&populate[categories]=*&populate[project_teams][populate][person][fields]=full_name&populate[project_teams][populate][jobs][fields]=job_name&populate[image]=*"
         );
 
         if (!response.ok) {
@@ -68,8 +76,13 @@ export default function Page() {
             categories: project.attributes.categories.data.map(
               (category) => category.attributes.category_name
             ),
-            projectTeamId: project.attributes.project_teams.data.map(
-              (teams_id) => teams_id.id
+            projectTeamIds: project.attributes.project_teams.data.flatMap(
+              (team) => {
+                const personData = team.attributes.person.data;
+                return Array.isArray(personData)
+                  ? personData.map((member) => member.attributes.full_name)
+                  : [personData.attributes.full_name];
+              }
             ),
           };
         });
@@ -127,7 +140,9 @@ export default function Page() {
       selectedCategories.some((category) => card.categories.includes(category));
     const matchTeam =
       selectedTeams.length === 0 ||
-      selectedTeams.some((id) => card.projectTeamId.includes(id));
+      selectedTeams.some((id) =>
+        card.projectTeamIds.includes(nama[selectedTeams - 1])
+      );
     const matchText =
       searchText === "" ||
       card.title.toLowerCase().includes(searchText.toLowerCase());
@@ -147,6 +162,7 @@ export default function Page() {
       setCurrentPage((prev) => Math.max(prev - 1, 1));
     }
   };
+
   return (
     <div
       className="w-full flex-col mt-20 justify-center items-center font-reddit-sans no-scrollbar"
