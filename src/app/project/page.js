@@ -187,7 +187,7 @@ export default function Page() {
               <p className="text-white text-[16px] mt-2">Filter by Role</p>
             </div>
             <div
-              className="overflow-scroll no-scrollbar"
+              className="w-[300%] sm:w-auto overflow-scroll no-scrollbar"
               style={{ overflow: "auto" }}
             >
               <FilterComponent
