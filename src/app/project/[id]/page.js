@@ -85,7 +85,7 @@ export default function ProjectDetail({ params }) {
           </button>
           <h1 className="text-primary font-light">/</h1>
           <h1 className="text-primary font-medium">
-            {project.attributes.project_name}
+            {project.attributes.project_slug}
           </h1>
         </div>
         <h1 className="text-primary text-5xl sm:text-5xl font-bold w-full">
