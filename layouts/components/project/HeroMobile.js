@@ -119,7 +119,7 @@ export default function HeroMobile({
             width={1000}
             height={1000}
             alt="logo"
-            className="absolute bottom-[-150%] opacity-10 w-full h-auto"
+            className="absolute bottom-[-150%] opacity-10 w-full h-auto -z-20"
           />
         </div>
       </div>
