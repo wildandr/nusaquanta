@@ -22,7 +22,7 @@ export default function ProjectDetail({ params }) {
     const fetchProjectDetails = async () => {
       try {
         const response = await fetch(
-          `https://backend.nusaquanta.com/api/projects/${params.id}?populate[products]=*&populate[categories]=*&populate[project_teams][populate][person][fields]=full_name&populate[project_teams][populate][jobs][fields]=job_name&populate[image]=*&populate[project_detail]=*`,
+          `https://nusaquanta.store/api/projects/${params.id}?populate[products]=*&populate[categories]=*&populate[project_teams][populate][person][fields]=full_name&populate[project_teams][populate][jobs][fields]=job_name&populate[image]=*&populate[project_detail]=*`,
          
         );
 
@@ -37,7 +37,7 @@ export default function ProjectDetail({ params }) {
                 const imageUrl =
                     projectData.attributes.image?.data?.[0]?.attributes?.url;
                 const absoluteImageUrl = imageUrl
-                    ? `https://backend.nusaquanta.com${imageUrl}`
+                    ? `https://nusaquanta.store${imageUrl}`
                     : "/default-image.png";
 
                 // Update project data with formatted image URL

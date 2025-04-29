@@ -19,7 +19,7 @@ export default function HeroMobile({
     const fetchTeams = async () => {
       try {
         const response = await fetch(
-          "https://backend.nusaquanta.com/api/people"
+          "https://nusaquanta.store/api/people"
           // {
           //   headers: {
           //     Authorization: process.env.NEXT_PUBLIC_API_TOKEN,

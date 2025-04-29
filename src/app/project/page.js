@@ -47,7 +47,7 @@ export default function Page() {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://backend.nusaquanta.com/api/projects?populate[products]=*&populate[categories]=*&populate[project_teams][populate][person][fields]=full_name&populate[project_teams][populate][jobs][fields]=job_name&populate[image]=*"
+          "https://nusaquanta.store/api/projects?populate[products]=*&populate[categories]=*&populate[project_teams][populate][person][fields]=full_name&populate[project_teams][populate][jobs][fields]=job_name&populate[image]=*"
         );
 
         if (!response.ok) {
@@ -60,7 +60,7 @@ export default function Page() {
         const formattedData = projects.map((project) => {
           const imageUrl = project.attributes.image?.data?.[0]?.attributes?.url;
           const absoluteImageUrl = imageUrl
-            ? `https://backend.nusaquanta.com${imageUrl}`
+            ? `https://nusaquanta.store${imageUrl}`
             : "/default-image.png";
 
           return {
