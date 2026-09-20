@@ -26,7 +26,7 @@ export default function HomeInnovation() {
           src="/images/home/homeInnovation_bg.png"
           width={339}
           height={339}
-          objectFit="cover"
+          className="object-cover"
           alt="Background Image"
         />
       </div>

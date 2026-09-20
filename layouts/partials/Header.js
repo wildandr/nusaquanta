@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { gsap } from "gsap";
-import Head from "next/head";
 import Image from "next/image";
 // import { RxHamburgerMenu } from "react-icons/rx";
 import Link from "next/link";

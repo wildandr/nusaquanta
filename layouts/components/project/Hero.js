@@ -7,10 +7,9 @@ import Image from "next/image";
 import Link from "next/link";
 import RunningText from "@elements/RunningText";
 
-export default function Hero({ setID, projectID, setProjectID }) {
+export default function Hero({ setID, projectID, setProjectID, people = [] }) {
   const [isFilterActive, setFilterActive] = useState(false);
   const [activeImage, setActiveImage] = useState(3);
-  const [people, setPeople] = useState([]);
 
   const listNama = [
     {
@@ -168,29 +167,6 @@ export default function Hero({ setID, projectID, setProjectID }) {
       });
     }
   }, [isFilterActive]);
-
-  useEffect(() => {
-    const fetchTeams = async () => {
-      try {
-        const response = await fetch(
-          "https://nusaquanta.store/api/people"
-          // {
-          //     headers: {
-          //         Authorization: process.env.NEXT_PUBLIC_API_TOKEN,
-          //     },
-          // }
-        );
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const result = await response.json();
-        setPeople(result);
-      } catch (error) {
-        console.error("Error fetching data: ", error);
-      }
-    };
-    fetchTeams();
-  }, []);
 
   return (
     <div className="bg-black flex flex-col relative h-screen w-full justify-between items-center pt-[2%] pb-[5%]">

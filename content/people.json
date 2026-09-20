@@ -1,0 +1,95 @@
+[
+  {
+    "id": 1,
+    "fullName": "Muhammad Rizky Aziz",
+    "description": "Aziz Ganteng\n",
+    "photo": "/images/project/aziz.jpeg",
+    "topJobs": [
+      "Frontend Developer"
+    ],
+    "links": {
+      "github": "https://github.com/whyaziz",
+      "linkedin": "https://www.linkedin.com/in/rizkyazizz/",
+      "instagram": "https://www.instagram.com/rizkyazizzz_/",
+      "email": "muhammadrizkyaziz1404@mail.ugm.ac.id",
+      "website": null,
+      "cv": "https://drive.google.com/file/d/1EOgALhjiuUgzHcC6fh5TsRvNrGZjDZpR/view?usp=drive_link"
+    }
+  },
+  {
+    "id": 2,
+    "fullName": "Rasyid Kusnady",
+    "description": "Rasyid Ganteng",
+    "photo": "/images/project/rasyid.jpeg",
+    "topJobs": [
+      "Frontend Developer",
+      "Mobile App Developer",
+      "Backend Developer"
+    ],
+    "links": {
+      "github": "https://github.com/rasyidk",
+      "linkedin": "https://www.linkedin.com/in/rasyidkusnady/",
+      "instagram": "https://www.instagram.com/rasyidk_/",
+      "email": "rasyidkusnady@mail.ugm.ac.id",
+      "website": null,
+      "cv": "https://jangan-null.com/"
+    }
+  },
+  {
+    "id": 3,
+    "fullName": "Wildan Dzaky Ramadhani",
+    "description": "With a profound interest in data science and active studies in college, I engage in a wide array of organizations and events, acquiring hands-on experience across multiple domains such as UI/UX design, backend development, machine learning, statistical modeling, and computer vision. I am committed to leveraging data-driven approaches to solve real-world problems, conduct impactful research, and improve decision-making processes.",
+    "photo": "/images/project/wildan.jpeg",
+    "topJobs": [
+      "UI/UX Designer",
+      "UI/UX Researcher",
+      "Project Manager"
+    ],
+    "links": {
+      "github": "https://github.com/wildandr/",
+      "linkedin": "https://www.linkedin.com/in/wildanzake/",
+      "instagram": "https://www.instagram.com/wildanzake/",
+      "email": "wildandzakyramadhani@mail.ugm.ac.id",
+      "website": null,
+      "cv": "https://www.nusaquanta.com/images/CV%20Wildan%20Dzaky%20Ramadhani.pdf"
+    }
+  },
+  {
+    "id": 4,
+    "fullName": "Nawal Rizky Kautsar",
+    "description": "With a solid foundation in software engineering from Universitas Gadjah Mada, I specialize in frontend development, adept at crafting intuitive, responsive, and visually appealing user interfaces using React Native, Next.js, and TypeScript. My experience includes leading front-end projects, collaborating with cross-functional teams, and seamlessly integrating front-end components with back-end services. Alongside technical proficiency, my active involvement in committees and organizations has refined my teamwork, communication, and leadership skills.",
+    "photo": "/images/project/nawal.jpeg",
+    "topJobs": [
+      "Frontend Developer",
+      "UI/UX Designer",
+      "Mobile App Developer"
+    ],
+    "links": {
+      "github": "https://github.com/nawalrizky",
+      "linkedin": "https://www.linkedin.com/in/nawalrizky/",
+      "instagram": "https://www.instagram.com/nawalrizky/",
+      "email": "nawalrizkykautsar@mail.ugm.ac.id",
+      "website": null,
+      "cv": "https://jangan-null.com/"
+    }
+  },
+  {
+    "id": 5,
+    "fullName": "Darriel Markerizal",
+    "description": "A passionate Full Stack Developer with hands-on experience in UI/UX Design, Backend and Frontend Development, and Database Management. Dedicated to leveraging technical expertise to tackle real-world challenges and develop innovative digital solutions that enhance user experiences.\n",
+    "photo": "/images/project/darel.jpeg",
+    "topJobs": [
+      "UI/UX Designer",
+      "UI/UX Researcher",
+      "Frontend Developer"
+    ],
+    "links": {
+      "github": "https://github.com/darrielmarkerizal",
+      "linkedin": "https://www.linkedin.com/in/markerizal/",
+      "instagram": "https://www.instagram.com/darrielrel/",
+      "email": "darrielmarkerizal@mail.ugm.ac.id",
+      "website": null,
+      "cv": "https://jangan-null.com/"
+    }
+  }
+]
