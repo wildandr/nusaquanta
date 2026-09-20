@@ -9,34 +9,11 @@ export default function HeroMobile({
   setSelectedTeam,
   projectID,
   setProjectID,
+  people = [],
 }) {
   const [id, setID] = useState(-1);
-  const [people, setPeople] = useState([]);
   const [indeks, setIndeks] = useState(2);
   const [isFilterActive, setFilterActive] = useState(false);
-
-  useEffect(() => {
-    const fetchTeams = async () => {
-      try {
-        const response = await fetch(
-          "https://nusaquanta.store/api/people"
-          // {
-          //   headers: {
-          //     Authorization: process.env.NEXT_PUBLIC_API_TOKEN,
-          //   },
-          // }
-        );
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const result = await response.json();
-        setPeople(result);
-      } catch (error) {
-        console.error("Error fetching data: ", error);
-      }
-    };
-    fetchTeams();
-  }, []);
 
   useEffect(() => {
     if (!(projectID === null) && !isNaN(parseInt(projectID))) {

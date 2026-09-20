@@ -1,5 +1,5 @@
 "use client"
-import { useLayoutEffect, useRef, useState, useEffect } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
@@ -7,12 +7,12 @@ import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function HomeShowcase() {
+export default function HomeShowcase({ cards = [] }) {
   const scroller = useRef();
   const skills = useRef();
-  const [cardItems, setCardItems] = useState([]);
-  const [firstCardItems, setFirstCardItems] = useState([]);
-  const [secondCardItems, setSecondCardItems] = useState([]);
+
+  const firstCardItems = cards.filter((item) => item.id >= 1 && item.id <= 7).slice(0, 7);
+  const secondCardItems = cards.filter((item) => item.id >= 8 && item.id <= 14).slice(0, 7);
 
   const getResponsiveXPercent = () => {
     if (window.innerWidth >= 1600) {
@@ -27,56 +27,6 @@ export default function HomeShowcase() {
       return -100 * 0.46;
     }
   };
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          "https://nusaquanta.store/api/projects?populate[products]=*&populate[categories]=*&populate[project_teams][populate][people][fields]=full_name&populate[project_teams][populate][jobs][fields]=job_name&populate[image]=*"
-        );
-
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const result = await response.json();
-
-        const projects = result.data;
-        const formattedData = projects.map((project) => {
-          const imageUrl = project.attributes.image?.data?.[0]?.attributes?.url;
-          const absoluteImageUrl = imageUrl
-            ? `https://nusaquanta.store${imageUrl}`
-            : "/images/project/placeholder.png";
-
-          return {
-            id: project.id,
-            title: project.attributes.project_name,
-            imageUrl: absoluteImageUrl,
-            description:
-              project.attributes.description || "No description available",
-          };
-        });
-
-        // Splitting data into two sets
-        const firstSet = formattedData.filter(
-          (item) => item.id >= 1 && item.id <= 7
-        );
-        const secondSet = formattedData.filter(
-          (item) => item.id >= 8 && item.id <= 14
-        );
-
-        setFirstCardItems(firstSet.slice(0, 7)); // Displaying first 7 items from ID 1-7
-        setSecondCardItems(secondSet.slice(0, 7)); // Displaying maximum 6 items from ID 8-13
-
-        // Set all items for animation if needed
-        setCardItems(formattedData);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
 
   useLayoutEffect(() => {
     const createScrollAnimation = () => {
