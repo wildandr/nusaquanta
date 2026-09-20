@@ -42,6 +42,7 @@ const jsonLd = {
   "@type": "Organization",
   name: "PT Nusa Quanta Indonesia",
   url: siteUrl,
+  email: "hello@nusaquanta.tech",
   description: config.metadata.meta_description,
   knowsAbout: [
     "Artificial Intelligence",
