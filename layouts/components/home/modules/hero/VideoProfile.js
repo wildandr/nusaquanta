@@ -38,6 +38,7 @@ export default function VideoProfile({ play }) {
         className="w-full h-full object-contain"
         loop
         playsInline
+        controls
         preload="none"
       >
         <source src="/video/home/company-profile.mp4" type="video/mp4" />
@@ -49,7 +50,7 @@ export default function VideoProfile({ play }) {
           onClick={toggleFullscreen}
           aria-label="Fullscreen"
           title="Fullscreen"
-          className="absolute bottom-3 right-3 z-[70] flex items-center justify-center w-9 h-9 rounded-lg border border-primary/60 bg-black/50 text-primary hover:bg-primary hover:text-black transition-colors cursor-pointer"
+          className="absolute top-3 right-3 z-[70] flex items-center justify-center w-9 h-9 rounded-lg border border-primary/60 bg-black/50 text-primary hover:bg-primary hover:text-black transition-colors cursor-pointer"
         >
           <svg
             width="16"
