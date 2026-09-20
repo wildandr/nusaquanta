@@ -109,13 +109,15 @@ export default function LastProject() {
               opacity: { duration: 0.5 },
             }}
           >
-            <Image
-              src={`/images/home/project/${projects[currentProject].nama}.png`}
-              alt={projects[currentProject].nama}
-              width={1000}
-              height={1000}
-              className="object-contain p-[8%] flex rounded-3xl"
-            />
+            <div className="w-[84%] rounded-[2rem] overflow-hidden">
+              <Image
+                src={`/images/home/project/${projects[currentProject].nama}.png`}
+                alt={projects[currentProject].nama}
+                width={1000}
+                height={1000}
+                className="w-full h-auto flex"
+              />
+            </div>
           </motion.div>
         </AnimatePresence>
       </div>
