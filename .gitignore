@@ -37,3 +37,4 @@ next-env.d.ts
 
 # payload local media (dev)
 /media
+.env*

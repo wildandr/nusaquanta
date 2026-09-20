@@ -4,6 +4,26 @@ import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import { getProjectDetail } from "@/lib/queries";
 
+export async function generateMetadata({ params }) {
+    const { id } = await params;
+    const project = await getProjectDetail(id);
+    if (!project) return { title: "Project tidak ditemukan" };
+    const description =
+        project.detail.headline ||
+        project.detail.description?.slice(0, 155) ||
+        project.title;
+    return {
+        title: project.title,
+        description,
+        alternates: { canonical: `/project/${project.id}` },
+        openGraph: {
+            title: project.title,
+            description,
+            images: [{ url: project.imageUrl }],
+        },
+    };
+}
+
 export default async function ProjectDetail({ params }) {
     const { id } = await params;
     const project = await getProjectDetail(id);

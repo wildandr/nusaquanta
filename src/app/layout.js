@@ -4,11 +4,56 @@ import config from "@config/config.json";
 import Footer from "@partials/Footer";
 import SmoothScrolling from "@components/smooth-scroll/SmoothScrolling";
 
-const metadata = config.metadata;
+const siteUrl = "https://nusaquanta.tech";
+
+export const metadata = {
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "PT Nusa Quanta Indonesia — AI, Quantitative Analysis & Data Engineering",
+    template: "%s | Nusa Quanta",
+  },
+  description:
+    "Perusahaan software engineering Indonesia yang berfokus pada AI, analisis kuantitatif, dan data engineering. Lihat portofolio project kami.",
+  keywords: [
+    "Nusa Quanta",
+    "software engineering Indonesia",
+    "AI Indonesia",
+    "data engineering",
+    "quantitative analysis",
+    "machine learning",
+  ],
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "id_ID",
+    url: siteUrl,
+    siteName: "Nusa Quanta",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
+};
+
+// Structured data untuk Google (Organization)
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "PT Nusa Quanta Indonesia",
+  url: siteUrl,
+  description: config.metadata.meta_description,
+  knowsAbout: [
+    "Artificial Intelligence",
+    "Quantitative Analysis",
+    "Data Engineering",
+    "Software Development",
+  ],
+};
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="id">
       <head>
         <link
           rel="preload"
@@ -21,16 +66,15 @@ export default function RootLayout({ children }) {
         />
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content={metadata.meta_description} />
-        <meta name="keywords" content={metadata.meta_keywords} />
-        <meta name="author" content={metadata.meta_author} />
-        <title>{metadata.meta_title}</title>
         <link rel="icon" href="/favicon.ico" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </head>
-      <body>
+      <body className="bg-black">
         <Header />
         <SmoothScrolling>{children}</SmoothScrolling>
-
         <Footer />
       </body>
     </html>
