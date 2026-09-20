@@ -1,0 +1,645 @@
+[
+  {
+    "id": 1,
+    "title": "Senyumin: Automated AI-Based Dental Disease Detection and Record System",
+    "slug": "senyumin",
+    "image": "/images/home/project/1.png",
+    "categories": [
+      "Service",
+      "Healthcare",
+      "Dashboard"
+    ],
+    "products": [
+      "RESTful API ",
+      "Machine Learning",
+      "Website",
+      "UI/UX Design",
+      "UI/UX Researcher",
+      "Data Science"
+    ],
+    "team": [
+      {
+        "person": "Wildan Dzaky Ramadhani",
+        "jobs": [
+          "Backend Developer",
+          "UI/UX Designer",
+          "UI/UX Researcher",
+          "Project Manager",
+          "Machine Learning Engineer"
+        ]
+      }
+    ],
+    "detail": {
+      "headline": "Senyumin",
+      "description": "# About The Project\n\nInitially, dental disease detection and record-keeping were performed manually by dentists through direct checks and individual patient record entries. This led to a shortage of resources for examining large numbers of patients. We observed this issue firsthand during a dental health outreach event for elementary school students in a specific district, where thousands of students needed examinations but only a few dentists were available. To address this, we developed a new innovative product that accelerates the dental check and record-keeping process from 3-5 minutes to just 30 seconds per patient. This acceleration is supported by AI and an automated record system, linked through a web application and QR scanning method to enhance patient mobility without the need for manual data entry.\n\n## Goals:\n- Speed up the disease detection and medical recording process.\n- Achieve high accuracy in disease detection.\n- Expand the reach of beneficiaries by making the system accessible.\n\n## The User & Audience\n- Dentists as the primary checkers of patient diseases.\n- Patients as users who can access, add, and update data.\n\n## Development Scope\n- Development of Artificial Intelligence.\n- Website Applications.\n- Backend Applications & Backend AI.\n\n## Process\n### Planning Phase:\nThe process began with an intensive planning stage, where the development team collaborated with dentists and IT experts to identify specific needs and challenges in dental disease detection and record-keeping. During this phase, we conducted a series of discussions, surveys, and brainstorming sessions to ensure that the developed solution met the end-users' needs and could be smoothly integrated into the existing infrastructure.\n\n### Prototype Development:\nAfter establishing the needs and technical specifications, we began developing a system prototype. This stage involved creating an AI model capable of identifying various dental diseases from scanned images. This model was trained using a large dataset containing thousands of annotated dental images by professional dentists. Simultaneously, the web development team built a web application for accessing and managing medical records.\n\n### Testing and Validation:\nThe developed prototype was then tested in a controlled environment to evaluate its effectiveness and detection accuracy. This testing involved dentists and patients in real scenarios to ensure that the system was effective and reliable. Feedback received was crucial and used for system iterations and improvements.\n\n## Competitors\n- **Pearl**: Offers comprehensive AI-powered dental diagnostics, emphasizing FDA-approved technologies for a broad range of detection capabilities.\n- **Denti.AI**: Focuses on automating pathology detection and charting, notable for its industry-first FDA clearance for panoramic image disease detection.\n- **VideaHealth**: Utilizes AI for early disease detection to enhance diagnostic accuracy and patient care, endorsed by leading dental support organizations in the U.S.\n- **Overjet**: Specializes in detailed imaging analysis and orthodontic assessment, supporting clinical decision-making with extensive AI-driven data analysis.\n\n## SWOT Analysis\n### Strengths\n- Localized Focus: \"Senyumin\" may emphasize local understanding and customization tailored to Indonesian healthcare practices, making it highly relevant for its primary audience.\n- Integration with Public Health Services: By collaborating with public healthcare facilities like Puskesmas, \"Senyumin\" ensures broad accessibility and could potentially receive government support, enhancing its credibility and reach.\n\n### Weaknesses\n- Resource Limitations: As a new entrant, \"Senyumin\" might face challenges in resources and funding compared to well-established competitors who already have significant investments and market penetration.\n- Brand Recognition: Competitors with international presence and multiple regulatory approvals (like FDA clearance) might overshadow \"Senyumin\" in terms of brand trust and recognition globally.\n\n### Opportunities\n- Government and Public Sector Partnerships: By enhancing partnerships with local government and educational institutions for public health initiatives, \"Senyumin\" can leverage public funding and infrastructure to expand its user base.\n- Customization for Local Needs: Developing features that cater specifically to the Indonesian demographic and healthcare challenges could differentiate \"Senyumin\" from competitors focused on Western markets.\n\n### Threats\n- Technological Advancements by Competitors: Companies like Pearl and Overjet are leading with advanced AI technologies and have substantial funding to accelerate innovation, which could outpace \"Senyumin's\" development.\n- Regulatory Challenges: Navigating the complex regulatory environment in healthcare can be slower for newer companies, potentially delaying market entry or expansion.\n",
+      "client": "Jakarta New Kebayoran Dental Clinic Association",
+      "year": "2022"
+    }
+  },
+  {
+    "id": 2,
+    "title": "Denteksi: Automated AI-Based Dental Disease Detection and Record System",
+    "slug": "denteksi",
+    "image": "/images/home/project/2.png",
+    "categories": [
+      "Service",
+      "Healthcare",
+      "Dashboard"
+    ],
+    "products": [
+      "Website",
+      "RESTful API ",
+      "UI/UX Researcher",
+      "UI/UX Design",
+      "Machine Learning",
+      "Data Science"
+    ],
+    "team": [
+      {
+        "person": "Wildan Dzaky Ramadhani",
+        "jobs": [
+          "Project Manager"
+        ]
+      }
+    ],
+    "detail": {
+      "headline": "Denteksi",
+      "description": "## About The Project\n\nInitially, dental disease detection and record-keeping were performed manually by dentists through direct checks and individual patient record entries. This led to a shortage of resources for examining large numbers of patients. We observed this issue firsthand during a dental health outreach event for elementary school students in a specific district, where thousands of students needed examinations but only a few dentists were available. To address this, we developed a new innovative product that accelerates the dental check and record-keeping process from 3-5 minutes to just 30 seconds per patient. This acceleration is supported by AI and an automated record system, linked through a web application and QR scanning method to enhance patient mobility without the need for manual data entry.\n\n## Goals:\n- Speed up the disease detection and medical recording process.\n- Achieve high accuracy in disease detection.\n- Expand the reach of beneficiaries by making the system accessible.\n\n## The User & Audience\n- Dentists as the primary checkers of patient diseases.\n- Patients as users who can access, add, and update data.\n\n## Development Scope\n- Development of Artificial Intelligence.\n- Website Applications.\n- Backend Applications & Backend AI.\n\n## Process\n### Planning Phase:\nThe process began with an intensive planning stage, where the development team collaborated with dentists and IT experts to identify specific needs and challenges in dental disease detection and record-keeping. During this phase, we conducted a series of discussions, surveys, and brainstorming sessions to ensure that the developed solution met the end-users' needs and could be smoothly integrated into the existing infrastructure.\n\n### Prototype Development:\nAfter establishing the needs and technical specifications, we began developing a system prototype. This stage involved creating an AI model capable of identifying various dental diseases from scanned images. This model was trained using a large dataset containing thousands of annotated dental images by professional dentists. Simultaneously, the web development team built a web application for accessing and managing medical records.\n\n### Testing and Validation:\nThe developed prototype was then tested in a controlled environment to evaluate its effectiveness and detection accuracy. This testing involved dentists and patients in real scenarios to ensure that the system was effective and reliable. Feedback received was crucial and used for system iterations and improvements.\n\n## Competitors\n- **Pearl**: Offers comprehensive AI-powered dental diagnostics, emphasizing FDA-approved technologies for a broad range of detection capabilities.\n- **Denti.AI**: Focuses on automating pathology detection and charting, notable for its industry-first FDA clearance for panoramic image disease detection.\n- **VideaHealth**: Utilizes AI for early disease detection to enhance diagnostic accuracy and patient care, endorsed by leading dental support organizations in the U.S.\n- **Overjet**: Specializes in detailed imaging analysis and orthodontic assessment, supporting clinical decision-making with extensive AI-driven data analysis.\n\n## SWOT Analysis\n### Strengths\n- Localized Focus: \"Senyumin\" may emphasize local understanding and customization tailored to Indonesian healthcare practices, making it highly relevant for its primary audience.\n- Integration with Public Health Services: By collaborating with public healthcare facilities like Puskesmas, \"Senyumin\" ensures broad accessibility and could potentially receive government support, enhancing its credibility and reach.\n\n### Weaknesses\n- Resource Limitations: As a new entrant, \"Senyumin\" might face challenges in resources and funding compared to well-established competitors who already have significant investments and market penetration.\n- Brand Recognition: Competitors with international presence and multiple regulatory approvals (like FDA clearance) might overshadow \"Senyumin\" in terms of brand trust and recognition globally.\n\n### Opportunities\n- Government and Public Sector Partnerships: By enhancing partnerships with local government and educational institutions for public health initiatives, \"Senyumin\" can leverage public funding and infrastructure to expand its user base.\n- Customization for Local Needs: Developing features that cater specifically to the Indonesian demographic and healthcare challenges could differentiate \"Senyumin\" from competitors focused on Western markets.\n\n### Threats\n- Technological Advancements by Competitors: Companies like Pearl and Overjet are leading with advanced AI technologies and have substantial funding to accelerate innovation, which could outpace \"Senyumin's\" development.\n- Regulatory Challenges: Navigating the complex regulatory environment in healthcare can be slower for newer companies, potentially delaying market entry or expansion.\n",
+      "client": "Jakarta New Kebayoran Dental Clinic Association",
+      "year": "2023"
+    }
+  },
+  {
+    "id": 3,
+    "title": "PPSMB UGM 2023",
+    "slug": "ppsmb-ugm-2023",
+    "image": "/images/home/project/3.png",
+    "categories": [
+      "Organizations and Non-Profit",
+      "Event"
+    ],
+    "products": [
+      "Website"
+    ],
+    "team": [
+      {
+        "person": "Rasyid Kusnady",
+        "jobs": [
+          "Frontend Developer"
+        ]
+      }
+    ],
+    "detail": {
+      "headline": "PPSMB Pionir Gadjah Mada 2023",
+      "description": "# About The Project\n\nThe PPSMB UGM 2023 website is an information portal designed specifically for new students at Gadjah Mada University. This platform provides essential information about university events, group cluster searches, and even features an augmented reality component to enhance user engagement. The website has seen impressive traction, with approximately 70,000 users accessing it within just two weeks of its launch. Built using Next.js for a robust, dynamic user experience and AR.js to integrate augmented reality functionalities, this website aims to deliver a comprehensive and innovative information hub for new students.\n\n## Goals:\n- To provide a centralized information resource for new students, ensuring they have easy access to all necessary details about university events and activities.\n- To facilitate the search and identification of group clusters, helping students find and connect with their assigned groups seamlessly.\n- To integrate augmented reality features, enhancing the overall user experience and making the information more interactive and engaging.\n- To achieve high user engagement and satisfaction, as evidenced by the substantial user base within a short period.\n\n## The User & Audience\n- New students at Gadjah Mada University who need comprehensive information about the university's orientation events and activities.\n- University staff and organizers who require an efficient platform to disseminate information and manage event logistics.\n- Parents and guardians who may seek information about their children's orientation process and university activities.\n\n## Development Scope\n- **Front-End Development:** Utilizing Next.js to create a dynamic, responsive, and user-friendly interface that caters to the needs of new students.\n- **Back-End Integration:** Ensuring seamless data flow and real-time updates through robust back-end support using STRAPI.\n- **Augmented Reality Integration:** Implementing AR.js to provide innovative augmented reality features that enhance user interaction with the website.\n- **User Engagement and Analytics:** Monitoring and analyzing user engagement to continually improve the website's functionality and user experience.\n- **Scalability and Performance:** Designing the website to handle high traffic volumes, as demonstrated by its ability to support 70,000 users within two weeks.\n\n## Process\n### Requirement Gathering:\nThe initial phase involved identifying the needs and expectations of new students, university staff, and other stakeholders. This was achieved through surveys and interviews, which provided detailed insights into the functional and non-functional requirements of the website. All gathered information was meticulously documented to guide the subsequent phases.\n\n### Planning and Design:\nFollowing the requirement gathering, a comprehensive project plan was developed, outlining timelines and milestones. The design phase focused on creating the website architecture and user interface, with wireframes and mockups prepared for stakeholder review. Feedback from stakeholders was incorporated to ensure the design met all user needs and expectations.\n\n### Development:\nThe development phase saw the actual building of the website. Front-end development was carried out using Next.js to create a dynamic and responsive user interface. Simultaneously, back-end development ensured seamless data flow and real-time updates. This phase also included the integration of AR.js to provide augmented reality features, enhancing user interaction with the website.\n\n### Testing:\nRigorous testing was conducted to ensure the website functioned as intended. This included unit tests, integration tests, and system tests. User\n",
+      "client": "Volunteering Activity on Student orientation at Universitas Gadjah Mada",
+      "year": "2023"
+    }
+  },
+  {
+    "id": 4,
+    "title": "Scanocular",
+    "slug": "scanocular",
+    "image": "/images/home/project/4.png",
+    "categories": [
+      "Service",
+      "Organizations and Non-Profit",
+      "Healthcare",
+      "Education"
+    ],
+    "products": [
+      "Data Analyst",
+      "Data Science",
+      "Mobile Apps"
+    ],
+    "team": [
+      {
+        "person": "Rasyid Kusnady",
+        "jobs": [
+          "Frontend Developer",
+          "Machine Learning Engineer",
+          "Mobile App Developer"
+        ]
+      }
+    ],
+    "detail": {
+      "headline": "Scanocular",
+      "description": "# About The Project\n\nEye diseases such as cataracts, glaucoma, and diabetic retinopathy are major global health issues, affecting millions of people and leading to vision impairment or blindness if not detected and treated promptly. According to the World Health Organization (WHO), 2.2 billion people suffer from vision impairment, with at least 1 billion cases being preventable. In Indonesia, these eye diseases significantly contribute to vision problems, exacerbated by limited awareness and accessibility to early detection. Additionally, inefficiencies and lack of integration in medical records hinder effective diagnosis and treatment.\n\nTo address these challenges, we developed SCANOCULAR, an application leveraging artificial intelligence (AI) and blockchain technology to facilitate early detection of eye diseases through smartphone-based eye scans. The blockchain component ensures the security and immutability of patient data, supporting the implementation of electronic medical records (EMR) and integration with Indonesia's SATUSEHAT system. This development aims to enhance overall eye care quality in Indonesia, aligning with the Sustainable Development Goals (SDGs) for \"Good Health and Well-Being.\"\n\n## Goals:\n- To provide an accessible and efficient tool for the early detection of eye diseases such as cataracts, glaucoma, and diabetic retinopathy using smartphone-based eye scans.\n- To ensure the security and immutability of patient data through blockchain technology, facilitating the implementation of electronic medical records (EMR).\n- To integrate with Indonesia's SATUSEHAT system, enhancing the overall efficiency and effectiveness of the healthcare system.\n- To increase awareness and accessibility to early detection of eye diseases in Indonesia, ultimately reducing the incidence of vision impairment and blindness.\n- To contribute to the Sustainable Development Goals (SDGs) for \"Good Health and Well-Being.\"\n\n## The User & Audience\n- **Patients:** Individuals at risk of or suffering from eye diseases, particularly those in remote or underserved areas with limited access to traditional healthcare facilities.\n- **Healthcare Providers:** Doctors, optometrists, and other healthcare professionals who require efficient tools for early diagnosis and treatment of eye diseases.\n- **Healthcare Administrators:** Individuals responsible for managing patient records and ensuring compliance with healthcare standards and regulations.\n- **Researchers and Public Health Officials:** Professionals involved in the study and management of public health issues related to eye diseases.\n\n## Development Scope\n- **Artificial Intelligence Integration:** Developing AI algorithms capable of analyzing eye scans and detecting signs of cataracts, glaucoma, and diabetic retinopathy with high accuracy.\n- **Blockchain Technology Implementation:** Ensuring the security and immutability of patient data through blockchain, facilitating the creation of electronic medical records (EMR).\n- **User Interface and Experience:** Designing a user-friendly interface that allows easy navigation and use by both patients and healthcare providers.\n- **System Integration:** Integrating the application with Indonesia's SATUSEHAT system to streamline healthcare processes and improve overall efficiency.\n- **Awareness and Education:** Developing strategies to increase awareness about the importance of early detection of eye diseases and the benefits of using SCANOCULAR.\n\n## Process\n### Requirement Gathering:\nThe initial phase involved identifying the needs and expectations of patients, healthcare providers, administrators, and public health officials through surveys and interviews. This provided insights into functional and non-functional requirements, guiding subsequent phases.\n\n### Planning and Design:\nA comprehensive project plan was developed post-requirement gathering, outlining timelines and milestones. Design focused on creating a scalable architecture and intuitive user interface, incorporating stakeholder feedback.\n\n### Development:\nFront-end development used robust frameworks to ensure responsiveness and accessibility. Concurrent back-end development supported data flow and real-time updates, with blockchain integration for data security.\n\n### Testing:\nRigorous testing included unit, integration, and user acceptance testing (UAT) phases to validate functionality, performance, and user experience. Load testing ensured scalability under high usage.\n\n### Deployment:\nProduction environment setup ensured configurations were optimized for performance and security. Final checks and user validation preceded the official launch.\n\n### Release and Monitoring:\nPost-launch monitoring tracked performance metrics and user engagement. Feedback mechanisms facilitated ongoing improvements to meet user needs and healthcare objectives.\n",
+      "client": "GEMASTIK 2023",
+      "year": "2023"
+    }
+  },
+  {
+    "id": 5,
+    "title": "Herbacare",
+    "slug": "herbacare",
+    "image": "/images/home/project/5.png",
+    "categories": [
+      "Healthcare",
+      "Service",
+      "Organizations and Non-Profit",
+      "Education"
+    ],
+    "products": [
+      "Mobile Apps"
+    ],
+    "team": [
+      {
+        "person": "Rasyid Kusnady",
+        "jobs": [
+          "Frontend Developer",
+          "Mobile App Developer"
+        ]
+      }
+    ],
+    "detail": {
+      "headline": "Herbacare",
+      "description": "# About The Project\n\n**Herbacare** is a mobile application designed to digitize Traditional-Complementary Alternative Medicine (TCAM) in Indonesia. The platform integrates educational resources, consultation-reservation services, and marketing of herbal products, aiming to preserve and promote the use of traditional medicine in the digital age. The application leverages deep learning technologies like convolutional neural networks (CNNs) to provide detailed information on herbal plants through image scanning.\n\n## Goals:\n- **Support Healthcare Practitioners:** Provide a marketplace for traditional healthcare specialists and herbal product businesses to offer their services and products.\n- **Ease of Access for Users:** Facilitate the public in accessing safe TCAM and herbal treatments from verified practitioners and products certified by the Indonesian Ministry of Health and BPOM.\n- **Increase Awareness:** Enhance public knowledge of the benefits of TCAM and herbal medicine through education.\n- **Digitalization of TCAM:** Ensure the sustainability and relevance of TCAM by integrating it into the digital healthcare ecosystem.\n- **Promote Health Tourism:** Lay the groundwork for Indonesia to become a recognized destination for healthcare and wellness tourism.\n\n## The User & Audience\n### Primary Users:\n- Healthcare practitioners, including traditional medicine specialists and certified herbalists.\n- Businesses offering herbal products and traditional medicine services.\n\n### Target Audience:\n- Individuals seeking alternative and complementary healthcare solutions.\n- Practitioners and businesses in the TCAM industry.\n- Tourists interested in health and wellness tourism.\n\n## Development Scope\n### Functionality:\n- **EduTCAM:** Provides educational content on herbal plants, recipes, and other relevant information.\n- **SmarTCAM:** Allows users to scan herbal plants with their phone camera to receive detailed information about the species and its benefits.\n- **Reservation System:** Enables users to book appointments with certified TCAM practitioners.\n- **Interactive Chatbot:** Offers an AI-powered chatbot to answer queries about herbal medicine.\n\n### Platform:\n- **Mobile Application:** Currently not available on Play Store or App Store, requiring users to modify permission settings to install.\n\n",
+      "client": "Program Kreativitas Mahasiswa",
+      "year": "2023"
+    }
+  },
+  {
+    "id": 6,
+    "title": "Reconchain",
+    "slug": "reconchain",
+    "image": "/images/home/project/6.png",
+    "categories": [
+      "Service",
+      "Organizations and Non-Profit",
+      "Community"
+    ],
+    "products": [
+      "Mobile Apps"
+    ],
+    "team": [
+      {
+        "person": "Rasyid Kusnady",
+        "jobs": [
+          "Frontend Developer",
+          "Mobile App Developer",
+          "Blockchain Developer"
+        ]
+      }
+    ],
+    "detail": {
+      "headline": "Reconchain",
+      "description": "# About The Project\n\n**Reconchain** is an innovative application designed to track the carbon footprint generated by industries. By leveraging blockchain technology, Reconchain ensures the transparency and immutability of carbon emission data throughout the supply chain. Users can monitor and verify the carbon footprint associated with the production and distribution of goods.\n\n## Goals:\n- **Carbon Footprint Tracking:** Accurately record and track the carbon emissions produced at each stage of the supply chain.\n- **Transparency and Accountability:** Provide a transparent and tamper-proof record of carbon emissions using blockchain technology.\n- **Consumer Awareness:** Enable consumers to view the carbon footprint of products by scanning a QR code with their smartphones.\n- **Carbon Tax Implementation:** Apply carbon taxes based on the recorded carbon emissions to encourage industries to reduce their environmental impact.\n\n## The User & Audience\n### Primary Users:\n- **Producers:** Companies and industries responsible for manufacturing goods. They input carbon emission data at the production stage.\n- **Distributors:** Entities involved in the distribution and logistics of goods. They record carbon emissions associated with transportation and handling.\n- **Consumers:** End-users who purchase and use the products. They can scan QR codes on products to view the associated carbon footprint.\n\n## Development Scope\n### Functionality:\n- **Android Application Development:** Build a user-friendly Android app for producers, distributors, and consumers to interact with the system.\n- **Blockchain Integration:** Implement blockchain technology to securely record and verify carbon emission data throughout the supply chain.\n- **QR Code Functionality:** Develop a feature allowing consumers to scan QR codes on products to access detailed carbon footprint information.\n- **Carbon Tax Calculation and Management:** Create a system for calculating and applying carbon taxes based on the recorded emissions.\n- **User Management:** Implement robust user authentication and authorization mechanisms to ensure secure access for producers, distributors, and consumers.\n- **Data Analytics and Reporting:** Provide tools for analyzing and reporting carbon emission data to help users make informed decisions and comply with regulations.\n\n",
+      "client": "GEMASTIK 2022",
+      "year": "2022"
+    }
+  },
+  {
+    "id": 7,
+    "title": "COVCHAIN",
+    "slug": "covchain",
+    "image": "/images/home/project/7.png",
+    "categories": [
+      "Service",
+      "Healthcare"
+    ],
+    "products": [
+      "UI/UX Design",
+      "Mobile Apps"
+    ],
+    "team": [
+      {
+        "person": "Rasyid Kusnady",
+        "jobs": [
+          "Frontend Developer",
+          "UI/UX Designer",
+          "UI/UX Researcher"
+        ]
+      }
+    ],
+    "detail": {
+      "headline": "COVCHAIN",
+      "description": "# About the Project\n\n**Covchain** is a COVID-19 vaccine tracking application designed to enhance the supply chain management of vaccines. It leverages smart contracts and blockchain technology to ensure transparency, security, and efficiency. The primary goal of Covchain is to prevent issues such as hoarding, data falsification, embezzlement, and the handling of damaged goods. By utilizing VEXANIUM blockchain technology, the application can monitor the entire supply chain, ensuring that vaccines reach their intended destinations and are distributed equitably.\n\n## Goals\n- **Prevent Hoarding:** Ensure that vaccines are distributed according to demand and priority without unfair accumulation.\n- **Prevent Data Falsification:** Maintain a transparent and tamper-proof record of vaccine distribution.\n- **Prevent Embezzlement:** Secure the supply chain to avoid misappropriation of vaccines.\n- **Prevent Damage:** Monitor the condition of vaccines to ensure they are delivered safely and effectively.\n- **Track Deliveries:** Confirm that vaccines reach their intended destinations.\n- **Visualize Distribution:** Allow users to view the distribution density of vaccines across different regions.\n\n## The User and Audience\n### Primary Users:\n- **Healthcare Providers:** To track vaccine deliveries and ensure proper storage and administration.\n- **Government Agencies:** To monitor vaccine distribution and ensure compliance with regulations.\n- **Logistics Companies:** To manage the transportation and handling of vaccines.\n- **General Public:** To access information on vaccine distribution and availability in their area.\n\n## Development Scope\n### Role / Job Description:\n- **UI/UX Development:** Creating the appearance of the app using Java and XML.\n- **Smart Contract Development:** Developing and integrating smart contracts using VEXANIUM Blockchain technology.\n\n### Type / Technology:\n- **Mobile Application Development:** Utilizing C++ and Java for robust and efficient app development.\n\n### Code / Live Web:\n- **GitHub Repository:** [Covchain GitHub Repository](https://github.com/rasyidk/covchainApp)\n\n",
+      "client": "CV BIT Technology",
+      "year": "2020"
+    }
+  },
+  {
+    "id": 8,
+    "title": "BEM KM UGM: Empowering Student Leadership Through a Comprehensive Online Platform",
+    "slug": "bem-km-ugm",
+    "image": "/images/home/project/8.png",
+    "categories": [
+      "Service",
+      "Organizations and Non-Profit",
+      "Company Profile"
+    ],
+    "products": [
+      "Website",
+      "UI/UX Design"
+    ],
+    "team": [
+      {
+        "person": "Wildan Dzaky Ramadhani",
+        "jobs": [
+          "UI/UX Designer",
+          "UI/UX Researcher",
+          "Wordpress Developer"
+        ]
+      },
+      {
+        "person": "Darriel Markerizal",
+        "jobs": [
+          "UI/UX Designer",
+          "UI/UX Researcher",
+          "Wordpress Developer"
+        ]
+      }
+    ],
+    "detail": {
+      "headline": "BEM KM UGM 2023",
+      "description": "# About The Project\n\nThe **BEM KM UGM website** serves as a comprehensive platform to introduce BEM KM UGM to the wider community. Targeted primarily at UGM students and external parties, the website offers a rich array of features designed to inform and engage its users.\n\n## Goals\n- **Introduce BEM KM UGM:** Provide an in-depth look at the profiles and activities of BEM KM UGM.\n- **Engage UGM Students:** Facilitate UGM students' curiosity and interest in joining BEM.\n- **External Collaboration:** Offer a gateway for external parties to explore potential collaborations with BEM KM UGM.\n- **Informative Content:** Showcase articles and studies conducted by BEM KM UGM.\n- **Event Management:** Feature a \"Gamaschedule\" to keep users updated on events held at UGM.\n\n## The User & Audience\n- **UGM Students:** Students curious about BEM KM UGM and considering joining.\n- **External Parties:** Organizations and individuals interested in collaborating with BEM KM UGM.\n- **General Public:** Anyone interested in the activities and studies conducted by BEM KM UGM.\n\n## Development Scope\n- **Front-End Development:** Utilizing WordPress to create an intuitive, user-friendly interface.\n- **Content Management:** Implementing a robust content management system to handle profiles, articles, and event schedules.\n- **Feature Implementation:**\n  - **Profile Section:** Detailed profiles of BEM KM UGM members and activities.\n  - **Article Section:** A repository of studies and articles by BEM KM UGM.\n  - **Gamaschedule:** A dynamic schedule displaying upcoming events at UGM.\n- **User Engagement:** Ensuring high levels of user engagement through interactive and informative content.\n- **Scalability and Performance:** Optimizing the website to handle significant traffic volumes efficiently.\n\n## Process\n- **Requirement Gathering:** Conducted surveys and interviews to identify the needs of UGM students and external stakeholders. Defined functional and non-functional requirements.\n- **Planning and Design:** Developed a detailed project plan, created wireframes, and mockups for stakeholder review. Incorporated feedback to refine design.\n- **Development:** Built the website using WordPress, focusing on a dynamic and responsive UI. Integrated key features including profiles, articles, and event schedules.\n- **Testing:** Conducted thorough testing, including unit tests, integration tests, and user acceptance testing (UAT). Adjusted based on feedback.\n- **Deployment:** Prepared the production environment and deployed the website. Verified all functionalities were operational.\n- **Release and Monitoring:** Launched the website, monitored user feedback, and made ongoing improvements.\n\n## Results\n- Successfully introduced BEM KM UGM to a broad audience, enhancing visibility and engagement.\n- Facilitated easy access to information about BEM KM UGM's activities and events.\n- Enabled external parties to explore collaboration opportunities.\n- Achieved high user satisfaction, evidenced by positive feedback and engagement metrics.\n",
+      "client": "BEM KM UGM",
+      "year": "2023"
+    }
+  },
+  {
+    "id": 9,
+    "title": "Porsenigama 2023: Real-Time Event Schedules and Standings at Your Fingertips",
+    "slug": "porsenigama2023",
+    "image": "/images/home/project/9.png",
+    "categories": [
+      "Organizations and Non-Profit",
+      "Event",
+      "Company Profile",
+      "Community"
+    ],
+    "products": [
+      "Website",
+      "UI/UX Researcher",
+      "UI/UX Design"
+    ],
+    "team": [
+      {
+        "person": "Darriel Markerizal",
+        "jobs": [
+          "Frontend Developer",
+          "Backend Developer",
+          "Fullstack Developer",
+          "UI/UX Designer",
+          "UI/UX Researcher"
+        ]
+      },
+      {
+        "person": "Muhammad Rizky Aziz",
+        "jobs": [
+          "Frontend Developer"
+        ]
+      },
+      {
+        "person": "Rasyid Kusnady",
+        "jobs": [
+          "Frontend Developer",
+          "Backend Developer",
+          "Fullstack Developer",
+          "Project Manager"
+        ]
+      },
+      {
+        "person": "Wildan Dzaky Ramadhani",
+        "jobs": [
+          "UI/UX Designer",
+          "UI/UX Researcher"
+        ]
+      }
+    ],
+    "detail": {
+      "headline": "Porsenigama 2023",
+      "description": "# About The Project\n\nThe **Porsenigama website** serves as a comprehensive platform to introduce and promote Porsenigama, the largest sports event at Gadjah Mada University (UGM). Designed for UGM students, the website provides real-time updates on event timelines, schedules, standings, and detailed information about sports and arts branches, as well as lists of participating athletes.\n\n## Goals\n- **Introduce Porsenigama:** Highlight Porsenigama as the premier sports event at UGM.\n- **Real-Time Information:** Provide up-to-date schedules and standings for students and participants.\n- **Comprehensive Event Details:** Offer detailed information on the sports and arts branches featured in Porsenigama, along with lists of participating athletes.\n\n## The User & Audience\n- **UGM Students:** Students seeking detailed and current information on Porsenigama.\n- **Athletes and Participants:** Participants needing to track schedules, standings, and event details.\n- **General Public:** Anyone interested in learning about the sports and arts featured in Porsenigama.\n\n## Development Scope\n- **Front-End Development:** Utilized Next.js to create a dynamic, responsive, and user-friendly interface.\n- **Back-End Integration:** Employed Strapi for seamless data management and real-time updates.\n- **Feature Implementation:**\n  - **Real-Time Schedules and Standings:** Provided live updates on event timelines, schedules, and standings.\n  - **Sports and Arts Information:** Detailed descriptions and information on various sports and arts branches.\n  - **Athlete Lists:** Comprehensive lists of participating athletes.\n- **User Engagement:** Emphasized high user engagement through real-time updates and detailed event information.\n\n## Process\n- **Requirement Gathering:** Conducted surveys and interviews with UGM students and event organizers to define functional and non-functional requirements.\n- **Planning and Design:** Developed a detailed project plan, created wireframes, and mockups using Figma, incorporating stakeholder feedback.\n- **Development:** Built the website using Next.js for front-end and Strapi for back-end, ensuring a dynamic interface and real-time updates.\n- **Testing:** Conducted thorough testing, including unit tests, integration tests, and user acceptance testing (UAT) to refine functionality based on feedback.\n- **Deployment:** Prepared the production environment and conducted final checks to ensure all features operated as intended.\n- **Release and Monitoring:** Launched the website, monitored user feedback, and continuously improved based on insights.\n\n## Results\n- Successfully positioned Porsenigama as UGM's largest sports event, enhancing visibility and engagement.\n- Provided UGM students with real-time updates on schedules, standings, and event details.\n- Offered comprehensive information on sports and arts branches and participating athletes.\n- Achieved high user satisfaction, demonstrated by positive feedback and engagement metrics.\n\n",
+      "client": "Porsenigama 2023",
+      "year": "2023"
+    }
+  },
+  {
+    "id": 10,
+    "title": "Finnovate: Empowering Financial Literacy and Management",
+    "slug": "finnovate",
+    "image": "/images/home/project/10.png",
+    "categories": [
+      "Service",
+      "Education"
+    ],
+    "products": [
+      "Machine Learning",
+      "RESTful API ",
+      "Mobile Apps",
+      "UI/UX Researcher",
+      "UI/UX Design",
+      "Data Science",
+      "Data Analyst"
+    ],
+    "team": [
+      {
+        "person": "Wildan Dzaky Ramadhani",
+        "jobs": [
+          "Backend Developer",
+          "UI/UX Researcher",
+          "Project Manager",
+          "Machine Learning Engineer"
+        ]
+      },
+      {
+        "person": "Darriel Markerizal",
+        "jobs": [
+          "Frontend Developer",
+          "Backend Developer",
+          "Fullstack Developer",
+          "UI/UX Designer",
+          "Mobile App Developer"
+        ]
+      },
+      {
+        "person": "Nawal Rizky Kautsar",
+        "jobs": [
+          "Frontend Developer",
+          "UI/UX Designer",
+          "Mobile App Developer"
+        ]
+      }
+    ],
+    "detail": {
+      "headline": "Finnovate",
+      "description": "# About The Project\n\n**Finnovate** is a pioneering financial innovation platform developed to bring advanced financial solutions to its users. The platform aims to leverage cutting-edge technology and user-friendly interfaces to cater to various stakeholders, including students, financial institutions, and other parties interested in innovative financial services.\n\n## Goals:\n1. **Introduce Innovative Financial Solutions:** Provide users with access to the latest financial technologies and services that enhance financial management and decision-making.\n2. **Engage and Educate Users:** Create a platform that not only offers financial services but also educates users on financial literacy and best practices.\n3. **Facilitate Seamless Financial Transactions:** Ensure that users can perform financial transactions smoothly and securely through the platform.\n4. **Promote Financial Inclusion:** Reach out to underserved communities and provide them with access to essential financial services.\n\n## The User & Audience:\n- **Students:** Require a comprehensive platform for managing finances, learning financial literacy, and accessing innovative financial tools.\n- **Financial Institutions:** Seek to offer services through a modern, tech-savvy platform.\n- **General Public:** Interested in exploring new financial technologies and improving financial knowledge.\n\n## Development Scope:\n1. **Front-End Development:** Utilize React Native to create a dynamic, responsive, and intuitive user interface that meets the needs of all users.\n2. **Back-End Integration:** Implement MySQL, Node.js, and Express for robust backend solutions ensuring seamless data flow, secure transactions, and real-time updates.\n3. **Financial Tools Integration:** Incorporate various financial tools and services to enhance user experience and provide comprehensive financial solutions.\n4. **User Engagement and Analytics:** Monitor user engagement to continually improve platform functionality and user experience.\n5. **Scalability and Performance:** Design the platform to handle high traffic volumes and ensure consistent performance.\n\n## Process:\n1. **Requirement Gathering:** Understand the needs and expectations of students, financial institutions, and stakeholders through surveys and interviews. Document functional and non-functional requirements.\n2. **Planning and Design:** Develop a comprehensive project plan with timelines and milestones. Design the platform’s architecture and user interface using Figma, creating wireframes and mockups for stakeholder review. Incorporate feedback to meet user needs.\n3. **Development:** Build the front-end with React Native for a dynamic interface, and the back-end using MySQL, Node.js, and Express for secure data handling. Integrate financial tools and services.\n4. **Testing:** Conduct rigorous testing including unit tests, integration tests, system tests, and user acceptance testing (UAT). Perform load testing to ensure the platform can handle high traffic.\n",
+      "client": "Finnovate Indonesia",
+      "year": "2024"
+    }
+  },
+  {
+    "id": 11,
+    "title": "Propertio: Simplifying Property Management with a User-Friendly App",
+    "slug": "propertio",
+    "image": "/images/home/project/11.png",
+    "categories": [
+      "Service",
+      "Dashboard"
+    ],
+    "products": [
+      "UI/UX Design",
+      "UI/UX Researcher",
+      "RESTful API ",
+      "Mobile Apps"
+    ],
+    "team": [
+      {
+        "person": "Darriel Markerizal",
+        "jobs": [
+          "Frontend Developer",
+          "Backend Developer",
+          "Fullstack Developer",
+          "UI/UX Designer",
+          "UI/UX Researcher",
+          "Project Manager",
+          "Mobile App Developer"
+        ]
+      }
+    ],
+    "detail": {
+      "headline": "Propertio",
+      "description": "# About The Project\n\nThe Propertio Android application is designed to facilitate property developers in managing their projects. The application aims to provide an efficient platform for developers to handle their projects, units, and communication with clients.\n\n## Goals\n\nThe main goals of the Propertio application include:\n- Simplifying project management for property developers.\n- Enhancing communication between developers and clients.\n- Providing a user-friendly interface for managing property units.\n\n## The User & Audience\n\nThe primary users of the Propertio application are property developers who need a streamlined way to manage their projects and units. The application is also intended for clients who interact with developers to view project details and communicate their needs.\n\n## Development Scope\n\nThe development scope of the Propertio application includes:\n- **Front-End Development**: Utilizing Kotlin to create a dynamic, responsive, and user-friendly interface that caters to the needs of property developers and clients.\n- **Back-End Integration**: Leveraging Laravel to ensure seamless data flow and real-time updates through robust back-end support.\n- **Project and Unit Management**: Providing tools for developers to efficiently manage their projects and property units.\n- **Client Communication**: Implementing features for effective communication between developers and clients.\n- **Database Integration**: Utilizing MySQL for efficient data handling and storage through integration with relevant databases.\n- **Design and Prototyping**: Using Figma to create detailed designs and interactive prototypes that ensure a seamless user experience and gather early feedback from stakeholders.\n\n## Process\n\nThe development process of the Propertio application follows standard software engineering practices, including:\n- **Requirement Analysis**: Gathering and documenting user needs through surveys, interviews, and stakeholder consultations.\n- **Design Phase**: Outlining the architecture and interface of the application using Figma to create wireframes, mockups, and interactive prototypes for stakeholder review and feedback.\n- **Implementation Phase**: Developing the application based on design specifications, utilizing Kotlin for front-end development and Laravel for back-end integration. MySQL will be used for database management to ensure efficient data handling and storage.\n- **Testing Phase**: Conducting unit tests, integration tests, and system tests to ensure the application functions correctly and meets user requirements. User acceptance testing (UAT) is performed with a group of property developers and clients to gather feedback and make necessary adjustments.\n- **Deployment Phase**: Preparing the production environment and ensuring all configurations are in place. The application is then deployed to the server, and final checks are conducted to ensure everything is functioning correctly before the official launch.\n- **Maintenance Phase**: Providing ongoing support and updates to ensure the application remains a valuable resource for property developers and clients. Continuous monitoring of application performance and user engagement is conducted, and feedback is collected for continuous improvements.\n",
+      "client": "2023",
+      "year": "PT Citra Numusi Birawa (CINURAWA)"
+    }
+  },
+  {
+    "id": 12,
+    "title": "VerdeWoods: Modernizing Hospitality with Seamless Cabin Reservations",
+    "slug": "verdewoods",
+    "image": "/images/home/project/12.png",
+    "categories": [
+      "Service",
+      "Dashboard"
+    ],
+    "products": [
+      "Website",
+      "UI/UX Researcher",
+      "UI/UX Design",
+      "RESTful API "
+    ],
+    "team": [
+      {
+        "person": "Darriel Markerizal",
+        "jobs": [
+          "Frontend Developer",
+          "Backend Developer",
+          "Fullstack Developer",
+          "UI/UX Designer",
+          "UI/UX Researcher"
+        ]
+      }
+    ],
+    "detail": {
+      "headline": "VerdeWoods",
+      "description": "# About The Project\n\n**VerdeWoods** is a modern cabin management system designed to streamline booking and enhance hospitality management for cabin owners and guests alike. The application aims to provide an intuitive platform for managing cabin reservations and administrative tasks efficiently.\n\n## Goals\n- Simplifying cabin management and booking processes.\n- Enhancing guest experience through a user-friendly interface.\n- Empowering administrators with robust tools for managing cabin details.\n\n## The User & Audience\nVerdeWoods serves cabin owners looking to efficiently manage bookings and administrative tasks. It also caters to guests seeking a seamless booking experience for cabin stays.\n\n## Development Scope\n- **Front-End Development**: Leveraging React.js and Tailwind CSS to create a responsive and intuitive user interface that enhances usability for both administrators and guests.\n- **Back-End Integration**: Utilizing Supabase for seamless data flow and real-time updates to ensure efficient management of cabin reservations and details.\n- **Cabin Management**: Providing comprehensive tools for administrators to add, edit, and delete cabin details effortlessly.\n- **Responsive Design**: Prioritizing responsiveness to ensure optimal usability across devices and platforms, enhancing the overall user experience.\n\n## Process\nThe development process of VerdeWoods follows a structured approach:\n- **Requirement Analysis**: Gathering and documenting user needs and expectations through consultations with cabin owners and potential guests.\n- **Design Phase**: Using Figma to create detailed wireframes and interactive prototypes, facilitating early feedback and validation of design concepts.\n- **Implementation Phase**: Developing the application with React.js for the front end and integrating with Supabase for the back end to ensure robust functionality and data security.\n- **Testing Phase**: Conducting rigorous testing, including unit tests and user acceptance testing (UAT), to ensure the application meets usability and performance standards.\n- **Deployment Phase**: Deploying the application to production after thorough testing and final checks to ensure a smooth launch.\n- **Maintenance Phase**: Providing ongoing support and updates to address user feedback and ensure continuous improvement of the application's performance and features.\n\nVerdeWoods revolutionizes cabin management with its innovative approach, catering to both administrators and guests with its seamless booking and management capabilities.\n",
+      "client": "VerdeWoods",
+      "year": "2023"
+    }
+  },
+  {
+    "id": 13,
+    "title": "Siap Pintar BP2MI: Accessible Education Resources for Indonesian Migrants",
+    "slug": "bp2mi",
+    "image": "/images/home/project/13.png",
+    "categories": [
+      "Organizations and Non-Profit",
+      "Service",
+      "Education",
+      "Dashboard"
+    ],
+    "products": [
+      "Website",
+      "UI/UX Researcher",
+      "UI/UX Design",
+      "RESTful API "
+    ],
+    "team": [
+      {
+        "person": "Rasyid Kusnady",
+        "jobs": [
+          "Frontend Developer",
+          "Backend Developer",
+          "Fullstack Developer",
+          "DevOps Engineer"
+        ]
+      },
+      {
+        "person": "Darriel Markerizal",
+        "jobs": [
+          "UI/UX Designer"
+        ]
+      }
+    ],
+    "detail": {
+      "headline": "Siappintar BP2MI",
+      "description": "About The Project  \nThe Siap Pintar BP2MI website is an educational platform dedicated to supporting Indonesian migrants. It provides various educational resources and information aimed at enhancing the skills and knowledge of migrants, helping them to better prepare for and manage their experiences abroad.\n\nGoals\n- Educational Support: Offer comprehensive learning materials to assist migrants in their personal and professional development.\n- Resource Accessibility: Ensure that all resources are easily accessible and user-friendly.\n- Migrant Preparation: Equip migrants with the necessary information and skills to thrive in their new environments.\n\nThe User & Audience\n- Indonesian Migrants: Individuals seeking educational resources to improve their skills and knowledge.\n- Prospective Migrants: Those preparing to migrate and looking for information and support.\n- Stakeholders: Organizations and entities involved in supporting Indonesian migrants.\n\nDevelopment Scope\n- Full-Stack Development: Utilized Laravel for both front-end and back-end development to create a cohesive, responsive, and user-friendly platform.\n- Feature Implementation:\n  - Educational Content: Provided a wide range of learning materials tailored to migrants' needs.\n  - User-Friendly Navigation: Ensured easy access to different sections and resources on the website.\n  - Support Services: Included information on various support services available to migrants.\n\nProcess\n- Requirement Gathering: Conducted extensive research and interviews with migrants and stakeholders to understand their needs and expectations.\n- Planning and Design: Developed detailed project plans, wireframes, and mockups using Figma. Incorporated feedback to align the design with user expectations.\n- Development: Built the website using Laravel for both front-end and back-end, focusing on creating a dynamic and responsive interface.\n- Testing: Performed thorough testing, including unit tests, integration tests, and user acceptance testing (UAT). Made adjustments based on feedback.\n- Deployment: Deployed the website, ensuring all functionalities were working as intended.\n- Release and Monitoring: Launched the website and conducted continuous monitoring to gather user feedback and implement improvements.\n\nResults\n- Successfully created an educational platform that enhances the skills and knowledge of Indonesian migrants.\n- Provided easily accessible and user-friendly resources.\n- Achieved high user satisfaction and positive feedback from migrants and stakeholders.",
+      "client": "Badan Pelindungan Pekerja Migran Indonesia",
+      "year": "2023"
+    }
+  },
+  {
+    "id": 14,
+    "title": "PIONIR Gadjah Mada 2024: Showcasing Tradition and Innovation",
+    "slug": "pionir2024",
+    "image": "/images/home/project/14.png",
+    "categories": [
+      "Organizations and Non-Profit",
+      "Event",
+      "Company Profile"
+    ],
+    "products": [
+      "Website",
+      "UI/UX Researcher",
+      "UI/UX Design"
+    ],
+    "team": [
+      {
+        "person": "Darriel Markerizal",
+        "jobs": [
+          "Frontend Developer",
+          "UI/UX Designer",
+          "UI/UX Researcher"
+        ]
+      }
+    ],
+    "detail": {
+      "headline": "PIONIR Gadjah Mada 2024",
+      "description": "### About The Project\nThe PIONIR Gadjah Mada 2024 website serves as an informational platform designed to introduce and promote the PIONIR Gadjah Mada 2024 activities to the public, particularly targeting the new UGM students of 2024, known as Gamada. The website provides comprehensive details about the event, including activities, gallery, booklet, Pionirpedia, check groups, and a unique feature called Gamatopia, which is an interactive video game.\n\n### Goals\n- **Event Promotion:** Effectively introduce and promote the PIONIR Gadjah Mada 2024 activities to new students and the public.\n- **Information Dissemination:** Provide detailed information about PIONIR Gadjah Mada, including activities, schedules, and resources.\n- **User Engagement:** Enhance user engagement through interactive features like Gamatopia.\n- **Resource Accessibility:** Ensure that all information and resources are easily accessible and user-friendly.\n\n### The User & Audience\n- **New UGM Students (Gamada):** Primary audience, seeking information about PIONIR Gadjah Mada activities.\n- **UGM Community:** Existing students, faculty, and staff interested in the event details.\n- **General Public:** External audiences looking for information about UGM's initiatives and events.\n\n### Development Scope\n- **Front-End Development:** Utilized Next.js and Tailwind CSS to create a responsive, dynamic, and visually appealing interface.\n- **Back-End Development:** Implemented Strapi as the CMS to manage content efficiently and enable seamless updates.\n- **Feature Implementation:**\n  - **Information Sections:** Detailed pages about PIONIR Gadjah Mada, activities, gallery, booklet, and Pionirpedia.\n  - **Interactive Features:** Developed Gamatopia, an engaging video game to attract and entertain users.\n  - **Progressive Web App (PWA):** Implemented PWA features to enhance the user experience by enabling offline access, faster loading times, and a native app-like feel.\n  - **Notifications:** Added push notifications to keep users informed about the latest updates and activities.\n  - **Live Chat:** Integrated Tawk.to for real-time live chat support, allowing users to get instant help and information.\n  - **User-Friendly Navigation:** Ensured intuitive navigation and easy access to various sections and resources on the website.\n\n### Process\n- **Requirement Gathering:** Conducted extensive research and surveys to understand the needs and expectations of new students and stakeholders.\n- **Planning and Design:** Developed detailed project plans, wireframes, and mockups using Figma. Incorporated feedback to ensure the design meets user needs and preferences.\n- **Development:** Built the website using Next.js and Tailwind CSS for the front-end and Strapi for the back-end, focusing on creating a cohesive and responsive user experience.\n- **Testing:** Performed comprehensive testing, including unit tests, integration tests, and user acceptance testing (UAT). Made necessary adjustments based on feedback.\n- **Deployment:** Deployed the website, ensuring all functionalities were working as intended.\n- **Release and Monitoring:** Launched the website and conducted continuous monitoring to gather user feedback and implement improvements.\n\n### Results\n- Successfully launched a platform that effectively introduces PIONIR Gadjah Mada 2024 activities to new students and the public.\n- Provided easily accessible and user-friendly information and resources.\n- Achieved high user engagement through interactive features like Gamatopia.\n- Enhanced user experience with PWA features, push notifications, and live chat support.\n- Received positive feedback from new students, UGM community, and external audiences.\n",
+      "client": "PIONIR Gadjah Mada 2024",
+      "year": "2024"
+    }
+  },
+  {
+    "id": 15,
+    "title": "Lustrum XI KMTSTL: Celebrating a Decade of Civil Engineering Excellence",
+    "slug": "lustrum-kmtsl",
+    "image": "/images/home/project/15.png",
+    "categories": [
+      "Event",
+      "Company Profile"
+    ],
+    "products": [
+      "Website",
+      "UI/UX Researcher",
+      "UI/UX Design"
+    ],
+    "team": [
+      {
+        "person": "Muhammad Rizky Aziz",
+        "jobs": [
+          "Frontend Developer"
+        ]
+      },
+      {
+        "person": "Wildan Dzaky Ramadhani",
+        "jobs": [
+          "UI/UX Designer",
+          "Project Manager",
+          "DevOps Engineer"
+        ]
+      }
+    ],
+    "detail": {
+      "headline": "Lustrum KMTSL XI",
+      "description": "### About The Project\nThe Lustrum XI KMTSTL website serves as an informational platform designed to introduce and promote the Lustrum XI activities organized by the Keluarga Mahasiswa Teknik Sipil dan Lingkungan (KMTSTL) at Universitas Gadjah Mada. The website provides comprehensive details about the event, including the theme \"Solidaritas Sipil untuk Pembangunan Negeri,\" activity timelines, detailed descriptions of each event, and a section for sponsorship opportunities.\n\n### Goals\n- **Event Promotion:** Effectively introduce and promote the Lustrum XI activities to students, faculty, alumni, and the general public.\n- **Information Dissemination:** Provide detailed information about Lustrum XI, including activities, schedules, and resources.\n- **User Engagement:** Enhance user engagement through interactive and detailed event descriptions.\n- **Resource Accessibility:** Ensure that all information and resources are easily accessible and user-friendly.\n\n### The User & Audience\n- **UGM Students:** Primary audience interested in the Lustrum XI activities.\n- **UGM Community:** Faculty, staff, and alumni interested in the event details and participation.\n- **General Public:** External audiences looking for information about UGM's civil engineering department's initiatives and events.\n\n### Development Scope\n- **Front-End Development:** Utilized Next.js and Tailwind CSS to create a responsive, dynamic, and visually appealing interface.\n- **Design and Prototyping:** Designed and prototyped using Figma to ensure a modern and user-friendly design.\n- **Feature Implementation:**\n  - **Information Sections:** Detailed pages about Lustrum XI, its theme, activities, and schedules.\n  - **Event Timeline:** Interactive timeline showcasing the sequence of events with descriptions.\n  - **Sponsorship Opportunities:** Section to attract and manage sponsorships.\n  - **Contact and Social Media Integration:** Provided easy access to contact information and social media links.\n  - **Interactive Elements:** Included interactive elements to keep users engaged with the content.\n\n### Process\n- **Requirement Gathering:** Conducted extensive research and surveys to understand the needs and expectations of the UGM community and stakeholders.\n- **Planning and Design:** Developed detailed project plans, wireframes, and mockups using Figma. Incorporated feedback to ensure the design meets user needs and preferences.\n- **Development:** Built the website using Next.js and Tailwind CSS, focusing on creating a cohesive and responsive user experience.\n- **Testing:** Performed comprehensive testing, including unit tests, integration tests, and user acceptance testing (UAT). Made necessary adjustments based on feedback.\n- **Deployment:** Deployed the website, ensuring all functionalities were working as intended.\n- **Release and Monitoring:** Launched the website and conducted continuous monitoring to gather user feedback and implement improvements.\n\n### Results\n- Successfully launched a platform that effectively introduces Lustrum XI activities to students, faculty, alumni, and the public.\n- Provided easily accessible and user-friendly information and resources.\n- Achieved high user engagement through detailed event descriptions and interactive elements.\n- Enhanced user experience with a modern design and responsive interface.\n- Received positive feedback from students, UGM community, and external audiences.\n",
+      "client": "KMTSL FT Universitas Gadjah Mada",
+      "year": "2024"
+    }
+  },
+  {
+    "id": 16,
+    "title": "Gadjah Mada Entrepreneur Expo",
+    "slug": "gadjah-mada-entrepreneur-expo",
+    "image": "/images/home/project/16.png",
+    "categories": [
+      "Event",
+      "Organizations and Non-Profit",
+      "Company Profile"
+    ],
+    "products": [
+      "Website"
+    ],
+    "team": [
+      {
+        "person": "Nawal Rizky Kautsar",
+        "jobs": [
+          "Frontend Developer"
+        ]
+      }
+    ],
+    "detail": {
+      "headline": "Gadjah Mada Entrepeneur Expo",
+      "description": "### About The Project\nThe Gadjah Mada Entrepreneur Expo (GME), also known as Gamapreneur Expo, is an event designed to enhance public awareness about finance and entrepreneurship. Organized under the Ministry of Creative Economy of BEM KM UGM, GME offers students the opportunity to compete in the Business Case Competition (BCC) and provides a platform for SMEs to promote their products (goods and services) to a wider audience through the Pasar Rakyat. Additionally, GME features educational discussions through talk shows on entrepreneurship and finance, delivered by experienced speakers who are influential figures or executives in various companies.\n\n### Goals\n- **Awareness Enhancement:** Increase public awareness about financial literacy and entrepreneurial skills.\n- **Student Engagement:** Provide a competitive platform for students to showcase their business acumen.\n- **SME Promotion:** Offer SMEs a venue to market their products to a broader audience.\n- **Educational Opportunities:** Facilitate insightful discussions on entrepreneurship and finance with industry experts.\n\n### The User & Audience\n- **UGM Students:** Primary participants in the Business Case Competition and key audience for the educational talk shows.\n- **UGM Community:** Faculty, staff, and alumni interested in entrepreneurial activities and events.\n- **SMEs:** Businesses looking to promote their products and services.\n- **General Public:** Individuals interested in finance and entrepreneurship.\n\n### Development Scope\n- **Front-End Development:** Utilized Next.js, TypeScript, and Tailwind CSS to create a responsive and visually engaging interface.\n- **Design and Prototyping:** Developed using Figma to ensure a modern and user-friendly design.\n- **Feature Implementation:**\n  - **Event Information:** Detailed sections about GME, including its goals, schedule, and activities.\n  - **Competition Details:** Information on the Business Case Competition, including rules, registration, and judging criteria.\n  - **Market Promotion:** Platform for SMEs to showcase their products.\n  - **Educational Content:** Sections for talk shows, including speaker bios and discussion topics.\n  - **Contact and Social Media Integration:** Easy access to contact information and social media links.\n\n### Process\n- **Requirement Gathering:** Conducted surveys and interviews to understand the needs and expectations of the UGM community and stakeholders.\n- **Planning and Design:** Created project plans, wireframes, and mockups using Figma, incorporating feedback to align with user needs.\n- **Development:** Built the website using Next.js, TypeScript, and Tailwind CSS, focusing on a cohesive and responsive user experience.\n- **Testing:** Conducted comprehensive testing, including unit tests, integration tests, and user acceptance testing (UAT), and made necessary adjustments.\n- **Deployment:** Deployed the website, ensuring all functionalities were working as intended.\n- **Release and Monitoring:** Launched the website and continuously monitored it to gather user feedback and implement improvements.\n\n### Results\n- Successfully launched a platform that effectively promotes the Gadjah Mada Entrepreneur Expo to students, faculty, alumni, SMEs, and the public.\n- Provided easily accessible and user-friendly information and resources.\n- Achieved high user engagement through detailed event descriptions and interactive elements.\n- Enhanced user experience with a modern design and responsive interface.\n- Received positive feedback from students, the UGM community, SMEs, and external audiences.\n",
+      "client": "Universitas Gadjah Mada",
+      "year": "2023"
+    }
+  },
+  {
+    "id": 17,
+    "title": "Paradisonesia",
+    "slug": "paradisonesia",
+    "image": "/images/home/project/17.png",
+    "categories": [
+      "Service",
+      "Dashboard"
+    ],
+    "products": [
+      "Website",
+      "RESTful API ",
+      "UI/UX Researcher",
+      "UI/UX Design"
+    ],
+    "team": [
+      {
+        "person": "Nawal Rizky Kautsar",
+        "jobs": [
+          "Frontend Developer"
+        ]
+      }
+    ],
+    "detail": {
+      "headline": "Paradisonesia",
+      "description": "### About The Project\nParadisonesia is a comprehensive travel and adventure agent dashboard website developed for PT Paradiso Mitra Wisata. The platform is designed to streamline the management of travel packages, customer interactions, bookings, and adventure activities. It serves as a centralized hub for travel agents to efficiently manage their operations and enhance customer experiences.\n\n### Goals\n- **Operational Efficiency:** Streamline travel and adventure management for agents.\n- **Enhanced Customer Interaction:** Improve communication and service delivery to customers.\n- **Centralized Management:** Provide a single platform for managing travel packages, bookings, and customer data.\n- **User-Friendly Interface:** Ensure a seamless and intuitive user experience for travel agents.\n\n### The User & Audience\n- **Travel Agents:** Primary users managing travel packages, bookings, and customer interactions.\n- **Adventure Guides:** Users managing adventure activities and customer experiences.\n- **PT Paradiso Mitra Wisata Staff:** Internal staff overseeing overall operations and performance.\n- **Customers:** Indirect users benefiting from improved service delivery and communication.\n\n### Development Scope\n- **Front-End Development:** Utilized Vue.js and Tailwind CSS to create a responsive and visually appealing dashboard interface.\n- **Design and Prototyping:** Designed with Figma to ensure a modern and user-friendly layout.\n- **Feature Implementation:**\n  - **Dashboard Overview:** Provides a comprehensive overview of all travel packages, bookings, and customer interactions.\n  - **Booking Management:** Allows agents to manage customer bookings efficiently.\n  - **Package Management:** Enables the creation and modification of travel packages and adventure activities.\n  - **Customer Management:** Stores and manages customer information and interaction history.\n  - **Reporting and Analytics:** Offers insights into booking trends, customer preferences, and overall performance.\n  - **Notification System:** Keeps agents and customers informed about booking statuses and updates.\n\n### Process\n- **Requirement Gathering:** Conducted detailed interviews and surveys with PT Paradiso Mitra Wisata staff and travel agents to understand their needs and expectations.\n- **Planning and Design:** Developed project plans, wireframes, and prototypes using Figma, incorporating feedback to ensure alignment with user needs.\n- **Development:** Built the dashboard using Vue.js and Tailwind CSS, focusing on creating a cohesive and responsive user experience.\n- **Testing:** Performed comprehensive testing, including unit tests, integration tests, and user acceptance testing (UAT). Made necessary adjustments based on feedback.\n- **Deployment:** Deployed the dashboard, ensuring all functionalities were working as intended.\n- **Release and Monitoring:** Launched the dashboard and conducted continuous monitoring to gather user feedback and implement improvements.\n\n### Results\n- Successfully launched a centralized platform that streamlines the management of travel packages, bookings, and customer interactions for PT Paradiso Mitra Wisata.\n- Enhanced operational efficiency and improved customer service delivery.\n- Provided travel agents with a user-friendly interface and comprehensive management tools.\n- Achieved high user engagement through detailed reporting and analytics features.\n- Received positive feedback from travel agents, adventure guides, and PT Paradiso Mitra Wisata staff.\n",
+      "client": "PT Paradiso Mitra Wisata",
+      "year": "2023"
+    }
+  },
+  {
+    "id": 18,
+    "title": "Komatik UGM Website",
+    "slug": "komatik",
+    "image": "/images/home/project/18.png",
+    "categories": [
+      "Organizations and Non-Profit",
+      "Company Profile"
+    ],
+    "products": [
+      "Website",
+      "UI/UX Researcher",
+      "UI/UX Design"
+    ],
+    "team": [
+      {
+        "person": "Nawal Rizky Kautsar",
+        "jobs": [
+          "Frontend Developer"
+        ]
+      },
+      {
+        "person": "Darriel Markerizal",
+        "jobs": [
+          "UI/UX Designer"
+        ]
+      }
+    ],
+    "detail": {
+      "headline": "Komatik",
+      "description": "### About The Project\nThe Komatik UGM Website is a landing page designed for Komunitas Mahasiswa TIK UGM. The website aims to present the community's vision and mission, introduce its members, and provide comprehensive information about the activities and initiatives of the community.\n\n### Goals\n- **Community Promotion:** Introduce and promote Komunitas Mahasiswa TIK UGM to students and the general public.\n- **Information Dissemination:** Provide detailed information about the community's vision, mission, activities, and members.\n- **User Engagement:** Enhance engagement through a visually appealing and informative landing page.\n- **Resource Accessibility:** Ensure that all information is easily accessible and user-friendly.\n\n### The User & Audience\n- **UGM Students:** Primary audience interested in joining or learning about the community.\n- **KOMATIK UGM Members:** Current members showcasing their profiles and activities.\n- **UGM Community:** Faculty, staff, and alumni interested in the community's initiatives.\n- **General Public:** External audiences looking for information about UGM's ICT student community.\n\n### Development Scope\n- **Front-End Development:** Utilized Next.js and Tailwind CSS to create a responsive and visually engaging landing page.\n- **Design and Prototyping:** Designed with Figma to ensure a modern and user-friendly layout.\n- **Feature Implementation:**\n  - **Vision and Mission:** Clearly articulated sections outlining the community's goals and objectives.\n  - **Member Profiles:** Profiles of community members, including their roles and contributions.\n  - **Activity Information:** Details about the community's events, initiatives, and achievements.\n  - **Contact and Social Media Integration:** Easy access to contact information and social media links.\n\n### Process\n- **Requirement Gathering:** Conducted surveys and interviews with KOMATIK UGM members to understand their needs and expectations.\n- **Planning and Design:** Developed project plans, wireframes, and prototypes using Figma, incorporating feedback to ensure alignment with user needs.\n- **Development:** Built the landing page using Next.js and Tailwind CSS, focusing on creating a cohesive and responsive user experience.\n- **Testing:** Performed comprehensive testing, including unit tests, integration tests, and user acceptance testing (UAT). Made necessary adjustments based on feedback.\n- **Deployment:** Deployed the landing page, ensuring all functionalities were working as intended.\n- **Release and Monitoring:** Launched the landing page and conducted continuous monitoring to gather user feedback and implement improvements.\n\n### Results\n- Successfully launched a landing page that effectively introduces Komunitas Mahasiswa TIK UGM to students and the public.\n- Provided easily accessible and user-friendly information about the community.\n- Achieved high user engagement through detailed member profiles and activity information.\n- Enhanced user experience with a modern design and responsive interface.\n- Received positive feedback from KOMATIK UGM members, UGM students, and the general public.\n",
+      "client": "Komunitas Mahasiswa TIK UGM",
+      "year": "2024"
+    }
+  }
+]

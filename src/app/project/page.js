@@ -1,8 +1,6 @@
 import ProjectListing from "@components/project/ProjectListing";
 import { getProjectCards, getPeople } from "@/lib/queries";
 
-export const dynamic = "force-dynamic";
-
 export default async function ProjectPage({ searchParams }) {
   const params = await searchParams;
   const [{ cards, roleOptions, productOptions, categoryOptions }, people] =

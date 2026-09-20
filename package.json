@@ -6,46 +6,33 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "payload": "payload",
-    "generate:types": "payload generate:types",
-    "generate:importmap": "payload generate:importmap",
-    "seed": "node src/scripts/seed.mts"
+    "lint": "next lint"
   },
   "dependencies": {
-    "@payloadcms/db-postgres": "3.90.1",
-    "@payloadcms/next": "3.90.1",
-    "@payloadcms/storage-vercel-blob": "3.90.1",
     "@tailwindcss/typography": "^0.5.13",
     "aos": "^2.3.4",
     "clsx": "^2.1.1",
-    "dotenv": "^16.4.7",
     "framer-motion": "^11.13.0",
-    "graphql": "^16.8.1",
     "gsap": "^3.12.5",
     "hamburger-react": "^2.5.1",
     "lenis": "^1.1.18",
     "next": "15.4.11",
-    "payload": "3.90.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-fast-marquee": "^1.6.4",
     "react-icons": "^5.2.1",
     "react-markdown": "^9.0.1",
-    "remark-gfm": "^4.0.0",
-    "sharp": "^0.35.4"
+    "remark-gfm": "^4.0.0"
   },
   "devDependencies": {
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "autoprefixer": "^10",
-    "better-sqlite3": "^11",
     "eslint": "^9",
     "eslint-config-next": "^15.1.6",
     "postcss": "^8",
     "tailwindcss": "^3",
-    "tsx": "^4.19.2",
     "typescript": "^5"
   },
   "engines": {

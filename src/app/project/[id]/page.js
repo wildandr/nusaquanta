@@ -4,8 +4,6 @@ import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import { getProjectDetail } from "@/lib/queries";
 
-export const dynamic = "force-dynamic";
-
 export default async function ProjectDetail({ params }) {
     const { id } = await params;
     const project = await getProjectDetail(id);
