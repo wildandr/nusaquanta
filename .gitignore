@@ -35,5 +35,5 @@ yarn-error.log*
 next-env.d.ts
 
 
-src/app/testing
-layouts/components/home/HomeShowcaseTest.js
+# payload local media (dev)
+/media
