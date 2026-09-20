@@ -61,7 +61,7 @@ export default function Page() {
           const imageUrl = project.attributes.image?.data?.[0]?.attributes?.url;
           const absoluteImageUrl = imageUrl
             ? `https://nusaquanta.store${imageUrl}`
-            : "/default-image.png";
+            : "/images/project/placeholder.png";
 
           return {
             id: project.id,

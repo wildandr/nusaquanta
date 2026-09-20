@@ -38,7 +38,7 @@ export default function ProjectDetail({ params }) {
                     projectData.attributes.image?.data?.[0]?.attributes?.url;
                 const absoluteImageUrl = imageUrl
                     ? `https://nusaquanta.store${imageUrl}`
-                    : "/default-image.png";
+                    : "/images/project/placeholder.png";
 
                 // Update project data with formatted image URL
                 const formattedProject = {
@@ -96,7 +96,7 @@ export default function ProjectDetail({ params }) {
             {teamMembers.map((team, index) => {
               const personId = team.attributes.person.data.id;
               const personImage =
-                imageMapping[personId] || "/images/default.jpeg";
+                imageMapping[personId] || "/images/project/placeholder.png";
               const fullName = team.attributes.person.data.attributes.full_name;
               const jobs = team.attributes.jobs.data
                 .map((job) => job.attributes.job_name)

@@ -1,4 +1,3 @@
-import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@partials/Header";
 import config from "@config/config.json";
