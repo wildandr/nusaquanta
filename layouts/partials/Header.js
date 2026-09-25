@@ -1,6 +1,6 @@
 // components/Navbar.js
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { gsap } from "gsap";
 import Image from "next/image";
@@ -10,6 +10,7 @@ import { Squash as Hamburger } from "hamburger-react";
 
 const Header = () => {
   const [isOpen, setOpen] = useState(false);
+  const navbarRef = useRef(null);
 
   const routes = [
     {
@@ -18,38 +19,77 @@ const Header = () => {
     },
     {
       path: "/project",
-      title: "Project",
+      title: "Work",
+    },
+    {
+      path: "/about",
+      title: "About",
     },
   ];
   const pathname = usePathname();
 
   useEffect(() => {
-    let lastScrollTop = 0;
-    const navbar = document.getElementById("navbar");
+    const navbar = navbarRef.current;
+    if (!navbar) return;
 
-    window.addEventListener("scroll", () => {
-      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      if (scrollTop > lastScrollTop) {
-        // Scroll down
-        gsap.to(navbar, { y: -100, duration: 0.5 });
-      } else {
-        // Scroll up
-        gsap.to(navbar, { y: 0, duration: 0.5 });
-      }
-      lastScrollTop = scrollTop;
+    const directionThreshold = 6;
+    let lastScrollTop = Math.max(window.scrollY, 0);
+    let latestScrollTop = lastScrollTop;
+    let frameId = null;
+
+    const moveNavbar = gsap.quickTo(navbar, "y", {
+      duration: 0.4,
+      ease: "power2.out",
     });
+
+    const updateNavbar = () => {
+      const delta = latestScrollTop - lastScrollTop;
+
+      if (latestScrollTop <= 0) {
+        moveNavbar(0);
+        lastScrollTop = 0;
+      } else if (Math.abs(delta) >= directionThreshold) {
+        moveNavbar(delta > 0 ? -100 : 0);
+        lastScrollTop = latestScrollTop;
+      }
+
+      frameId = null;
+    };
+
+    const handleScroll = () => {
+      latestScrollTop = Math.max(window.scrollY, 0);
+
+      if (frameId === null) {
+        frameId = window.requestAnimationFrame(updateNavbar);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (frameId !== null) window.cancelAnimationFrame(frameId);
+      gsap.killTweensOf(navbar);
+    };
   }, []);
 
   return (
-    <nav className="fixed top-0 left-0 z-[9999] w-full" id="navbar">
+    <nav
+      ref={navbarRef}
+      className="fixed top-0 left-0 z-[9999] w-full"
+      id="navbar"
+    >
       <div className=" w-full  z-[9999] bg-black ">
         <header className="header mx-auto p-4  h-[73px]  justify-between flex shadow-smooth-lg shadow-primary px-4 lg:px-9">
+          <Link href="/" aria-label="Nusa Quanta home" className="inline-flex items-center">
           <Image
             height={40}
             width={40}
             src="/images/home/main_logo.svg"
+            alt="Nusa Quanta Indonesia logo"
             className="h-10 w-10"
           />
+          </Link>
 
           <div
             className={`flex lg:hidden items-center border border-primary ${
@@ -84,6 +124,7 @@ const Header = () => {
                 </li>
               ))}
             </ul>
+            <Link href="/#contact" className="ml-6 rounded-full bg-primary px-5 py-2 font-semibold text-black transition-colors hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">Let&apos;s talk ↗</Link>
           </div>
         </header>
       </div>
@@ -102,12 +143,13 @@ const Header = () => {
                       : "text-white border-white"
                   }`}
                 >
-                  <Link href={route.path} className="">
+                  <Link href={route.path} onClick={() => setOpen(false)} className="">
                     {route.title}
                   </Link>
                 </li>
               ))}
             </ul>
+            <Link href="/#contact" onClick={() => setOpen(false)} className="mt-5 block rounded-full bg-primary px-4 py-2 text-center font-semibold text-black">Let&apos;s talk ↗</Link>
           </div>
         </div>
       </div>

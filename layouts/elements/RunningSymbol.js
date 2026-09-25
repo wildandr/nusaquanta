@@ -1,11 +1,11 @@
 
 import Image from "next/image";
-import Marquee from "react-fast-marquee";
+import ViewportMarquee from "@elements/ViewportMarquee";
 const RunningSymbol = () => {
     return (
        <div className="w-full py-10">
           <div className="flex-row flex gap-5">
-        <Marquee autoFill={true} direction="right">
+        <ViewportMarquee autoFill={true} direction="right">
           <div className="flex flex-row items-center px-5">
             <div className="w-[300px] h-[200px] items-center justify-center">
               <Image
@@ -19,7 +19,7 @@ const RunningSymbol = () => {
            
           </div>
           
-          </Marquee>
+          </ViewportMarquee>
           </div>
        </div> 
     );

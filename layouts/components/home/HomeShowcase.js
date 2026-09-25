@@ -1,205 +1,68 @@
-"use client"
+"use client";
+
 import { useLayoutEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import Link from "next/link";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function HomeShowcase({ cards = [] }) {
-  const scroller = useRef();
-  const skills = useRef();
-
-  const firstCardItems = cards.filter((item) => item.id >= 1 && item.id <= 7).slice(0, 7);
-  const secondCardItems = cards.filter((item) => item.id >= 8 && item.id <= 14).slice(0, 7);
-
-  const getResponsiveXPercent = () => {
-    if (window.innerWidth >= 1600) {
-      return -100 * 0.4;
-    } else if (window.innerWidth >= 1280) {
-      return -100 * 0.35;
-    } else if (window.innerWidth >= 800) {
-      return -100 * 0.42;
-    } else if (window.innerWidth >= 600) {
-      return -100 * 0.42;
-    } else if (window.innerWidth >= 300) {
-      return -100 * 0.46;
-    }
-  };
+  const sectionRef = useRef(null);
+  const trackRef = useRef(null);
+  const progressRef = useRef(null);
 
   useLayoutEffect(() => {
-    const createScrollAnimation = () => {
-      let skillSet = gsap.utils.toArray(".skill-set");
+    if (!sectionRef.current || !trackRef.current || !progressRef.current) return;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) return;
 
-      return gsap.to(skillSet, {
-        xPercent: getResponsiveXPercent(),
+    const context = gsap.context(() => {
+      gsap.to(trackRef.current, {
+        x: () => -Math.max(0, trackRef.current.scrollWidth - trackRef.current.clientWidth),
         ease: "none",
         scrollTrigger: {
-          start: "top 10%",
-          trigger: scroller.current,
-          markers: false,
-          pin: true,
-          pinSpacing: true,
-          scrub: 2,
-          invalidateOnRefresh: false,
-          anticipatePin: 1,
-          end: () => "+=" + window.innerWidth ,
+          trigger: sectionRef.current,
+          start: "top top",
+          end: "bottom bottom",
+          scrub: 0.4,
+          invalidateOnRefresh: true,
         },
       });
-    };
-    let animation = createScrollAnimation();
+      gsap.to(progressRef.current, {
+        scaleX: 1,
+        ease: "none",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top top",
+          end: "bottom bottom",
+          scrub: 0.4,
+        },
+      });
+    }, sectionRef);
 
-    const resizeHandler = () => {
-      animation.kill();
-      animation = createScrollAnimation();
-    };
-
-    window.addEventListener("resize", resizeHandler);
-
+    const observer = new ResizeObserver(() => ScrollTrigger.refresh());
+    observer.observe(trackRef.current);
+    document.fonts?.ready.then(() => ScrollTrigger.refresh());
     return () => {
-      animation.kill();
-      window.removeEventListener("resize", resizeHandler);
-      ScrollTrigger.refresh();
+      observer.disconnect();
+      context.revert();
     };
   }, []);
 
-  return (
-    <div className="py-10 ">
-      <div
-        style={{
-          background:
-            "radial-gradient(50% 50% at 50% 50%, rgba(184, 233, 48, 0.20) 0%, rgba(184, 233, 48, 0.00) 100%)",
-        }}
-        className="absolute top-[250%] lg:top-[190%] left-[-40%] w-full h-full -z-20"
-      ></div>
-      <div
-        id="sliderWrapper"
-        ref={scroller}
-        className="flex flex-col w-full font-reddit-sans items-center"
-      >
-        <div className="text-center max-w-sm lg:px-0 lg:max-w-3xl lg:pt-10">
-          <p className="text-white text-[16px] lg:text-2xl font-bold">
-            Showcase of Excellence:
-          </p>
-          <div className="lg:inline-flex items-center mt-2">
-            <span className="text-white text-[24px] lg:text-[40px] font-bold box-decoration-slice p-2 bg-secondary lg:px-2">
-              Real-World Applications{" "}
-            </span>
-            <span className="text-white text-[24px] lg:text-[40px] font-bold ml-2">
-              of Our Services
-            </span>
-          </div>
-          <p className="font-medium px-10 text-[10px] lg:text-base lg:px-0 mt-2">
-            Explore our curated showcase of flagship projects that exemplify the
-            application and impact of our services across diverse industries.{" "}
-          </p>
-        </div>
-
-        <div className="flex flex-col items-center gap-4 mt-14">
-          <section
-            ref={skills}
-            className="skill-set flex-nowrap flex gap-4 pl-[120rem] md:pl-[105rem] lg:pl-[100rem] xl:pl-[85rem] 2xl:pl-[70rem] items-center justify-center"
-          >
-            {firstCardItems.map((item, index) => (
-              <div
-                key={index}
-                className="cards w-[300px] h-[200px] lg:w-[350px] lg:h-[250px] p-1 rounded-[20px] duration-150 border-transparent hover:border-2 hover:border-primary flex flex-col justify-center items-end overflow-hidden"
-              >
-                <Link
-                  href={`/project/${item.id}`}
-                  className="overflow-hidden rounded-[20px] h-full shadow-[0_0_15px_1px_rgba(0,0,0,0.5)] shadow-primary z-10 w-full"
-                >
-                  <div className="h-full w-full">
-                    <Image
-                      src={item.imageUrl}
-                      alt={item.title}
-                      width={1000}
-                      height={1000}
-                      className="object-cover  z-0"
-                    />
-                  </div>
-                </Link>
-                <div className=" hoverable bg-gradient-to-b from-transparent to-black to-[80%] -mt-20 flex justify-end items-center gap-2 z-20 h-[80px] lg:max-w-[342px] rounded-b-[20px] py-1 px-3 w-full">
-                  <Image
-                    src="/images/home/ornamen_bintang.svg"
-                    alt="ornamen"
-                    width={1000}
-                    height={1000}
-                    className="w-[6%] h-auto"
-                  />
-                  <p className="text-primary text-[10px] lg:text-[15px] font-bold z-20 w-full">
-                    {item.title}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </section>
-          <section
-            ref={skills}
-            className="skill-set flex-nowrap flex gap-4 pl-[120rem] md:pl-[105rem] lg:pl-[100rem] xl:pl-[85rem] 2xl:pl-[70rem] items-center justify-center"
-          >
-            {secondCardItems.map((item, index) =>
-              index === secondCardItems.length - 1 ? (
-                <Link
-                  href="/project"
-                  key={index}
-                  className="w-[300px] h-[200px] lg:w-[350px] lg:h-[250px] rounded-[20px] border-2 border-primary flex justify-center items-center cursor-pointer"
-                >
-                  <div className="text-primary text-3xl font-bold text-center py-3 flex gap-2 items-center">
-                    ALL PROJECT
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="22"
-                      height="20"
-                      viewBox="0 0 18 16"
-                      fill="none"
-                    >
-                      <path
-                        d="M13.6957 2.81401L4.13163 2.90026L4.15172 0.67268L17.5188 0.552136L17.5087 1.66592L17.3982 13.9192L15.1706 13.9393L15.2569 4.37517L3.96472 15.6673H0.842385L13.6957 2.81401Z"
-                        fill="#B8E930"
-                      />
-                    </svg>
-                  </div>
-                </Link>
-              ) : (
-                <div
-                  key={index}
-                  className="cards w-[300px] h-[200px] lg:w-[350px] lg:h-[250px] p-1 rounded-[20px] duration-150 border-transparent hover:border-2 hover:border-primary flex flex-col justify-center items-end overflow-hidden"
-                >
-                  <Link
-                    href={`/project/${item.id}`}
-                    className="overflow-hidden rounded-[20px] h-full shadow-[0_0_15px_1px_rgba(0,0,0,0.5)] shadow-primary z-10 w-full"
-                  >
-                    <div className="h-full w-full">
-                      <Image
-                        src={item.imageUrl}
-                        alt={item.title}
-                        width={1000}
-                        height={1000}
-                        className="object-cover  z-0"
-                      />
-                    </div>
-                  </Link>
-                  <div className=" hoverable bg-gradient-to-b from-transparent to-black to-[80%] -mt-20 flex justify-end items-center gap-2 z-20 h-[80px] lg:max-w-[342px] rounded-b-[20px] py-1 px-3 w-full">
-                    <Image
-                      src="/images/home/ornamen_bintang.svg"
-                      alt="ornamen"
-                      width={1000}
-                      height={1000}
-                      className="w-[6%] h-auto"
-                    />
-                    <p className="text-primary text-[10px] lg:text-[15px] font-bold z-20 w-full">
-                      {item.title}
-                    </p>
-                  </div>
-                </div>
-              )
-            )}
-          </section>
+  return <section ref={sectionRef} className="relative h-[270vh] bg-[#b8e930] text-black motion-reduce:h-auto md:h-[300vh]" aria-labelledby="showcase-heading">
+    <div className="sticky top-0 flex h-[100svh] min-h-[650px] flex-col overflow-hidden px-5 py-24 motion-reduce:static motion-reduce:h-auto md:px-10 lg:px-16">
+      <div className="mx-auto flex w-full max-w-[1480px] flex-col justify-between gap-5 md:flex-row md:items-end"><div><p className="text-xs font-bold uppercase tracking-[.22em]">Selected work / 01—04</p><h2 id="showcase-heading" className="mt-5 max-w-3xl text-5xl font-semibold leading-[.95] tracking-[-.055em] md:text-7xl">Built to do<br />something real.</h2></div><p className="max-w-sm text-sm leading-relaxed text-black/65 md:text-base">A few of the products where strategy, design, and engineering met a real problem.</p></div>
+      <div className="mx-auto mt-10 w-full max-w-[1480px] flex-1 overflow-hidden motion-reduce:overflow-visible">
+        <div ref={trackRef} className="flex h-full w-full gap-5 will-change-transform motion-reduce:flex-wrap motion-reduce:will-change-auto md:gap-8">
+          {cards.map((card, index) => <Link key={card.id} href={`/project/${card.id}`} className="group relative flex h-full min-h-0 w-[82vw] max-w-[780px] shrink-0 flex-col overflow-hidden rounded-2xl bg-black text-white focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-black motion-reduce:h-[440px] motion-reduce:w-full md:w-[56vw]">
+            <div className="relative min-h-0 flex-1 overflow-hidden"><Image src={card.imageUrl} alt={`${card.title} project interface`} fill sizes="(min-width: 1024px) 56vw, 82vw" className="object-cover transition-transform duration-700 group-hover:scale-105" /></div>
+            <div className="flex min-h-36 items-end justify-between gap-4 p-5 md:p-7"><div><p className="text-xs uppercase tracking-[.18em] text-primary">0{index + 1} / {card.industry}</p><h3 className="mt-2 text-2xl font-semibold md:text-3xl">{card.title}</h3><p className="mt-1 line-clamp-2 max-w-xl text-sm text-white/60">{card.summary}</p></div><span className="mb-auto text-2xl text-primary" aria-hidden="true">↗</span></div>
+          </Link>)}
         </div>
       </div>
-      <div className="w-full h-[50vh]"></div>
+      <div className="mx-auto mt-7 flex w-full max-w-[1480px] items-center gap-5"><span className="text-xs font-bold">SCROLL TO EXPLORE</span><div className="h-px flex-1 bg-black/20"><div ref={progressRef} className="h-px origin-left scale-x-0 bg-black" /></div><Link href="/project" className="text-xs font-bold underline underline-offset-4">ALL WORK ↗</Link></div>
     </div>
-  );
+  </section>;
 }

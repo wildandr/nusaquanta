@@ -1,270 +1,44 @@
 "use client";
-import { useState, useEffect } from "react";
+
+import { useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import FilterComponent from "@components/project/FilterComponent";
-import { BsSearch } from "react-icons/bs";
-import Hero from "@components/project/Hero";
-import HeroMobile from "@components/project/HeroMobile";
 
-export default function ProjectListing({
-  cards = [],
-  roleOptions = [],
-  productOptions = [],
-  categoryOptions = [],
-  people = [],
-  initialProjectId = null,
-}) {
-  const [selectedRoles, setSelectedRoles] = useState([]);
-  const [selectedProducts, setSelectedProducts] = useState([]);
-  const [selectedCategories, setSelectedCategories] = useState([]);
-  const [selectedTeams, setSelectedTeams] = useState([]);
+const PAGE_SIZE = 9;
 
-  const [searchText, setSearchText] = useState("");
-  const [projectId, setProjectId] = useState(null);
+export default function ProjectListing({ cards = [], capabilityOptions = [], industryOptions = [] }) {
+  const [query, setQuery] = useState("");
+  const [capability, setCapability] = useState("All capabilities");
+  const [industry, setIndustry] = useState("All industries");
+  const [page, setPage] = useState(1);
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 12;
+  const featured = cards.find((card) => card.id === 1) || cards[0];
+  const filtered = useMemo(() => cards.filter((card) => {
+    const text = `${card.title} ${card.fullTitle} ${card.summary} ${card.industry} ${card.capabilities.join(" ")}`.toLowerCase();
+    return text.includes(query.trim().toLowerCase()) &&
+      (capability === "All capabilities" || card.capabilities.includes(capability)) &&
+      (industry === "All industries" || card.industry === industry);
+  }), [cards, query, capability, industry]);
+  const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+  const visible = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+  const updateQuery = (value) => { setQuery(value); setPage(1); };
+  const updateCapability = (value) => { setCapability(value); setPage(1); };
+  const updateIndustry = (value) => { setIndustry(value); setPage(1); };
+  const reset = () => { setQuery(""); setCapability("All capabilities"); setIndustry("All industries"); setPage(1); };
 
-  const nama = people.map((p) => p.full_name);
+  return <main className="min-h-screen overflow-x-clip bg-black font-reddit-sans text-white">
+    <section className="mx-auto max-w-[1480px] px-5 pb-16 pt-36 md:px-10 lg:px-16 lg:pb-24 lg:pt-44"><p className="text-xs font-bold uppercase tracking-[.22em] text-primary">Selected work / The archive</p><div className="mt-7 grid gap-7 lg:grid-cols-[1fr_.45fr] lg:items-end"><h1 className="text-[clamp(4.5rem,11vw,10rem)] font-semibold leading-[.85] tracking-[-.07em]">Work with<br /><span className="text-primary">purpose.</span></h1><p className="max-w-md text-lg leading-relaxed text-white/60">Digital products built around real needs. Explore the challenges, craft, and thinking behind the work.</p></div></section>
 
-  useEffect(() => {
-    if (initialProjectId && parseInt(initialProjectId) > 0) {
-      setProjectId(initialProjectId);
-    }
-  }, [initialProjectId]);
+    {featured && <section className="mx-auto max-w-[1480px] px-5 md:px-10 lg:px-16"><Link href={`/project/${featured.id}`} className="group grid overflow-hidden rounded-2xl border border-white/15 bg-[#171a13] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary lg:grid-cols-[1.15fr_.85fr]"><div className="relative aspect-[1.45] overflow-hidden lg:aspect-auto"><Image src={featured.imageUrl} alt={`${featured.title} project interface`} fill priority sizes="(min-width: 1024px) 55vw, 90vw" className="object-cover transition-transform duration-700 group-hover:scale-105" /></div><div className="flex flex-col justify-between gap-10 p-7 md:p-10 lg:p-14"><p className="text-xs font-bold uppercase tracking-[.2em] text-primary">Featured case study / {featured.industry}</p><div><h2 className="text-4xl font-semibold tracking-tight md:text-6xl">{featured.title}</h2><p className="mt-5 max-w-md text-lg leading-relaxed text-white/65">{featured.summary}</p></div><div className="flex items-end justify-between border-t border-white/20 pt-6"><span className="text-sm text-white/60">{featured.capabilities.join(" · ")}</span><span className="text-3xl text-primary" aria-hidden="true">↗</span></div></div></Link></section>}
 
-  const handleToggleOption = (option, setSelectedOptions, selectedOptions) => {
-    setSelectedOptions(
-      selectedOptions.includes(option)
-        ? selectedOptions.filter((o) => o !== option)
-        : [...selectedOptions, option]
-    );
-  };
-
-  const filteredCards = cards.filter((card) => {
-    const matchRole =
-      selectedRoles.length === 0 ||
-      selectedRoles.some((role) => card.roles.includes(role));
-    const matchProduct =
-      selectedProducts.length === 0 ||
-      selectedProducts.some((product) => card.products.includes(product));
-    const matchCategory =
-      selectedCategories.length === 0 ||
-      selectedCategories.some((category) => card.categories.includes(category));
-    const matchTeam =
-      selectedTeams.length === 0 ||
-      selectedTeams.some((id) =>
-        card.projectTeamIds.includes(nama[selectedTeams - 1])
-      );
-    const matchText =
-      searchText === "" ||
-      card.title.toLowerCase().includes(searchText.toLowerCase());
-    return matchRole && matchProduct && matchCategory && matchText && matchTeam;
-  });
-
-  const indexOfLastCard = currentPage * itemsPerPage;
-  const indexOfFirstCard = indexOfLastCard - itemsPerPage;
-  const currentCards = filteredCards.slice(indexOfFirstCard, indexOfLastCard);
-
-  const handlePagination = (direction) => {
-    if (direction === "next") {
-      setCurrentPage((prev) =>
-        Math.min(prev + 1, Math.ceil(filteredCards.length / itemsPerPage))
-      );
-    } else if (direction === "prev") {
-      setCurrentPage((prev) => Math.max(prev - 1, 1));
-    }
-  };
-
-  return (
-    <div
-      className="w-full flex-col mt-20 justify-center items-center font-reddit-sans no-scrollbar"
-      style={{ overflow: "hidden" }}
-    >
-      <div className="hidden lg:flex">
-        <Hero
-          setID={setSelectedTeams}
-          projectID={projectId}
-          setProjectID={setProjectId}
-          people={people}
-        />
+    <section className="mx-auto max-w-[1480px] px-5 py-24 md:px-10 lg:px-16 lg:py-32" id="all-work"><div className="flex flex-col justify-between gap-5 border-b border-white/20 pb-8 md:flex-row md:items-end"><div><p className="text-xs font-bold uppercase tracking-[.22em] text-primary">Explore by interest</p><h2 className="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">All projects<span className="ml-3 align-top text-base text-primary">{String(filtered.length).padStart(2, "0")}</span></h2></div><p className="max-w-sm text-sm text-white/50">Find a project by capability, field, or name.</p></div>
+      <div className="grid gap-3 py-6 md:grid-cols-[minmax(0,1fr)_minmax(0,230px)_minmax(0,230px)]">
+        <label className="flex min-w-0 cursor-text items-center gap-3 rounded-xl border border-white/30 px-4 focus-within:border-primary"><span aria-hidden="true" className="text-primary">⌕</span><span className="sr-only">Search projects</span><input type="search" value={query} onChange={(event) => updateQuery(event.target.value)} placeholder="Search projects" className="min-h-12 w-full min-w-0 bg-transparent outline-none placeholder:text-white/40" /></label>
+        <label className="sr-only" htmlFor="capability-filter">Filter by capability</label><select id="capability-filter" value={capability} onChange={(event) => updateCapability(event.target.value)} className="min-h-12 w-full rounded-xl border border-white/30 bg-black px-4 text-white outline-none focus:border-primary"><option>All capabilities</option>{capabilityOptions.map((option) => <option key={option}>{option}</option>)}</select>
+        <label className="sr-only" htmlFor="industry-filter">Filter by industry</label><select id="industry-filter" value={industry} onChange={(event) => updateIndustry(event.target.value)} className="min-h-12 w-full rounded-xl border border-white/30 bg-black px-4 text-white outline-none focus:border-primary"><option>All industries</option>{industryOptions.map((option) => <option key={option}>{option}</option>)}</select>
       </div>
-      <div className="lg:hidden">
-        <HeroMobile
-          setSelectedTeam={setSelectedTeams}
-          projectID={projectId}
-          setProjectID={setProjectId}
-          people={people}
-        />
-      </div>
-      <div className="w-full">
-        <div className="flex  w-full my-5 px-10 lg:px-28 xl:px-24">
-          <div className="flex px-3 py-2 border border-primary text-primary items-center justify-between w-full rounded-[12px]">
-            <input
-              type="text"
-              className="w-full bg-black text-primary placeholder-primary placeholder-opacity-50 cursor-primary focus:outline-none"
-              placeholder="Search our creative work"
-              value={searchText}
-              onChange={(e) => setSearchText(e.target.value)}
-            />
-            <button>
-              <BsSearch />
-            </button>
-          </div>
-        </div>
-        <div className="flex flex-col w-full my-5 pl-10 md:px-10 lg:px-28 xl:px-24">
-          <div className="filter w-full flex flex-col md:flex-row my-5 gap-5">
-            <div className="md:w-[40%] lg:w-[12%]">
-              <p className="text-white text-[16px] mt-2">Filter by Role</p>
-            </div>
-            <div
-              className="overflow-scroll no-scrollbar"
-              style={{ overflow: "auto" }}
-            >
-              <FilterComponent
-                title="Role"
-                options={roleOptions}
-                selectedOptions={selectedRoles}
-                onOptionToggle={(option) =>
-                  handleToggleOption(option, setSelectedRoles, selectedRoles)
-                }
-              />
-            </div>
-          </div>
-          <div className="filter flex flex-col md:flex-row my-5 gap-5">
-            <div className="lg:w-[12%]">
-              <p className="text-white text-[16px] mt-2">Filter by Product</p>
-            </div>
-            <div
-              className="overflow-scroll no-scrollbar"
-              style={{ overflow: "auto" }}
-            >
-              <FilterComponent
-                options={productOptions}
-                selectedOptions={selectedProducts}
-                onOptionToggle={(option) =>
-                  handleToggleOption(
-                    option,
-                    setSelectedProducts,
-                    selectedProducts
-                  )
-                }
-              />
-            </div>
-          </div>
-          <div className="filter flex flex-col md:flex-row my-5 gap-5">
-            <div className="lg:w-[12%]">
-              <p className="text-white text-[16px] mt-2">Filter by Category</p>
-            </div>
-            <div
-              className="overflow-scroll no-scrollbar"
-              style={{ overflow: "auto" }}
-            >
-              <FilterComponent
-                options={categoryOptions}
-                selectedOptions={selectedCategories}
-                onOptionToggle={(option) =>
-                  handleToggleOption(
-                    option,
-                    setSelectedCategories,
-                    selectedCategories
-                  )
-                }
-              />
-            </div>
-          </div>
-        </div>
-        <div className="w-full flex gap-5 flex-wrap justify-center my-10 px-5">
-          {currentCards.map((card) => (
-            <div
-              key={card.id}
-              className="cards w-[300px] h-[200px] lg:w-[350px] lg:h-[250px] p-1 rounded-[20px] duration-150 border-transparent hover:border-2 hover:border-primary flex flex-col justify-center items-end overflow-hidden"
-            >
-              <Link
-                href={`/project/${card.id}`}
-                className="overflow-hidden rounded-[20px] h-full shadow-[0_0_15px_1px_rgba(0,0,0,0.5)] shadow-primary z-10 w-full"
-              >
-                <div className="h-full w-full">
-                  <Image
-                    src={card.imageUrl}
-                    alt={card.title}
-                    width={1000}
-                    height={1000}
-                    className="object-cover  z-0"
-                  />
-                </div>
-              </Link>
-              <div className=" hoverable bg-gradient-to-b from-transparent to-black to-[80%] -mt-20 flex justify-end items-center gap-2 z-20 h-[80px] lg:max-w-[342px] rounded-b-[20px] py-1 px-3 w-full">
-                <Image
-                  src="/images/home/ornamen_bintang.svg"
-                  alt="ornamen"
-                  width={1000}
-                  height={1000}
-                  className="w-[6%] h-auto"
-                />
-                <p className="text-primary text-[10px] lg:text-[15px] font-bold z-20 w-full">
-                  {card.title}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className="flex justify-center items-center mt-4">
-          <button
-            onClick={() => handlePagination("prev")}
-            disabled={currentPage === 1}
-            className={`px-4 py-2 mx-2 ${
-              currentPage === 1 ? "opacity-30" : ""
-            }`}
-          >
-            <Image
-              src="/images/project/chevron-left.png"
-              alt="arrow-left"
-              width={1000}
-              height={1000}
-              className="w-full h-auto"
-            />
-          </button>
-
-          {/* Page numbers */}
-          {[
-            ...Array(Math.ceil(filteredCards.length / itemsPerPage)).keys(),
-          ].map((page) => (
-            <button
-              key={page}
-              onClick={() => setCurrentPage(page + 1)}
-              className={`px-2 mx-2 ${
-                currentPage === page + 1
-                  ? "  text-primary"
-                  : "text-primary opacity-30  "
-              }`}
-            >
-              {page + 1}
-            </button>
-          ))}
-
-          <button
-            onClick={() => handlePagination("next")}
-            disabled={
-              currentPage === Math.ceil(filteredCards.length / itemsPerPage)
-            }
-            className={`px-4 py-2 mx-2 ${
-              currentPage === Math.ceil(filteredCards.length / itemsPerPage)
-                ? "opacity-50"
-                : ""
-            }`}
-          >
-            <Image
-              src="/images/project/chevron-right.png"
-              alt="arrow-right"
-              width={1000}
-              height={1000}
-              className="w-full h-auto"
-            />
-          </button>
-        </div>
-      </div>
-    </div>
-  );
+      {visible.length ? <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">{visible.map((card) => <Link key={card.id} href={`/project/${card.id}`} className="group overflow-hidden rounded-xl border border-white/15 bg-[#121212] transition-colors hover:border-primary/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"><div className="relative aspect-[1.45] overflow-hidden bg-[#1d1d1d]">{card.imageUrl ? <Image src={card.imageUrl} alt={`${card.title} project interface`} fill sizes="(min-width: 1280px) 29vw, (min-width: 768px) 46vw, 90vw" className="object-cover transition-transform duration-700 group-hover:scale-105" /> : <div className="flex h-full items-end bg-[radial-gradient(circle_at_70%_25%,#3c5720,transparent_45%)] p-8"><span className="text-4xl font-semibold tracking-tight text-primary">{card.title}</span></div>}</div><div className="flex min-h-52 flex-col p-5 md:p-6"><p className="text-xs font-semibold uppercase tracking-widest text-primary">{card.industry}{card.year ? ` / ${card.year}` : ""}</p><h3 className="mt-4 text-2xl font-semibold leading-tight">{card.title}</h3><p className="mt-2 line-clamp-2 text-sm leading-relaxed text-white/55">{card.summary}</p><div className="mt-auto flex items-end justify-between gap-3 pt-5 text-xs text-white/40"><span>{card.capabilities.slice(0, 2).join(" · ")}</span><span className="text-xl text-primary" aria-hidden="true">↗</span></div></div></Link>)}</div> : <div className="rounded-xl border border-white/15 px-6 py-16 text-center"><h3 className="text-2xl font-semibold">No projects match yet.</h3><p className="mt-2 text-white/55">Try a different search or clear the filters.</p><button type="button" onClick={reset} className="mt-6 rounded-full bg-primary px-6 py-3 font-semibold text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">Clear filters</button></div>}
+      {totalPages > 1 && <div className="mt-10 flex items-center justify-between border-t border-white/20 pt-6"><button type="button" onClick={() => setPage((value) => Math.max(1, value - 1))} disabled={page === 1} className="disabled:opacity-35 hover:text-primary focus-visible:outline focus-visible:outline-primary">← Previous</button><span className="text-sm text-white/50">{page} / {totalPages}</span><button type="button" onClick={() => setPage((value) => Math.min(totalPages, value + 1))} disabled={page === totalPages} className="disabled:opacity-35 hover:text-primary focus-visible:outline focus-visible:outline-primary">Next →</button></div>}
+    </section>
+  </main>;
 }

@@ -224,10 +224,11 @@ export default function Hero({ setID, projectID, setProjectID, people = [] }) {
       <div className="absolute w-full h-full flex justify-center items-center top-0">
         <div className="flex-row w-full justify-end items-end px-[10%] foto hidden absolute top-[10%] z-10">
           <Image
-            src={`/images/home/${listNama[activeImage - 1].nama}_warna.png`}
+            src={`/images/home/${listNama[activeImage - 1].nama}_warna.webp`}
             alt="ornamen"
             width={1000}
             height={1000}
+            sizes="50vw"
             className="flex h-[70vh] w-auto z-10"
           />
         </div>

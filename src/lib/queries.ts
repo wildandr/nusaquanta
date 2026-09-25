@@ -1,96 +1,116 @@
 import peopleJson from '../../content/people.json'
 import projectsJson from '../../content/projects.json'
-
-/**
- * Data layer — dibaca dari file JSON di /content.
- * Edit data = edit JSON di repo → commit → Vercel auto-deploy.
- * Panduan skema: lihat content/README.md
- *
- * Bentuk output sengaja sama dengan mapping Strapi yang lama supaya
- * komponen UI tidak perlu banyak berubah.
- */
+import caseStudiesJson from '../../content/case-studies.json'
 
 type AnyDoc = Record<string, any>
+type CaseStudy = {
+  shortTitle: string
+  industry: string
+  summary: string
+  challenge: string
+  solution: string
+  outcome?: string
+  metric?: string
+  metricLabel?: string
+}
 
 const projects = projectsJson as AnyDoc[]
 const people = peopleJson as AnyDoc[]
-
+const caseStudies = caseStudiesJson as Record<string, CaseStudy>
 const PLACEHOLDER = '/images/project/placeholder.png'
+const featuredIds = [1, 3, 12, 17]
 
-/** Kartu showcase di home: 14 project pertama (2 baris x 7). */
-export async function getShowcaseCards(): Promise<AnyDoc[]> {
-  return projects.slice(0, 14).map((p) => ({
-    id: p.id,
-    title: p.title,
-    imageUrl: p.image ?? PLACEHOLDER,
-    description: p.detail?.description || 'No description available',
-  }))
+function readableText(markdown = ''): string {
+  return markdown
+    .replace(/^#{1,6}\s+.*$/gm, '')
+    .replace(/\*\*|__|\[([^\]]+)\]\([^)]*\)/g, '$1')
+    .split(/\n\s*\n/)
+    .map((part: string) => part.trim())
+    .find((part: string) => part.length > 80) || ''
 }
 
-/** Kartu + opsi filter untuk halaman /project. */
-export async function getProjectCards(): Promise<{
-  cards: AnyDoc[]
-  roleOptions: string[]
-  productOptions: string[]
-  categoryOptions: string[]
-}> {
-  const cards = projects.map((p) => ({
-    id: p.id,
-    title: p.title,
-    imageUrl: p.image ?? PLACEHOLDER,
-    roles: (p.team ?? []).flatMap((t: AnyDoc) => t.jobs ?? []),
-    products: p.products ?? [],
-    categories: p.categories ?? [],
-    projectTeamIds: (p.team ?? []).map((t: AnyDoc) => t.person),
-  }))
+function capabilitiesFor(products: string[] = []): string[] {
+  const names = products.join(' ').toLowerCase()
+  const result: string[] = []
+  if (/ui\/ux|design|research/.test(names)) result.push('Product design')
+  if (/website|web|api|backend|dashboard/.test(names)) result.push('Web platforms')
+  if (/mobile|android|ios/.test(names)) result.push('Mobile apps')
+  if (/machine|data|artificial|ai\b/.test(names)) result.push('Data & AI')
+  return result.length ? result : ['Digital products']
+}
 
+function projectCard(project: AnyDoc) {
+  const curated = caseStudies[String(project.id)]
+  const year = String(project.detail?.year || '')
+  const rawSummary = readableText(project.detail?.description || '')
   return {
-    cards,
-    roleOptions: [...new Set(cards.flatMap((c) => c.roles))],
-    productOptions: [...new Set(cards.flatMap((c) => c.products))],
-    categoryOptions: [...new Set(cards.flatMap((c) => c.categories))],
+    id: project.id,
+    title: curated?.shortTitle || project.detail?.headline || project.title,
+    fullTitle: project.title,
+    imageUrl: project.image === PLACEHOLDER ? null : (project.image || null),
+    summary: curated?.summary || (rawSummary.length > 190 ? `${rawSummary.slice(0, 187).trimEnd()}…` : rawSummary),
+    industry: curated?.industry || (project.categories || []).find((category: string) => !/service|dashboard|website|application/i.test(category)) || 'Digital experience',
+    capabilities: capabilitiesFor(project.products),
+    year: /^20\d{2}$/.test(year) ? year : null,
+    metric: curated?.metric || null,
+    metricLabel: curated?.metricLabel || null,
+    featured: featuredIds.includes(project.id),
   }
 }
 
-/** Detail satu project untuk /project/[id]. */
-export async function getProjectDetail(id: string | number): Promise<AnyDoc | null> {
-  const p = projects.find((x) => String(x.id) === String(id))
-  if (!p) return null
+export async function getShowcaseCards() {
+  return featuredIds.map((id) => projectCard(projects.find((project) => project.id === id)!))
+}
 
+export async function getProjectCards() {
+  const cards = projects.map(projectCard)
   return {
-    id: p.id,
-    title: p.title,
-    slug: p.slug,
-    imageUrl: p.image ?? PLACEHOLDER,
-    detail: {
-      headline: p.detail?.headline,
-      description: p.detail?.description,
-      client: p.detail?.client,
-      year: p.detail?.year,
-    },
-    team: (p.team ?? []).map((t: AnyDoc, i: number) => {
-      const person = people.find((x) => x.fullName === t.person)
+    cards,
+    capabilityOptions: [...new Set(cards.flatMap((card) => card.capabilities))],
+    industryOptions: [...new Set(cards.map((card) => card.industry))].sort(),
+  }
+}
+
+export async function getProjectDetail(id: string | number) {
+  const project = projects.find((item) => String(item.id) === String(id))
+  if (!project) return null
+  const curated = caseStudies[String(project.id)]
+  const client = project.detail?.client
+  return {
+    ...projectCard(project),
+    slug: project.slug,
+    client: typeof client === 'string' && !/^20\d{2}$/.test(client) ? client : null,
+    challenge: curated?.challenge || null,
+    solution: curated?.solution || null,
+    outcome: curated?.outcome || null,
+    description: project.detail?.description || '',
+    team: (project.team || []).map((member: AnyDoc, index: number) => {
+      const person = people.find((item) => item.fullName === member.person)
       return {
-        key: `${p.id}-${i}`,
-        fullName: t.person,
-        photoUrl: person?.photo ?? PLACEHOLDER,
-        jobs: t.jobs ?? [],
+        key: `${project.id}-${index}`,
+        fullName: member.person,
+        photoUrl: person?.photo || PLACEHOLDER,
+        jobs: member.jobs || [],
       }
     }),
   }
 }
 
-/**
- * People untuk hero halaman project. Bentuk field dipertahankan ala Strapi
- * (full_name, topRoles[].job_name, cv) supaya Hero.js & HeroMobile.js minim perubahan.
- */
-export async function getPeople(): Promise<AnyDoc[]> {
-  return people.map((p) => ({
-    id: p.id,
-    full_name: p.fullName,
-    description: p.description ?? '',
-    cv: p.links?.cv ?? '',
-    topRoles: (p.topJobs ?? []).map((jobName: string) => ({ job_name: jobName })),
-    photoUrl: p.photo ?? PLACEHOLDER,
-  }))
+export async function getPeople() {
+  return people.map((person) => {
+    const basename = String(person.photo || '').split('/').pop()?.split('.')[0]
+    const cutout = `/images/home/${basename}_warna.webp`
+    const description = String(person.description || '').trim()
+    return {
+      id: person.id,
+      fullName: person.fullName,
+      description: /ganteng/i.test(description) ? '' : description,
+      role: person.topJobs?.[0] || 'Team member',
+      topJobs: person.topJobs || [],
+      photoUrl: person.photo || PLACEHOLDER,
+      cutoutUrl: cutout,
+      linkedin: person.links?.linkedin || null,
+      projectIds: projects.filter((project) => (project.team || []).some((member: AnyDoc) => member.person === person.fullName)).map((project) => project.id),
+    }
+  })
 }

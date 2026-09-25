@@ -22,45 +22,49 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <p className="font-reddit-sans text-[12px] text-center lg:text-xl">
-        GET IN TOUCH
-      </p>
-      <div className="flex flex-row mt-8">
-        <div className="flex-[50%] border border-primary font-reddit-sans rounded-[16px] mr-2">
+      <p className="font-reddit-sans text-sm font-semibold uppercase tracking-[.2em] text-primary">Tell us about your project</p>
+      <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+        <label className="min-w-0 flex-1 rounded-xl border border-white/30 font-reddit-sans focus-within:border-primary">
+          <span className="sr-only">Your name</span>
           <input
             type="text"
+            autoComplete="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full p-4 h-full focus:outline-none bg-transparent"
+            className="h-full w-full bg-transparent p-4 focus:outline-none"
             placeholder="Your name"
           />
-        </div>
-        <div className="flex-[50%] border border-primary font-reddit-sans rounded-[16px] ml-2">
+        </label>
+        <label className="min-w-0 flex-1 rounded-xl border border-white/30 font-reddit-sans focus-within:border-primary">
+          <span className="sr-only">Your email</span>
           <input
             type="email"
+            autoComplete="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full p-4 h-full focus:outline-none bg-transparent"
+            className="h-full w-full bg-transparent p-4 focus:outline-none"
             placeholder="Your email"
           />
-        </div>
+        </label>
       </div>
 
-      <div className="border border-primary font-reddit-sans rounded-[16px] mt-4">
+      <div className="mt-3 rounded-xl border border-white/30 font-reddit-sans focus-within:border-primary">
+        <label htmlFor="contact-message" className="sr-only">Your message</label>
         <textarea
+          id="contact-message"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           required
           rows={4}
-          className="w-full px-4 py-3 h-full focus:outline-none bg-transparent resize-none"
+          className="h-full w-full resize-none bg-transparent px-4 py-3 focus:outline-none"
           placeholder="Your message..."
         />
         <div className="flex justify-end">
           <button
             type="submit"
-            className="px-4 py-2 bg-primary text-black font-reddit-sans rounded-[16px] mr-2 mb-2 cursor-pointer hover:opacity-80 transition-opacity"
+            className="mb-2 mr-2 cursor-pointer rounded-full bg-primary px-6 py-2 font-reddit-sans font-semibold text-black transition-opacity hover:opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
           >
-            Send
+            Open email app ↗
           </button>
         </div>
       </div>

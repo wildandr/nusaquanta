@@ -1,14 +1,15 @@
-import { FlatCompat } from "@eslint/eslintrc";
+import { defineConfig, globalIgnores } from "eslint/config";
+import nextVitals from "eslint-config-next/core-web-vitals";
 
-const compat = new FlatCompat({
-  baseDirectory: import.meta.dirname,
-});
-
-const eslintConfig = [
-  ...compat.extends("next/core-web-vitals"),
+const eslintConfig = defineConfig([
+  ...nextVitals,
   {
-    ignores: ["node_modules/**", ".next/**", "out/**", "next-env.d.ts"],
+    rules: {
+      "react-hooks/immutability": "off",
+      "react-hooks/set-state-in-effect": "off",
+    },
   },
-];
+  globalIgnores(["node_modules/**", ".next/**", "out/**", "next-env.d.ts"]),
+]);
 
 export default eslintConfig;

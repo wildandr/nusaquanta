@@ -134,10 +134,11 @@ export default function Teams() {
                   onMouseEnter={() => handleHover(index)}
                   src={`/images/home/${listNama[index - 1].nama}_${
                     activeImage === index ? "warna" : "grayscale"
-                  }.png`}
+                  }.webp`}
                   alt="ornamen"
                   width={1000}
                   height={1000}
+                  sizes="(min-width: 1024px) 20vw, 50vw"
                   className={`${
                     activeImage === index
                       ? stateGrayscale[0].className

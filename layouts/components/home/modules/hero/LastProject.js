@@ -1,11 +1,13 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 
 export default function LastProject() {
   const [direction, setDirection] = useState(-1);
   const [currentProject, setCurrentProject] = useState(0);
+  const containerRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   const projects = [
     { nama: "1" },
@@ -29,33 +31,42 @@ export default function LastProject() {
   ];
 
   // Function to handle next project
-  const handleNextProject = () => {
+  const handleNextProject = useCallback(() => {
     setDirection(-1);
-    if (currentProject === projects.length - 1) {
-      setCurrentProject(0);
-    } else {
-      setCurrentProject(currentProject + 1);
-    }
-  };
+    setCurrentProject((project) => (project + 1) % projects.length);
+  }, [projects.length]);
 
   // Function to handle previous project
-  const handlePrevProject = () => {
+  const handlePrevProject = useCallback(() => {
     setDirection(1);
-    if (currentProject === 0) {
-      setCurrentProject(projects.length - 1);
-    } else {
-      setCurrentProject(currentProject - 1);
-    }
-  };
+    setCurrentProject(
+      (project) => (project - 1 + projects.length) % projects.length
+    );
+  }, [projects.length]);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { rootMargin: "200px 0px" }
+    );
+
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, []);
 
   // UseEffect to handle automatic change every 5 seconds
   useEffect(() => {
+    if (!isVisible) return;
+
     const interval = setInterval(() => {
       handleNextProject();
     }, 3000); // Change project every 5 seconds
 
     return () => clearInterval(interval);
-  }, [currentProject]); // Restart interval when currentProject changes
+  }, [handleNextProject, isVisible]);
 
   const variants = {
     enter: (direction) => ({
@@ -76,7 +87,10 @@ export default function LastProject() {
   };
 
   return (
-    <div className="w-full h-full justify-center items-center flex flex-row relative overflow-hidden">
+    <div
+      ref={containerRef}
+      className="w-full h-full justify-center items-center flex flex-row relative overflow-hidden"
+    >
       <div className="flex w-[20%] justify-center items-center">
         <button
           onClick={handlePrevProject}
@@ -115,6 +129,7 @@ export default function LastProject() {
                 alt={projects[currentProject].nama}
                 width={1000}
                 height={1000}
+                sizes="(min-width: 1024px) 35vw, 80vw"
                 className="w-full h-auto flex"
               />
             </div>

@@ -1,0 +1,36 @@
+{
+  "1": {
+    "shortTitle": "Senyumin",
+    "industry": "Healthcare",
+    "summary": "An AI-assisted dental screening and patient record workflow built for faster examinations.",
+    "challenge": "Manual dental checks and individual record entry made large-scale screening difficult with limited clinical staff.",
+    "solution": "A connected AI screening, web record, and QR-based patient workflow reduces repeated manual entry.",
+    "outcome": "The project documentation reports that checks and record-keeping went from 3–5 minutes to around 30 seconds per patient.",
+    "metric": "~30 sec",
+    "metricLabel": "per patient, down from 3–5 min"
+  },
+  "3": {
+    "shortTitle": "PPSMB UGM 2023",
+    "industry": "Education & events",
+    "summary": "A digital orientation hub connecting new students to information, groups, and interactive experiences.",
+    "challenge": "New students needed one clear place to find orientation information and their assigned groups.",
+    "solution": "A responsive information platform with group search and an augmented reality experience.",
+    "outcome": "The project documentation reports approximately 70,000 users in its first two weeks.",
+    "metric": "~70K",
+    "metricLabel": "users in the first two weeks"
+  },
+  "12": {
+    "shortTitle": "VerdeWoods",
+    "industry": "Hospitality",
+    "summary": "A digital experience for discovering cabins and handling reservations.",
+    "challenge": "Guests need a simple path from exploring accommodation to making a reservation.",
+    "solution": "A cabin booking experience that brings property discovery and reservation into one flow."
+  },
+  "17": {
+    "shortTitle": "Paradisonesia",
+    "industry": "Travel",
+    "summary": "A travel operations experience connecting packages, bookings, and customer management.",
+    "challenge": "Travel operations need a clearer way to manage offerings, bookings, and customer information.",
+    "solution": "A dashboard-centered workflow for managing travel packages and reservations."
+  }
+}

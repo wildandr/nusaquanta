@@ -47,6 +47,12 @@ Data website disimpan sebagai file JSON di folder ini. **Edit file → commit �
 }
 ```
 
+## `case-studies.json` — ringkasan editorial untuk proyek unggulan
+
+Objek ini memakai ID proyek sebagai kunci (`"1"`, `"3"`, dst.). Isi `shortTitle`, `industry`, `summary`, `challenge`, dan `solution` untuk narasi singkat di Home, Work, dan halaman detail. `outcome`, `metric`, serta `metricLabel` opsional; hanya isi dengan hasil yang bisa diverifikasi dari dokumentasi proyek. Proyek tanpa entri di sini tetap tampil otomatis memakai data dari `projects.json`.
+
+Catatan aset: foto proyek lama di `public/images/home/project/` tidak mengikuti nomor ID proyek. Field `image` pada setiap entri `projects.json` sudah dipasangkan berdasarkan isi visualnya. Finnovate sementara memakai placeholder karena belum ada aset proyek yang cocok; ganti nilai `image` ketika aset aslinya tersedia.
+
 ## Cara menambah gambar baru
 
 1. Upload file di GitHub: masuk folder `public/images/…` → *Add file → Upload files*
