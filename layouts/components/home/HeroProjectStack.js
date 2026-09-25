@@ -110,7 +110,7 @@ export default function HeroProjectStack({ cards = [] }) {
       {cards.slice(0, 2).map((card, index) => (
         <ProjectCard key={card.id} card={card} index={index} isFront={frontIndex === index} reduceMotion={reduceMotion} />
       ))}
-      <div className="pointer-events-none absolute bottom-[6%] left-0 z-[3] -rotate-[7deg] rounded-full border border-primary bg-black px-5 py-3 text-[10px] font-bold uppercase tracking-widest text-primary md:text-xs">Ideas into use ↗</div>
+      <div className="pointer-events-none absolute bottom-[6%] left-0 z-[3] -rotate-[7deg] rounded-full border border-dashed border-primary bg-black px-5 py-3 text-[10px] font-bold uppercase tracking-widest text-primary md:text-xs">Ideas into use ↗</div>
     </div>
   );
 }

@@ -2,6 +2,7 @@ import Link from 'next/link';
 import HomeShowcase from '@components/home/HomeShowcase';
 import CapabilityExplorer from '@components/home/CapabilityExplorer';
 import HeroProjectStack from '@components/home/HeroProjectStack';
+import { CrossedRibbons, HeroRibbon } from '@components/home/IdentityMarquees';
 import { getProjectCards, getShowcaseCards } from '@/lib/queries';
 
 const process = [
@@ -18,6 +19,7 @@ export default async function Home() {
   return (
     <main className="min-h-screen w-full overflow-x-clip bg-black font-reddit-sans text-white">
       <section className="relative mx-auto grid min-h-[790px] max-w-[1600px] items-center gap-12 px-5 pb-24 pt-32 md:px-10 lg:min-h-[850px] lg:grid-cols-[1.06fr_.94fr] lg:px-16 lg:pt-28">
+        <HeroRibbon />
         <div className="relative z-10 min-w-0 max-w-[780px]">
           <p className="mb-7 flex items-center gap-3 text-xs font-bold uppercase tracking-[.22em] text-primary"><span className="h-px w-9 bg-primary" /> Independent digital product studio</p>
           <h1 className="text-[clamp(3rem,8.2vw,9rem)] font-semibold leading-[.88] tracking-[-.065em]">Complex ideas.<br /><span className="text-primary">Clear impact.</span></h1>
@@ -38,6 +40,7 @@ export default async function Home() {
         </div>
       </section>
 
+      <CrossedRibbons />
       <CapabilityExplorer cards={featured} />
       <HomeShowcase cards={featured} />
 
@@ -51,7 +54,7 @@ export default async function Home() {
       <section className="border-t border-white/15 bg-[#141812] px-5 py-24 md:px-10 lg:py-32">
         <div className="mx-auto grid max-w-[1480px] gap-10 lg:grid-cols-[.8fr_1.2fr] lg:items-end">
           <div><p className="text-xs font-bold uppercase tracking-[.22em] text-primary">Built by people, for people</p><h2 className="mt-7 text-5xl font-semibold leading-[.98] tracking-[-.055em] md:text-7xl">Curiosity is part of the work.</h2></div>
-          <div className="lg:max-w-xl lg:justify-self-end"><p className="text-lg leading-relaxed text-white/65">We bring design, engineering, data, and experimentation together. Meet the people and thinking behind the products.</p><Link href="/about" className="mt-8 inline-flex items-center gap-8 border-b border-primary pb-2 font-semibold text-primary hover:gap-12 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">Get to know us <span aria-hidden="true">↗</span></Link></div>
+          <div className="lg:max-w-xl lg:justify-self-end"><p className="text-lg leading-relaxed text-white/65">We bring design, engineering, data, and experimentation together. Meet Wildan, our founder, and the thinking behind the products.</p><Link href="/about" className="mt-8 inline-flex items-center gap-8 border-b border-primary pb-2 font-semibold text-primary hover:gap-12 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">Get to know us <span aria-hidden="true">↗</span></Link></div>
         </div>
       </section>
     </main>
