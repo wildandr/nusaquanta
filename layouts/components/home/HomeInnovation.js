@@ -23,10 +23,9 @@ export default function HomeInnovation() {
     <section className="w-screen lg:p-6 bg-black justify-center items-center relative mb-20">
       <div className="absolute lg:top-[-10] lg:right-0 lg:w-[339px] lg:h-[339px] h-[10px] w-full items-center justify-center">
         <Image
-          src="/images/home/homeInnovation_bg.webp"
+          src="/images/home/homeInnovation_bg.png"
           width={339}
           height={339}
-          sizes="339px"
           className="object-cover"
           alt="Background Image"
         />
@@ -63,7 +62,6 @@ export default function HomeInnovation() {
               src={slides[currentSlide].imageSrc}
               width={339}
               height={339}
-              sizes="(min-width: 1024px) 339px, 80vw"
               alt={slides[currentSlide].imageAlt}
             />
 

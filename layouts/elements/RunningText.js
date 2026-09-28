@@ -1,5 +1,8 @@
+"use client";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
 import Image from "next/image";
-import ViewportMarquee from "@elements/ViewportMarquee";
+import Marquee from "react-fast-marquee";
 
 const RunningText = ({ color }) => {
   // const textRef = useRef(null);
@@ -27,7 +30,7 @@ const RunningText = ({ color }) => {
   return (
     <div className={`w-full bg-${color} py-[4px] overflow-hidden`}>
       <div className="flex-row flex" style={{ whiteSpace: "nowrap" }}>
-        <ViewportMarquee autoFill={true}>
+        <Marquee autoFill={true}>
           <div className="flex flex-row items-center">
             <div className="w-[24px] h-[24px] items-center justify-center">
               <Image
@@ -67,7 +70,7 @@ const RunningText = ({ color }) => {
               Where Creativity Meets Possibility
             </p>
           </div>
-        </ViewportMarquee>
+        </Marquee>
       </div>
       {/* <div
         className="flex-row flex"

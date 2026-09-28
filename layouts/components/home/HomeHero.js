@@ -1,9 +1,10 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { useState } from "react";
+import gsap from "gsap";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import ViewportMarquee from "@elements/ViewportMarquee";
+import Marquee from "react-fast-marquee";
 import LastProject from "@components/home/modules/hero/LastProject";
 import VideoProfile from "./modules/hero/VideoProfile";
 import Teams from "./modules/hero/Teams";
@@ -113,7 +114,7 @@ export default function HomeHero() {
                 Nusa Quanta
               </p>
               <div className="flex w-full">
-                <ViewportMarquee autoFill={true}>
+                <Marquee autoFill={true}>
                   <Image
                     src={"/images/home/hero_stripes.svg"}
                     width={1000}
@@ -121,7 +122,7 @@ export default function HomeHero() {
                     alt="Moving"
                     className="w-full h-auto"
                   />
-                </ViewportMarquee>
+                </Marquee>
               </div>
             </div>
             <p className="text-primary font-reddit-sans xl:text-6xl 2xl:text-[5.5rem] font-600 flex w-full text-center z-50">
@@ -217,7 +218,7 @@ export default function HomeHero() {
               Nusa Quanta
             </p>
             <div className="flex w-full">
-              <ViewportMarquee autoFill={true}>
+              <Marquee autoFill={true}>
                 <Image
                   src={"/images/home/hero_stripes.svg"}
                   width={1000}
@@ -225,7 +226,7 @@ export default function HomeHero() {
                   alt="Moving"
                   className="w-full h-auto"
                 />
-              </ViewportMarquee>
+              </Marquee>
             </div>
           </div>
           <p className="text-primary font-reddit-sans text-4xl font-600 flex w-full z-50">

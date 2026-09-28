@@ -133,29 +133,26 @@ export default function TeamsMobile() {
   return (
     <div className="flex w-full h-full justify-center relative items-center">
       <Image
-        src={`/images/home/${listNama[indeks].nama}_warna.webp`}
+        src={`/images/home/${listNama[indeks].nama}_warna.png`}
         alt="teams"
         width={500}
         height={500}
-        sizes="50vw"
         ref={activeImageRef}
         className="h-full w-auto object-contain z-10"
       />
       <Image
-        src={`/images/home/${listNama[prefIndex].nama}_grayscale.webp`}
+        src={`/images/home/${listNama[prefIndex].nama}_grayscale.png`}
         alt="teams"
         width={500}
         height={500}
-        sizes="40vw"
         ref={prevImageRef}
         className="absolute bottom-0 right-[-10%] md:right-0 h-[80%] w-auto opacity-50"
       />
       <Image
-        src={`/images/home/${listNama[nextIndex].nama}_grayscale.webp`}
+        src={`/images/home/${listNama[nextIndex].nama}_grayscale.png`}
         alt="teams"
         width={500}
         height={500}
-        sizes="40vw"
         ref={nextImageRef}
         className="absolute bottom-0 left-[-10%] md:left-0 h-[80%] w-auto opacity-50"
       />

@@ -1,5 +1,6 @@
 import "./globals.css";
 import Header from "@partials/Header";
+import config from "@config/config.json";
 import Footer from "@partials/Footer";
 import SmoothScrolling from "@components/smooth-scroll/SmoothScrolling";
 
@@ -8,11 +9,11 @@ const siteUrl = "https://nusaquanta.tech";
 export const metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Nusa Quanta — Digital Product Studio",
+    default: "PT Nusa Quanta Indonesia — AI, Quantitative Analysis & Data Engineering",
     template: "%s | Nusa Quanta",
   },
   description:
-    "Nusa Quanta is a digital product studio bringing strategy, design, engineering, and data together to build useful experiences.",
+    "Perusahaan software engineering Indonesia yang berfokus pada AI, analisis kuantitatif, dan data engineering. Lihat portofolio project kami.",
   keywords: [
     "Nusa Quanta",
     "software engineering Indonesia",
@@ -26,7 +27,7 @@ export const metadata = {
   },
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "id_ID",
     url: siteUrl,
     siteName: "Nusa Quanta",
   },
@@ -42,8 +43,7 @@ const jsonLd = {
   name: "PT Nusa Quanta Indonesia",
   url: siteUrl,
   email: "hello@nusaquanta.tech",
-  description:
-    "A digital product studio bringing strategy, design, engineering, and data together.",
+  description: config.metadata.meta_description,
   knowsAbout: [
     "Artificial Intelligence",
     "Quantitative Analysis",
@@ -54,7 +54,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="id">
       <head>
         <link
           rel="preload"

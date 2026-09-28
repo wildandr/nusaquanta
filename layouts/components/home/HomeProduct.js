@@ -100,11 +100,10 @@ const HomeProduct = () => {
   return (
     <div className="flex relative flex-col w-full  items-center py-10 overflow-hidden font-reddit-sans">
       <Image
-        src="/images/home/bgProduct.webp"
+        src="/images/home/bgProduct.png"
         alt="background"
         width={1000}
         height={1000}
-        sizes="60vw"
         className="w-[60%] h-auto absolute z-[-1] object-cover"
       />
       <RunningText
@@ -115,7 +114,6 @@ const HomeProduct = () => {
         alt="kupu kupu"
         width={1000}
         height={1000}
-        sizes="120px"
         className="w-[100px] md:w-[12%] lg:w-[120px] h-auto absolute -mt-2 top-0 md:top-2 lg:top-0 z-[990] animate-spin-slow"
         style={{ left: `${butterflyLeftOffset}rem` }}
       />
