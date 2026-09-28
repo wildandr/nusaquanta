@@ -70,9 +70,9 @@ export default function HomeHero({ projects = [] }) {
   );
 
   const textPanel = (
-    <div className="px-6 gap-3 h-[45vh] lg:h-full rounded-3xl flex flex-col justify-center items-center">
+    <div className="px-6 gap-3 2xl:gap-4 h-[45vh] lg:h-full rounded-3xl flex flex-col justify-center items-center">
       <div className="flex flex-row gap-8 justify-center items-center">
-        <p className="w-[50%] shrink-0 whitespace-nowrap font-reddit-sans text-white lg:text-2xl xl:text-3xl 2xl:text-[2rem] font-600 z-50">
+        <p className="w-[50%] whitespace-nowrap font-reddit-sans text-white lg:text-2xl xl:text-3xl 2xl:text-[2rem] font-600 z-50">
           Nusa Quanta
         </p>
         <div className="flex w-full">
@@ -87,10 +87,10 @@ export default function HomeHero({ projects = [] }) {
           </Marquee>
         </div>
       </div>
-      <p className="text-primary font-reddit-sans lg:text-3xl xl:text-5xl 2xl:text-[4.5rem] font-600 flex w-full text-center z-50">
+      <p className="text-primary font-reddit-sans lg:text-3xl xl:text-[min(3.75rem,6.67svh)] 2xl:text-[min(5.5rem,8.15svh)] xl:leading-none font-600 flex w-full text-center z-50">
         “Where Creativity Meets Possibility”
       </p>
-      <p className="text-white/80 lg:text-sm 2xl:text-base z-50 text-justify">
+      <p className="text-white lg:text-sm 2xl:text-base z-50">
         Mission - Committed to being the epicenter of technological innovation,
         providing high-quality solutions that propel client success. We harness
         cutting-edge technology and deep industry knowledge to exceed the
